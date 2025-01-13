@@ -15,6 +15,14 @@ new class extends Component
 }; ?>
 
 <div class="container mx-auto">
+    @if (session('registered'))
+        <x-alert 
+            title="{!! session('registered') !!}" 
+            icon="s-rocket-launch" 
+            class="mb-4 alert-info" 
+            dismissible 
+        />
+    @endif
     <x-card class="w-full shadow-md shadow-gray-500" shadow separator >
         {!! $shop->home !!}
     </x-card>

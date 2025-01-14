@@ -6,6 +6,7 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rules;
 use Livewire\Attributes\{Layout, Locked};
 use Livewire\Volt\Component;
+use App\Rules\StrongPassword;
 
 // Définition du composant avec l'attribut de mise en page
 new class extends Component {
@@ -31,7 +32,7 @@ new class extends Component {
 		$this->validate([
 			'token'    => ['required'],
 			'email'    => ['required', 'string', 'email'],
-			'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
+			'password' => ['required', 'string', 'min:8', 'confirmed', new StrongPassword()],
 		]);
 
 		// Réinitialisation du mot de passe
@@ -75,7 +76,8 @@ new class extends Component {
             <x-input 
 				label="{{__('E-mail')}}" 
 				wire:model="email" 
-				icon="o-envelope" 
+				icon="o-envelope"				
+				readonly
 			/>
             <x-input 
 				label="{{__('Password')}}" 
@@ -83,6 +85,7 @@ new class extends Component {
 				type="password" 
 				icon="o-key"
                 required
+				autofocus
 			/>
             <x-input 
 				label="{{__('Confirm Password')}}" 

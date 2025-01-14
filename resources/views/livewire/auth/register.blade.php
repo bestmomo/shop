@@ -24,7 +24,7 @@ class extends Component {
 
 		$data = $this->validate([
 			'firstname'  => 'required|string|max:255',
-			'name'       => 'required|string|max:255|unique:users',
+			'name'       => 'required|string|max:255',
 			'newsletter' => 'nullable',
 			'email'      => 'required|email|unique:users',
 			'password'   => ['required','string','min:8','confirmed', new StrongPassword,],

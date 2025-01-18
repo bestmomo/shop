@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 Volt::route('/', 'index')->name('home');
 Volt::route('/pages/{page:slug}', 'page')->name('pages');
+Volt::route('/products/{product}', 'product')->name('products.show');
+Volt::route('/cart', 'cart')->name('cart');
 
 Route::middleware('guest')->group(function () {
 	Volt::route('/register', 'auth.register');

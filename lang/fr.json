@@ -328,5 +328,20 @@
     "You are not subscribed to the newsletter.": "Vous n'avez pas souscrit à la lettre d'information.",
     "Orders": "Commandes",
     "Details of the order": "Détails de la commande",
-    "Newsletter": "Lettre d'information"
+    "Newsletter": "Lettre d'information",
+    "Quantity": "Quantité",
+    "Add to cart": "Ajouter au panier",
+    "Product added to cart.": "Produit ajouté au panier.",
+    "Cart": "Panier",
+    "Quantity:": "Quantité :",
+    "Total of my": "Total de mes",
+    "Total of my article": "Total de mon article",
+    "articles": "articles",
+    "Excluding delivery": "Hors livraison",
+    "Trash my cart": "Vider mon panier",
+    "Cart cleaned.": "Panier vidé.",
+    "View my cart": "Voir mon panier",
+    "My cart": "Mon panier",
+    "The cart is empty.": "Le panier est vide.",
+    "I order": "Je commande"
 }

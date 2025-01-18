@@ -39,7 +39,7 @@ new class extends Component
                 @if ($product->image)
                     <x-slot:figure>
                         @if($product->quantity)
-                            <a href="">
+                            <a href="{{ route('products.show', $product) }}">
                         @endif
                             <img src="{{ asset('storage/photos/' . $product->image) }}" alt="{!! $product->name !!}" />
                         @if($product->quantity) </a> @endif

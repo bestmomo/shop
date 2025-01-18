@@ -7,9 +7,16 @@ export default {
 		 './storage/framework/views/*.php',
 		 './resources/**/*.blade.php',
 		 './resources/**/*.js',
-		 './resources/**/*.vue',
 		 "./vendor/robsontenorio/mary/src/View/Components/**/*.php"
 	],
+    safelist: [
+        'bg-red-400',
+        'bg-blue-400',
+        'bg-green-400',
+        'badge-info',
+        'badge-success',
+        'badge-error',
+    ],
     theme: {
         extend: {
             fontFamily: {

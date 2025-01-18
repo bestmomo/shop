@@ -26,8 +26,8 @@ new class() extends Component {
                 </x-list-item>
                 <x-menu-item title="{{ __('My profile') }}" icon="o-user" link="{{ route('profile') }}" />
 				<x-menu-item title="{{ __('My addresses') }}" icon="o-map-pin" link="{{ route('addresses') }}" />
-				<x-menu-item title="{{ __('My orders') }}" icon="o-shopping-cart" link="" />
-				<x-menu-item title="{{ __('RGPD') }}" icon="o-lock-closed" link="" />
+				<x-menu-item title="{{ __('My orders') }}" icon="o-shopping-cart" link="{{ route('orders') }}" />
+				<x-menu-item title="{{ __('RGPD') }}" icon="o-lock-closed" link="{{ route('rgpd') }}" />
             <x-menu-separator />
         @else
             <x-menu-item title="{{ __('Login') }}" link="/login" />

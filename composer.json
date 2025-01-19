@@ -13,7 +13,8 @@
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.5",
         "livewire/volt": "^1.6",
-        "robsontenorio/mary": "^1.41"
+        "robsontenorio/mary": "^1.41",
+        "stripe/stripe-php": "^16.4"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -30,7 +31,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": [
+            "app/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

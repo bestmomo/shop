@@ -13,12 +13,14 @@ new class extends Component {
     public int $CartItems = 0;
     public CartCollection $content;
     public float $total;
+    public string $url;
 
 	public function mount(): void
 	{
         $this->CartItems = Cart::getTotalQuantity();
         $this->content = Cart::getContent();
         $this->total = Cart::getTotal();
+		$this->url = request()->url();
 	}
 
 	public function logout(): void
@@ -43,13 +45,6 @@ new class extends Component {
         $this->info(__('Item deleted.'), position: 'toast-bottom');
     }
 
-    #[On('cart-updated')] 
-    public function updateCartItems()
-    {
-        $this->CartItems = Cart::getTotalQuantity();
-        $this->content = Cart::getContent();
-        $this->total = Cart::getTotal();
-    }
 };
 ?>
 
@@ -66,7 +61,7 @@ new class extends Component {
     </x-slot:brand>
 
     <x-slot:actions>
-        @if($CartItems > 0)
+        @if($CartItems > 0 && $url !== route('cart'))
         <x-dropdown>
             <x-slot:trigger>
                 <x-button label="{{ __('Cart') }}" icon="o-shopping-cart" badge="{{ $CartItems }}" badge-classes="badge-ghost" class="btn-ghost" />

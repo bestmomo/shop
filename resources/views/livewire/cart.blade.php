@@ -42,8 +42,8 @@ new class extends Component {
         $this->CartItems = Cart::getTotalQuantity();
         $this->content = Cart::getContent();
         $this->total = Cart::getTotal();
-        $this->dispatch('cart-updated'); 
     }
+    
 }; ?>
 
 <div class="flex justify-center mt-6">

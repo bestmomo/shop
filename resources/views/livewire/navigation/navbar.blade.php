@@ -45,6 +45,14 @@ new class extends Component {
         $this->info(__('Item deleted.'), position: 'toast-bottom');
     }
 
+    #[On('cart-updated')] 
+    public function updateCartItems()
+    {
+        $this->CartItems = Cart::getTotalQuantity();
+        $this->content = Cart::getContent();
+        $this->total = Cart::getTotal();
+    }
+
 };
 ?>
 
@@ -61,7 +69,7 @@ new class extends Component {
     </x-slot:brand>
 
     <x-slot:actions>
-        @if($CartItems > 0 && $url !== route('cart'))
+        @if($CartItems > 0 && $url !== route('cart') && $url !== route('order.index'))
         <x-dropdown>
             <x-slot:trigger>
                 <x-button label="{{ __('Cart') }}" icon="o-shopping-cart" badge="{{ $CartItems }}" badge-classes="badge-ghost" class="btn-ghost" />

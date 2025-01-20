@@ -1,6 +1,8 @@
 <x-form wire:submit="save" class="w-full sm:min-w-[50vw]">
     <x-checkbox label="{!! __('It is a professionnal address') !!}" wire:model="professionnal" wire:change="$refresh" />
-    <x-radio :options="$civilities" wire:model="selectedCivility" />
+
+    <x-radio label="{{ __('Civility') }}" :options="$civilities" wire:model="civility" required />
+
     <x-input label="{{ __('Name') }}" type="text" wire:model="name" icon="o-user" hint="{{ $professionnal ? __('Optional') : '' }}" :required="!$professionnal" />
     <x-input label="{{ __('FirstName') }}" type="text" wire:model="firstname" icon="o-user"  hint="{{ $professionnal ? __('Optional') : '' }}" :required="!$professionnal" />
     <x-input label="{{ __('Company name') }}" type="text" wire:model="company" icon="o-building-library" :disabled="!$professionnal" :required="$professionnal" />

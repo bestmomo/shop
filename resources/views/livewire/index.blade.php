@@ -3,24 +3,26 @@
 use Livewire\Volt\Component;
 use App\Models\Product;
 
-new class extends Component 
+new class extends Component
 {
+    public $group;
+
     public function with(): array
     {
         return [
             'products' => Product::whereActive(true)->get(),
         ];
     }
-    
+
 }; ?>
 
 <div class="container mx-auto">
     @if (session('registered'))
-        <x-alert 
-            title="{!! session('registered') !!}" 
-            icon="s-rocket-launch" 
-            class="mb-4 alert-info" 
-            dismissible 
+        <x-alert
+            title="{!! session('registered') !!}"
+            icon="s-rocket-launch"
+            class="mb-4 alert-info"
+            dismissible
         />
     @endif
     <x-card class="w-full shadow-md shadow-gray-500" shadow separator >
@@ -32,7 +34,7 @@ new class extends Component
             <x-card
                 class="shadow-md transition duration-500 ease-in-out shadow-gray-500 hover:shadow-xl hover:shadow-gray-500"
                 title="{{ number_format($product->price, 2, ',', ' ') . ' € TTC' }}" >
-                {!! $product->name !!} 
+                {!! $product->name !!}
                 @unless($product->quantity)
                     <br><span class="text-red-500">@lang('Product out of stock')</span>
                 @endunless

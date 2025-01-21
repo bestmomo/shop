@@ -27,7 +27,7 @@ class AddressFactory extends Factory
         }
         return [
             'professionnal' => $professionnal,
-            'civility' => fake()->boolean() ? 'Mme': 'M.',
+            'civility' => fake()->boolean() ? 'Mme': 'M',
             'name' => $name,
             'firstname' => $firstName,
             'company' => $professionnal ? fake()->company : null,

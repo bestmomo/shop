@@ -1,6 +1,6 @@
 <ul class="p-2 mb-2">
     @isset($address->name)
-        <li class="font-bold">{{ "$address->civility $address->name $address->firstname" }}</li>
+        <li class="font-bold">{{ "$address->civility. $address->name $address->firstname" }}</li>
     @endif
     @if ($address->company)
         <li class="font-bold">{{ $address->company }}</li>

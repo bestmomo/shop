@@ -2,7 +2,7 @@
     <x-form wire:submit="save" class="w-full sm:min-w-[50vw]">
         <x-checkbox label="{!! __('It is a professionnal address') !!}" wire:model="professionnal" wire:change="$refresh" />
 
-        <x-radio label="{{ __('Civility') }}" :options="$civilities" wire:model="selectedCivility" required />
+        <x-radio label="{{ __('Civility') }}" :options="$civilities" wire:model="selectedCivility" :required="!$professionnal" />
 
         <x-input label="{{ __('Name') }}" type="text" wire:model="name" icon="o-user"
             hint="{{ $professionnal ? __('Optional') : '' }}" :required="!$professionnal" />

@@ -8,7 +8,7 @@ trait ManageAddress {
 	public Collection $countries;
 	public bool $professionnal      = false;
 	public array $civilities        = [['id' => 'M', 'name' => 'M.'], ['id' => 'Mme', 'name' => 'Mme.']];
-	public string $selectedCivility = '';
+	public string $selectedCivility = 'M';
 	public ?string $firstname       = null;
 	public ?string $name            = null;
 	public ?string $company         = null;
@@ -35,7 +35,7 @@ trait ManageAddress {
 	protected function rules(): array {
 		return [
 			'professionnal'    => 'required|boolean',
-			'selectedCivility' => 'required|in:M,Mme',
+			'selectedCivility' => 'required_with:name|in:M,Mme',
 			'firstname'        => 'required_unless:professionnal,true|nullable|string|max:100',
 			'name'             => 'required_unless:professionnal,true|nullable|string|max:100',
 			'company'          => 'required_unless:professionnal,false|nullable|string|max:100',

@@ -18,7 +18,7 @@ new #[Title('Create address')] class extends Component {
 
     public function save(): void
     {
-        $data = $this->manageCivilityAndValidateForm();
+        $data = $this->validate($this->rules());
 
         Auth::user()->addresses()->create($data);
 

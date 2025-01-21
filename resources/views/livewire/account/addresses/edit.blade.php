@@ -7,15 +7,14 @@ use Mary\Traits\Toast;
 use Illuminate\Support\Collection;
 use App\Traits\ManageAddress;
 
-new #[Title('Update address')] class extends Component {
+new #[Title('Update address')] 
+class extends Component {
     use Toast, ManageAddress;
 
     public Address $myAddress;
-    // public $title;
 
     public function mount(Address $address): void
     {
-        // $this->title = __('Update an address');
         $this->myAddress = $address;
         $this->fill($this->myAddress);
         $this->countries = Country::all();
@@ -23,7 +22,7 @@ new #[Title('Update address')] class extends Component {
 
     public function save(): void
     {
-        $data = $this->manageCivilityAndValidateForm();
+        $data = $this->validate($this->rules());
 
         $this->myAddress->update($data);
 

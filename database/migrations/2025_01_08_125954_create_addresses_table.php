@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
             $table->boolean('professionnal')->default(false);
-            $table->enum('civility', ['Mme', 'M']);
+            $table->enum('civility', ['Mme', 'M'])->default('M');
             $table->string('name', 100)->nullable();
             $table->string('firstname', 100)->nullable();
             $table->string('company', 100)->nullable();

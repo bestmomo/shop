@@ -7,9 +7,7 @@ use Mary\Traits\Toast;
 use Illuminate\Support\Collection;
 use App\Traits\ManageAddress;
 
-new #[Title('Create address')]
-class extends Component
-{
+new #[Title('Create address')] class extends Component {
     use Toast, ManageAddress;
 
     public function mount(): void
@@ -20,18 +18,14 @@ class extends Component
 
     public function save(): void
     {
-        $data = $this->validate($this->rules());
+        $data = $this->manageCivilityAndValidateForm();
 
         Auth::user()->addresses()->create($data);
 
         $this->success(__('Address created successfully.'), redirectTo: '/account/addresses');
     }
-}
+};
 
 ?>
 
-<div>
-    <x-card class="flex justify-center items-center mt-6" title="{!! __('Create an address') !!}" shadow separator progress-indicator>
-        @include('livewire.account.addresses.form')
-    </x-card>
-</div>
+@include('livewire.account.addresses.components.form', ['title' => __('Create an address')])

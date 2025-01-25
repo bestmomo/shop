@@ -50,7 +50,7 @@ new class extends Component {
 
     <x-card class="w-full md:w-3/4" title="{{ __('My cart') }}" shadow separator progress-indicator>   
         @if(session()->has('message'))
-            <x-alert title="{{ trans(session('message')) }}" icon="o-exclamation-triangle" class="alert-warning" /><br>
+            <x-alert title="{!! trans(session('message')) !!}" icon="o-exclamation-triangle" class="alert-warning" /><br>
         @endif
         @foreach ($content as $item)
             <div class="flex justify-between items-center">
@@ -89,7 +89,7 @@ new class extends Component {
             <div class="flex justify-between items-center mt-4">
                 <x-button label="{{ __('Trash my cart') }}" wire:click="cleanCart" icon="o-trash"
                     class="text-red-500 btn-ghost btn-sm" />
-                <x-button label="{{ auth()->check() ? __('I order') : __('Log in to order') }}" icon-right="c-arrow-right" link="" class="btn-primary btn-sm" />
+                <x-button label="{{ auth()->check() ? __('I order') : __('Log in to order') }}" icon-right="c-arrow-right" link="{{ route('order.index') }}" class="btn-primary btn-sm" />
             </div>
         @else
             @lang('The cart is empty.')

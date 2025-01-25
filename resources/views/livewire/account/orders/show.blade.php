@@ -3,6 +3,7 @@
 use App\Models\Order;
 use Livewire\Volt\Component;
 use Livewire\Attributes\Title;
+use Illuminate\Support\Facades\Storage;
 
 new #[Title('Show order')]
 class extends Component {
@@ -20,7 +21,14 @@ class extends Component {
 
     public function invoice()
     {
-        // Todo : send invoice
+        // Récupération du pdf
+        $url = config('invoice.url') . 'invoices/' .  (string)$this->order->invoice_id . '.pdf?api_token=' . config('invoice.token');
+        $contents = file_get_contents($url);
+        $name = (string)$this->order->invoice_id . '.pdf';
+        Storage::disk('invoices')->put($name, $contents);
+
+        // Envoi
+        return response()->download(storage_path('app/invoices/' . $name))->deleteFileAfterSend();
     }
 
 }; ?>

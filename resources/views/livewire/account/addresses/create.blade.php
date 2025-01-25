@@ -7,7 +7,8 @@ use Mary\Traits\Toast;
 use Illuminate\Support\Collection;
 use App\Traits\ManageAddress;
 
-new #[Title('Create address')] class extends Component {
+new #[Title('Create address')] 
+class extends Component {
     use Toast, ManageAddress;
 
     public function mount(): void

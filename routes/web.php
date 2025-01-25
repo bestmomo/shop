@@ -17,6 +17,12 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
 
+	Route::prefix('order')->group(function () {
+		Volt::route('/creation', 'order.index')->name('order.index');
+		Volt::route('/confirmation/{id}', 'order.confirmation')->name('order.confirmation');
+		Volt::route('/card/{id}', 'order.card')->name('order.card');
+	});
+
 	Route::prefix('account')->group(function () {
 		Volt::route('/profile', 'account.profile')->name('profile');
 		Volt::route('/rgpd', 'account.rgpd.index')->name('rgpd');

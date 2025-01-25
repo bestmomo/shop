@@ -5,8 +5,6 @@ use App\Models\Product;
 
 new class extends Component
 {
-    public $group;
-
     public function with(): array
     {
         return [
@@ -52,7 +50,7 @@ new class extends Component
     </div>
     <br>
     <x-card class="w-full shadow-md shadow-gray-500" shadow separator >
-        <x-accordion wire:model="group" class="shadow-md shadow-gray-500">
+        <x-accordion class="shadow-md shadow-gray-500">
             <x-collapse name="group1">
                 <x-slot:heading>{{ __('General informations') }}</x-slot:heading>
                 <x-slot:content>{!! $shop->home_infos !!}</x-slot:content>

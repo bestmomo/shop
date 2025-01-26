@@ -54,9 +54,11 @@ class DatabaseSeeder extends Seeder
             ['name' => 'Erreur de paiement', 'slug' => 'erreur', 'color' => 'red', 'indice' => 0],
             ['name' => 'Annulé', 'slug' => 'annule', 'color' => 'red', 'indice' => 2],
             ['name' => 'Mandat administratif reçu', 'slug' => 'mandat_ok', 'color' => 'green', 'indice' => 3],
-            ['name' => 'Paiement accepté', 'slug' => 'paiement_ok', 'color' => 'green', 'indice' => 4],
-            ['name' => 'Expédié', 'slug' => 'expedie', 'color' => 'green', 'indice' => 5],
-            ['name' => 'Remboursé', 'slug' => 'rembourse', 'color' => 'red', 'indice' => 6],
+            ['name' => 'Paiement accepté', 'slug' => 'paiement_ok', 'color' => 'green', 'indice' => 4],['name' => 'Envoi différé', 'slug' => 'envoi-differe', 'color' => 'green', 'indice' => 4],
+            ['name' => 'Expédié', 'slug' => 'expedie', 'color' => 'gray', 'indice' => 5],
+            ['name' => 'Remis en main propre', 'slug' => 'remis', 'color' => 'gray', 'indice' => 5],
+            ['name' => 'Livré', 'slug' => 'livre', 'color' => 'gray', 'indice' => 5],
+            ['name' => 'Remboursé', 'slug' => 'rembourse', 'color' => 'red', 'indice' => 6],            
         ]);
 
         User::factory()

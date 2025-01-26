@@ -13,6 +13,7 @@ export default {
         'bg-red-400',
         'bg-blue-400',
         'bg-green-400',
+        'bg-gray-400',
         'badge-info',
         'badge-success',
         'badge-error',

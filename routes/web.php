@@ -2,6 +2,7 @@
 
 use Livewire\Volt\Volt;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\IsAdmin;
 
 Volt::route('/', 'index')->name('home');
 Volt::route('/pages/{page:slug}', 'page')->name('pages');
@@ -31,5 +32,12 @@ Route::middleware('auth')->group(function () {
 		Volt::route('/addresses/{address}/edit', 'account.addresses.edit')->name('addresses.edit');
 		Volt::route('/orders', 'account.orders.index')->name('orders');
 		Volt::route('/orders/{order}', 'account.orders.show')->name('orders.show');
+	});
+
+	Route::middleware(IsAdmin::class)->prefix('admin')->group(function ()
+	{
+		Volt::route('/dashboard', 'admin.index')->name('admin');
+		Volt::route('/orders', 'admin.orders.index')->name('admin.orders.index');
+		Volt::route('/orders/{order}', 'admin.orders.show')->name('admin.orders.show');
 	});
 });

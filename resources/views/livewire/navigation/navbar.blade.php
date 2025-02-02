@@ -116,6 +116,9 @@ new class extends Component {
                         <x-button label="{{ $user->name }} {{ $user->firstname }}" class="btn-ghost" />
                     </x-slot:trigger>
                     <span class="text-black">
+                                                @if ($user->isAdmin())
+                            <x-menu-item title="{{ __('Administration') }}" link="{{ route('admin') }}" />
+                        @endif
                         <x-menu-item title="{{ __('My profile') }}" link="{{ route('profile') }}" />
                         <x-menu-item title="{{ __('My addresses') }}" link="{{ route('addresses') }}" />
                         <x-menu-item title="{{ __('My orders') }}" link="{{ route('orders') }}" />

@@ -39,5 +39,8 @@ Route::middleware('auth')->group(function () {
 		Volt::route('/dashboard', 'admin.index')->name('admin');
 		Volt::route('/orders', 'admin.orders.index')->name('admin.orders.index');
 		Volt::route('/orders/{order}', 'admin.orders.show')->name('admin.orders.show');
+		Volt::route('/customers', 'admin.customers.index')->name('admin.customers.index');
+		Volt::route('/customers/{user}', 'admin.customers.show')->name('admin.customers.show');
+		Volt::route('/addresses', 'admin.customers.addresses')->name('admin.addresses');
 	});
 });

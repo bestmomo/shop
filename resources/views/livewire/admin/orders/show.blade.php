@@ -213,7 +213,7 @@ class extends Component
             </div>
         </div>
         <x-slot:actions>
-            <x-button label="{{ __('View customer details') }}" class="btn-primary" link="/" />
+            <x-button label="{{ __('View customer details') }}" class="btn-primary" link="{{ route('admin.customers.show', $order->user) }}" />
         </x-slot:actions>
     </x-card>
     <br>

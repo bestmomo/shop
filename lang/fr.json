@@ -454,5 +454,13 @@
     "The customer has chosen to collect the order on site.": "Le client a choisi de venir chercher sa commande sur place.",
     "Date of registration": "Date d'inscription",
     "Latest orders": "Dernières commandes",
-    "See all orders": "Voir toutes les commandes"
+    "See all orders": "Voir toutes les commandes",
+    "Datas": "Données",
+    "Firstname": "Prénom",
+    "Registration": "Inscription",
+    "Send an email": "Envoyer un email",
+    "Search a name...": "Rechercher un nom...",
+    "Customer details": "Détails du client",
+    "Identity": "Identité",
+    "Last update": "Dernière mise à jour"
 }

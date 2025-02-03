@@ -56,7 +56,7 @@ class extends Component
                     icon="s-shopping-cart"
                     class="shadow-hover" />
             </a>
-            <a href="/" class="flex-grow">
+            <a href="{{ route('admin.customers.index') }}" class="flex-grow">
                 <x-stat 
                     title="{{ __('Customers') }}" 
                     description="" 

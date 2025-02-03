@@ -10,7 +10,7 @@ Ce code correspond à un Shop basé sur le FrameWork Laravel, suite d'une série
 php artisan optimize && php artisan optimize:clear && php artisan cache:clear && php artisan view:clear && php artisan config:clear
 ```
 
-→ Vous pouvez d'un seul geste, copiér puis coller dans votre terminal ces commandes lorsque vous en avez besoin. 😉
+→ Vous pouvez d'un seul geste, copier puis coller dans votre terminal ces commandes lorsque vous en avez besoin. 😉
 
 *You can directly copy, paste, and execute all of these commands in one go in your terminal when needed.* 😉
 

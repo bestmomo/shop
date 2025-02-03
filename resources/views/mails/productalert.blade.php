@@ -45,7 +45,7 @@
         max-width: 100%;
       }
     }
-    
+
     @media only screen and (max-width:480px) {
       table.mj-full-width-mobile {
         width: 100% !important;
@@ -101,7 +101,7 @@
                   </tr>
                   <tr>
                     <td align="center" style="font-size:0px;padding:10px 25px;padding-top:10px;padding-right:25px;padding-bottom:28px;padding-left:25px;word-break:break-word;">
-                      <div style="font-family:Helvetica;font-size:20px;line-height:1;text-align:center;color:#FFFFFF;">@lang('of product') {{ $product->name }}</div>
+                      <div style="font-family:Helvetica;font-size:20px;line-height:1;text-align:center;color:#FFFFFF;">@langL('Of product') {{ $product->name }}</div>
                     </td>
                   </tr>
                 </table>

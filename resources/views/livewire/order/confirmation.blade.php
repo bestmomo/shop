@@ -16,13 +16,13 @@ class extends Component {
 
         if (Auth::user()->id != $this->order->user_id) {
             abort(403);
-        }       
-    } 
+        }
+    }
 
 }; ?>
 
 <div>
-    <x-card 
+    <x-card
         class="flex items-center justify-center mt-6 bg-gray-100 w-full lg:max-w-[80%] lg:mx-auto" title="{{ trans('Your order is confirmed') }}" shadow separator>
         <x-elements :order="$order" />
         <br>
@@ -30,13 +30,13 @@ class extends Component {
             @if($order->state->slug === 'cheque')
                 <p>{{ trans('Please send us a check with:') }}</p>
                 <ul>
-                    <li>- {{ trans('amount of payment:') }} <strong>{{ number_format($order->total + $order->shipping, 2, ',', ' ') }} €</strong></li>
-                    <li>- {{ trans('payable to the order of') }} <strong>{{ $shop->name }}</strong></li>
-                    <li>- {{ trans('to be sent to') }} <strong>{{ $shop->address }}</strong></li>
-                    <li>- {{ trans('do not forget to indicate your order reference') }} <strong>{{ $order->reference }}</strong></li>
+                    <li>- {{ transL('Amount of payment:') }} <strong>{{ number_format($order->total + $order->shipping, 2, ',', ' ') }} €</strong></li>
+                    <li>- {{ transL('Payable to the order of') }} <strong>{{ $shop->name }}</strong></li>
+                    <li>- {{ transL('To be sent to') }} <strong>{{ $shop->address }}</strong></li>
+                    <li>- {{ transL('Do not forget to indicate your order reference') }} <strong>{{ $order->reference }}</strong></li>
                 </ul>
-                <p>{{ $order->pick? trans('You can come and pick up your order as soon as the payment is received.') : trans('Your order will be shipped as soon as the payment is received.') }}</p>  
-                
+                <p>{{ $order->pick? trans('You can come and pick up your order as soon as the payment is received.') : trans('Your order will be shipped as soon as the payment is received.') }}</p>
+
             @elseif($order->state->slug === 'mandat')
                 <p>{{ trans('You have chosen to pay by administrative mandate. This type of payment is reserved for administrations.') }}</p>
                 <p>{{ trans('You must send your administrative mandate to:') }}</p>
@@ -49,16 +49,16 @@ class extends Component {
             @elseif($order->state->slug === 'virement')
                 <p>{{ trans('Please make a transfer to our account:') }}</p>
                 <ul>
-                    <li>- {{ trans('amount of transfer:') }} <strong>{{ number_format($order->total + $order->shipping, 2, ',', ' ') }} €</strong></li>
-                    <li>- {{ trans('account holder:') }} <strong>{{ $shop->holder }}</strong></li>
+                    <li>- {{ transL('Amount of transfer:') }} <strong>{{ number_format($order->total + $order->shipping, 2, ',', ' ') }} €</strong></li>
+                    <li>- {{ transL('Account holder:') }} <strong>{{ $shop->holder }}</strong></li>
                     <li>- {{ trans('BIC:') }} <strong>{{ $shop->bic }}</strong></li>
                     <li>- {{ trans('IBAN:') }} <strong>{{ $shop->iban }}</strong></li>
-                    <li>- {{ trans('bank:') }} <strong>{{ $shop->bank }}</strong></li>
-                    <li>- {{ trans('bank address:') }} <strong>{{ $shop->bank_address }}</strong></li>
-                    <li>- {{ trans('do not forget to indicate your order reference') }} <strong>{{ $order->reference }}</strong></li>
+                    <li>- {{ transL('Bank:') }} <strong>{{ $shop->bank }}</strong></li>
+                    <li>- {{ transL('Bank address:') }} <strong>{{ $shop->bank_address }}</strong></li>
+                    <li>- {{ transL('Do not forget to indicate your order reference') }} <strong>{{ $order->reference }}</strong></li>
                 </ul>
                 <p>{{ $order->pick ? trans('You can come and pick up your order as soon as the payment is received.') : trans('Your order will be shipped as soon as the transfer is received.') }}</p>
-                
+
             @endif
         </x-card>
     </x-card>

@@ -104,7 +104,7 @@
                   </tr>
                   <tr>
                     <td align="center" style="font-size:0px;padding:10px 25px;padding-top:10px;padding-right:25px;padding-bottom:28px;padding-left:25px;word-break:break-word;">
-                      <div style="font-family:Helvetica;font-size:20px;line-height:1;text-align:center;color:#FFFFFF;">@lang('from') {{ auth()->user()->firstname . ' ' . auth()->user()->name }}</div>
+                      <div style="font-family:Helvetica;font-size:20px;line-height:1;text-align:center;color:#FFFFFF;">@langL('From') {{ auth()->user()->firstname . ' ' . auth()->user()->name }}</div>
                     </td>
                   </tr>
                 </table>

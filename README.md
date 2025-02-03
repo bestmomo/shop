@@ -4,7 +4,19 @@ Ce code correspond à un Shop basé sur le FrameWork Laravel, suite d'une série
 
 ---
 
+## Tip:
+
+```bash
+php artisan optimize && php artisan optimize:clear && php artisan cache:clear && php artisan view:clear && php artisan config:clear
+```
+
+*You can directly copy, paste, and execute all of these commands in one go in your terminal when needed.* 😉
+
+---
+
 ## Particularités
+
+### Traductions
 
 * Pour la traduction, nous avons à notre disposition 2 nouveaux helpers et une nouvelle directive Blade :
   * transL(*string*)
@@ -19,7 +31,7 @@ Ce code correspond à un Shop basé sur le FrameWork Laravel, suite d'une série
   
   'Adresse de facturation : ...'
   et ailleurs, peut-êre ne serait-ce pour un tool-tip :
-  'Définir votre adresse de facturation'
+  'Définir votre adresse de facturation', ou dans une liste *
 
   ```php
   // Dans un fichier de traduction,
@@ -62,7 +74,7 @@ Ce code correspond à un Shop basé sur le FrameWork Laravel, suite d'une série
 
 ---
 
-*: À la base, j'étais curieux de vérifier avec Chat GPT... :
+* : À la base, j'étais curieux de vérifier avec Chat GPT... :
 
 ```bash
 Dans une liste non rodonnée, avec des tirets devant les items,

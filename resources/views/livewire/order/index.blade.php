@@ -183,7 +183,7 @@ class extends Component {
         // Notification à l'administrateur
         $admins = User::whereAdmin(true)->get();
         foreach($admins as $admin) {
-            //Mail::to($admin)->send(new NewOrder($this->shop, $order));
+            Mail::to($admin)->send(new NewOrder($this->shop, $order));
         }
 
         // Si par carte on crée le checkout
@@ -255,7 +255,7 @@ class extends Component {
             return redirect()->away($checkout_session->url);
         } else {
             // Notification au client
-            //Mail::to(Auth::user())->send(new Ordered($this->shop, $order));
+            Mail::to(Auth::user())->send(new Ordered($this->shop, $order));
         }
 
         return redirect()->route('order.confirmation', $order->id);

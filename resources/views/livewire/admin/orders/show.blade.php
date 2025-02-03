@@ -7,17 +7,17 @@ use Mary\Traits\Toast;
 use Illuminate\Support\Collection;
 use App\Services\Invoice;
 
-new 
-#[Title('Order')] 
-#[Layout('components.layouts.admin')] 
+new
+#[Title('Order')]
+#[Layout('components.layouts.admin')]
 class extends Component
 {
     use Toast;
-    
+
     public Order $order;
 
     public bool $paid = false;
-    public int $annule_indice = 0;    
+    public int $annule_indice = 0;
     public Collection $states;
     public ?string $purchase_order = null;
     public string $state = '';
@@ -41,13 +41,13 @@ class extends Component
 
     public function generateInvoice(Invoice $invoice): void
     {
-        $response = $invoice->create($this->order, true);  
+        $response = $invoice->create($this->order, true);
         if($response->successful()) {
             $data = json_decode($response->body());
             $this->order->invoice_id = $data->id;
             $this->order->invoice_number = $data->number;
             $this->order->save();
-            $this->success(__('Invoice generated successfully.'));        
+            $this->success(__('Invoice generated successfully.'));
         }
     }
 
@@ -73,7 +73,7 @@ class extends Component
 
         $this->success(__('State updated successfully.'));
     }
-   
+
 }; ?>
 
 <div>
@@ -84,26 +84,26 @@ class extends Component
         </x-slot:actions>
     </x-header>
 
-    <x-card 
-        title="{{ __('References') }}" 
-        shadow 
+    <x-card
+        title="{{ __('References') }}"
+        shadow
     >
         <div class="space-y-4">
             <div>
-                <strong>@lang('Number') :</strong> 
+                <strong>@lang('Number') :</strong>
                 <x-badge value="{{ $order->id }}" class="badge-info" />
             </div>
             <div>
-                <strong>@lang('Reference') :</strong> 
+                <strong>@lang('Reference') :</strong>
                 <x-badge value="{{ $order->reference }}" class="badge-info" />
             </div>
         </div>
     </x-card>
     <br>
-    
-    <x-card 
-        title="{{ __('Mode of payment') }}" 
-        shadow 
+
+    <x-card
+        title="{{ __('Mode of payment') }}"
+        shadow
     >
         <div class="space-y-4">
             <div>
@@ -111,7 +111,7 @@ class extends Component
             </div>
             @if($order->payment_infos)
                 <div>
-                    <strong>@lang('Payment ID') :</strong> 
+                    <strong>@lang('Payment ID') :</strong>
                     <x-badge value="{{ $order->payment_infos->payment_id }}" class="badge-info" />
                 </div>
             @endif
@@ -120,12 +120,12 @@ class extends Component
     <br>
 
     @if($shop->invoice && ($order->invoice_id || $order->state->indice > $annule_indice))
-        <x-card 
-            title="{{ __('Invoice') }}" 
-            shadow 
+        <x-card
+            title="{{ __('Invoice') }}"
+            shadow
         >
             @if($order->invoice_id)
-                <p>@lang('The invoice was generated with id') <strong>{{ $order->invoice_id }}</strong> @lang('and the number') <strong>{{ $order->invoice_number }}</strong>.</p>
+                <p>@lang('The invoice was generated with id') <strong>{{ $order->invoice_id }}</strong> @langL('And the number') <strong>{{ $order->invoice_number }}</strong>.</p>
             @else
                 <div class="flex flex-row justify-between">
                     <x-checkbox label="{{ __('Payment has been made') }}" wire:model="paid" hint="{!! __('Tick this box if the invoice has actually been paid.') !!}" />
@@ -137,9 +137,9 @@ class extends Component
     @endif
 
     @if($order->payment === 'mandat')
-        <x-card 
-            title="{{ __('Order form') }}" 
-            shadow 
+        <x-card
+            title="{{ __('Order form') }}"
+            shadow
             progress-indicator
         >
             <x-form wire:submit="savePurchaseOrder">
@@ -152,10 +152,10 @@ class extends Component
         <br>
     @endif
 
-    <x-card 
-        title="{{ __('State') }}" 
-        shadow 
-    >    
+    <x-card
+        title="{{ __('State') }}"
+        shadow
+    >
         <x-slot:menu>
             <x-badge value="{{ $order->state->name }}" class="bg-{{ $order->state->color }}-400 mb-4 p-3" />
         </x-slot:menu>
@@ -163,29 +163,29 @@ class extends Component
     </x-card>
     <br>
 
-    <x-card 
-        title="{{ __('Products') }}" 
+    <x-card
+        title="{{ __('Products') }}"
         shadow
     >
-        <x-details 
-            :content="$order->products" 
-            :shipping="$order->shipping" 
-            :tax="$order->tax" 
+        <x-details
+            :content="$order->products"
+            :shipping="$order->shipping"
+            :tax="$order->tax"
             :total="$order->total"
             :pick="$order->pick"
-        />    
+        />
     </x-card>
     <br>
 
-    <x-card 
-        title="{{ __('Customer') }}" 
-        shadow 
+    <x-card
+        title="{{ __('Customer') }}"
+        shadow
     >
         <div class="space-y-4">
             <div class="flex items-center">
                 <x-icon name="o-user" class="mr-3 w-6 h-6 text-primary" />
                 <span>
-                    <strong>@lang('Name') :</strong> 
+                    <strong>@lang('Name') :</strong>
                     {{ $order->user->name }} {{ $order->user->firstname }}
                 </span>
             </div>
@@ -193,21 +193,21 @@ class extends Component
                 <x-button icon="o-envelope" link="mailto:{{ $order->user->email }}" no-wire-navigate spinner
                     class="mr-3 w-6 h-6 text-primary btn-ghost btn-sm" tooltip="{{ __('Send an email') }}" />
                 <span>
-                    <strong>@lang('Email') :</strong> 
+                    <strong>@lang('Email') :</strong>
                     {{ $order->user->email }}
                 </span>
             </div>
             <div class="flex items-center">
                 <x-icon name="o-calendar" class="mr-3 w-6 h-6 text-primary" />
                 <span>
-                    <strong>@lang('Date of registration') :</strong> 
+                    <strong>@lang('Date of registration') :</strong>
                     {{ $order->user->created_at->isoFormat('LL') }}
                 </span>
             </div>
             <div class="flex items-center">
                 <x-icon name="o-shopping-cart" class="mr-3 w-6 h-6 text-primary" />
                 <span>
-                    <strong>@lang('Validated orders') :</strong> 
+                    <strong>@lang('Validated orders') :</strong>
                     <x-badge value="{{ $order->user->orders->where('state_id', '>', 5)->count() }}" class="badge-success" />
                 </span>
             </div>
@@ -218,9 +218,9 @@ class extends Component
     </x-card>
     <br>
 
-    <x-card 
-        title="{{ __('Addresses') }}" 
-        shadow 
+    <x-card
+        title="{{ __('Addresses') }}"
+        shadow
     >
         <x-card title="{{ __('Billing address') }} {{ $this->order->addresses->count() === 1 && !$this->order->pick ? __('and delivery') : '' }}" shadow >
             <x-address :address="$this->order->addresses->first()" />
@@ -232,7 +232,7 @@ class extends Component
                 <x-card class="w-full sm:min-w-[50vw]" title="{{ __('Delivery address') }}" shadow separator >
                     <x-address :address="$this->order->addresses->get(1)" />
                 </x-card>
-            @endif              
+            @endif
         @endif
     </x-card>
 

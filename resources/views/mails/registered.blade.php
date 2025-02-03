@@ -122,7 +122,7 @@
                                             <tr>
                                                 <td class="pad" style="padding-bottom:20px;padding-left:35px;padding-right:35px;padding-top:10px;">
                                                     <div style="color:#f8f8f8;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:18px;line-height:120%;text-align:center;">
-                                                        <p style="margin: 0;">@lang('You can now order on') <a href="{{ route('home') }}" rel="noopener" style="text-decoration: underline; color: #ffffff;" target="_blank">@lang('our shop')</a></p>
+                                                        <p style="margin: 0;">@lang('You can now order on') <a href="{{ route('home') }}" rel="noopener" style="text-decoration: underline; color: #ffffff;" target="_blank">@langL('Our shop')</a></p>
                                                     </div>
                                                 </td>
                                             </tr>

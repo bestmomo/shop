@@ -2,29 +2,32 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\View;
 use App\Models\Shop;
+use Illuminate\Support\Facades\{Blade, View};
+use Illuminate\Support\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
-{
-    /**
-     * Register any application services.
-     */
-    public function register(): void
-    {
-        //
-    }
+class AppServiceProvider extends ServiceProvider {
+	/**
+	 * Register any application services.
+	 */
+	public function register(): void {
+		//
+	}
 
-    /**
-     * Bootstrap any application services.
-     */
-    public function boot(): void
-    {
-        if(app()->runningInConsole()) {
-            return;
-        }
-        
-        View::share('shop', Shop::firstOrFail());
-    }
+	/**
+	 * Bootstrap any application services.
+	 */
+	public function boot(): void {
+		if (app()->runningInConsole()) {
+			return;
+		}
+
+		//2fix langL()
+		Blade::directive(name: 'langL', handler: function ($expression) {
+			return "<?= transL({$expression}); ?>";
+		});
+
+		View::share('shop', Shop::firstOrFail());
+	}
 }
+?>

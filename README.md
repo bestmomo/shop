@@ -79,7 +79,7 @@ php artisan optimize && php artisan optimize:clear && php artisan cache:clear &&
 * : À la base, j'étais curieux de vérifier avec Chat GPT... :
 
 ```bash
-Dans une liste non rodonnée, avec des tirets devant les items,
+Dans une liste non ordonnée, avec des tirets devant les items,
 ceux-ci doivent ils être écrits en commençant par une majuscule
 ou une minuscule ?
 

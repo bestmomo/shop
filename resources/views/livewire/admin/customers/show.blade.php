@@ -61,7 +61,7 @@ class extends Component
                 </span>
             </div>
             <div class="flex items-center">
-                <x-icon name="o-user" class="w-1 h-1 ml-3 mr-4 text-primary" />
+                <x-icon name="o-user" class="w-1 h-1 ml-3 mr-5 text-primary" />
                 <span>
                     <strong>@lang('Firstname') :</strong>
                     {{ $user->firstname }}

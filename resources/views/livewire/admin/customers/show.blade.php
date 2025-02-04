@@ -5,20 +5,20 @@ use Livewire\Attributes\{Layout, Title};
 use App\Models\User;
 use Mary\Traits\Toast;
 
-new 
-#[Title('Customer')] 
-#[Layout('components.layouts.admin')] 
+new
+#[Title('Customer')]
+#[Layout('components.layouts.admin')]
 class extends Component
 {
     use Toast;
-    
+
     public User $user;
 
     public function headers(): array
     {
         return [
-            ['key' => 'reference', 'label' => __('Reference')], 
-            ['key' => 'created_at', 'label' => __('Date')],            
+            ['key' => 'reference', 'label' => __('Reference')],
+            ['key' => 'created_at', 'label' => __('Date')],
             ['key' => 'total', 'label' => __('Total price')],
             ['key' => 'state', 'label' => __('State')],
         ];
@@ -32,11 +32,11 @@ class extends Component
 
     public function with(): array
 	{
-		return [	
+		return [
 			'headers' => $this->headers(),
 		];
 	}
-   
+
 }; ?>
 
 <div>
@@ -47,23 +47,23 @@ class extends Component
         </x-slot:actions>
     </x-header>
 
-    <x-card 
-        title="{{ __('Identity') }}" 
-        shadow 
+    <x-card
+        title="{{ __('Identity') }}"
+        shadow
         class="h-full"
     >
         <div class="space-y-4">
             <div class="flex items-center">
                 <x-icon name="o-user" class="w-6 h-6 mr-3 text-primary" />
                 <span>
-                    <strong>@lang('Name') :</strong> 
+                    <strong>@lang('Name') :</strong>
                     {{ $user->name }}
                 </span>
             </div>
             <div class="flex items-center">
-                <x-icon name="o-user" class="w-6 h-6 mr-3 text-primary" />
+                <x-icon name="o-user" class="w-1 h-1 ml-3 mr-4 text-primary" />
                 <span>
-                    <strong>@lang('Firstname') :</strong> 
+                    <strong>@lang('Firstname') :</strong>
                     {{ $user->firstname }}
                 </span>
             </div>
@@ -71,43 +71,43 @@ class extends Component
                 <x-button icon="o-envelope" link="mailto:{{ $user->email }}" no-wire-navigate spinner
                     class="w-6 h-6 mr-3 text-primary btn-ghost btn-sm" tooltip="{{ __('Send an email') }}" />
                 <span>
-                    <strong>@lang('Email') :</strong> 
+                    <strong>@lang('Email') :</strong>
                     {{ $user->email }}
                 </span>
             </div>
             <div class="flex items-center">
                 <x-icon name="o-calendar" class="w-6 h-6 mr-3 text-primary" />
                 <span>
-                    <strong>@lang('Date of registration') :</strong> 
+                    <strong>@lang('Date of registration') :</strong>
                     {{ $user->created_at->isoFormat('LL') }}
                 </span>
             </div>
             <div class="flex items-center">
                 <x-icon name="o-calendar" class="w-6 h-6 mr-3 text-primary" />
                 <span>
-                    <strong>@lang('Last update') :</strong> 
+                    <strong>@lang('Last update') :</strong>
                     {{ $user->updated_at->isoFormat('LL') }}
                 </span>
             </div>
             <div class="flex items-center">
                 <x-icon name="o-newspaper" class="w-6 h-6 mr-3 text-primary" />
                 <span>
-                    <strong>@lang('Newsletter') :</strong> 
+                    <strong>@lang('Newsletter') :</strong>
                     {{ $user->newsletter ? __('Yes') : __('No') }}
                 </span>
             </div>
         </div>
     </x-card>
     <br>
-    
-    <x-card 
-        title="{{ __('Orders') }}" 
-        shadow 
+
+    <x-card
+        title="{{ __('Orders') }}"
+        shadow
         class="h-full"
     >
-        <x-table 
-            :headers="$headers" 
-            :rows="$user->orders" 
+        <x-table
+            :headers="$headers"
+            :rows="$user->orders"
             link="/admin/orders/{id}"
         >
             @scope('cell_reference', $order)
@@ -125,9 +125,9 @@ class extends Component
         </x-table>
     </x-card><br>
 
-    <x-card 
-        title="{{ __('Adresses') }}" 
-        shadow 
+    <x-card
+        title="{{ __('Adresses') }}"
+        shadow
         class="h-full"
     >
         <div class="container mx-auto">
@@ -140,7 +140,7 @@ class extends Component
                     </x-card>
                 @endforeach
             </div>
-        </div>   
+        </div>
     </x-card>
 
 </div>

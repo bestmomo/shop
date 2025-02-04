@@ -5,9 +5,9 @@ use Livewire\Attributes\{Layout, Title};
 use Livewire\Volt\Component;
 use App\Traits\ManageOrders;
 
-new 
-#[Title('Dashboard')] 
-#[Layout('components.layouts.admin')] 
+new
+#[Title('Dashboard')]
+#[Layout('components.layouts.admin')]
 class extends Component
 {
 	use ManageOrders;
@@ -15,7 +15,7 @@ class extends Component
     public bool $openGlance = true;
     public bool $openOrders = true;
     public bool $paginationOrders = false;
- 
+
     public function with(): array
 	{
 		return [
@@ -41,44 +41,48 @@ class extends Component
         </x-slot:heading>
         <x-slot:content class="flex flex-wrap gap-4">
             <a href="/" class="flex-grow">
-                <x-stat 
-                    title="{{ __('Active products') }}" 
-                    description="" 
-                    value="{{ $productsCount }}" 
+                <x-stat
+                    title="{{ __('Active products') }}"
+                    description=""
+                    value="{{ $productsCount }}"
                     icon="s-shopping-bag"
                     class="shadow-hover" />
             </a>
             <a href="{{ route('admin.orders.index') }}" class="flex-grow">
-                <x-stat 
-                    title="{{ __('Successful orders') }}" 
-                    description="" 
-                    value="{{ $ordersCount }}" 
+                <x-stat
+                    title="{{ __('Successful orders') }}"
+                    description=""
+                    value="{{ $ordersCount }}"
                     icon="s-shopping-cart"
                     class="shadow-hover" />
             </a>
             <a href="{{ route('admin.customers.index') }}" class="flex-grow">
-                <x-stat 
-                    title="{{ __('Customers') }}" 
-                    description="" 
-                    value="{{ $usersCount }}" 
+                <x-stat
+                    title="{{ __('Customers') }}"
+                    description=""
+                    value="{{ $usersCount }}"
                     icon="s-user"
                     class="shadow-hover" />
             </a>
         </x-slot:content>
     </x-collapse>
-    <br>
 
+    <x-header separator progress-indicator />
     <x-collapse wire:model="openOrders" class="shadow-md">
         <x-slot:heading>
             @lang('Latest orders')
         </x-slot:heading>
+        <x-header
+        class="my-0!important border-0 text-red-500"
+        separator progress-indicator />
+
         <x-slot:content>
             <x-card class="mt-6" title="" shadow separator >
                 @include('livewire.admin.orders.table')
                 <x-slot:actions>
-                    <x-button 
-                        label="{{ __('See all orders') }}" 
-                        class="btn-primary" 
+                    <x-button
+                        label="{{ __('See all orders') }}"
+                        class="btn-primary"
                         link="{{ route('admin.orders.index') }}" />
                 </x-slot:actions>
             </x-card>

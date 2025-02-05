@@ -29,7 +29,22 @@ class extends Component
 	{
 		return [
             'orders' => Order::with('user', 'state', 'addresses')
-                ->orderBy(...array_values($this->sortBy))
+                ->when($this->sortBy['column'] === 'user', 
+                    function ($query) {
+                        $query->orderBy(function ($query) {
+                            $query->selectRaw('COALESCE(
+                                (SELECT company FROM order_addresses WHERE order_addresses.order_id = orders.id LIMIT 1),
+                                (SELECT CONCAT(users.name, " ", users.firstname) 
+                                FROM users 
+                                WHERE users.id = orders.user_id)
+                            )')
+                            ->limit(1);
+                        }, $this->sortBy['direction']);
+                    },
+                    function ($query) {
+                        $query->orderBy(...array_values($this->sortBy));
+                    }
+                )
                 ->when($this->search, function (Builder $q)
                 {
                     $q->where('reference', 'like', "%{$this->search}%")

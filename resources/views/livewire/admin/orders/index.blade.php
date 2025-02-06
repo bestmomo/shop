@@ -1,19 +1,15 @@
 <?php
 
-use Livewire\Volt\Component;
-use Livewire\Attributes\{Layout, Title};
 use App\Models\Order;
 use Mary\Traits\Toast;
-use Livewire\WithPagination;
-use Illuminate\Database\Eloquent\Builder;
 use App\Traits\ManageOrders;
-use App\Http\Tools\IndexesPrettier;
+use Livewire\Volt\Component;
+use Livewire\WithPagination;
+use Barryvdh\Debugbar\Facades\Debugbar;
+use Livewire\Attributes\{Layout, Title};
+use Illuminate\Database\Eloquent\Builder;
 
-new
-#[Title('Orders')]
-#[Layout('components.layouts.admin')]
-class extends Component
-{
+new #[Title('Orders')] #[Layout('components.layouts.admin')] class extends Component {
     use Toast, WithPagination, ManageOrders;
 
     public int $perPage = 10;
@@ -27,20 +23,23 @@ class extends Component
     }
 
     public function with(): array
-	{   //2fix sort by customsers (User)
-		$orders = [
+    {
+        $usedDbSystem = config('database.default', 'mysql');
+        $adaptedReq = 'sqlite' === $usedDbSystem ? "users.name || ' ' || users.firstname" : "CONCAT(users.name, ' ', users.firstname)";
+        // Debugbar::addMessage($adaptedReq);
+        $orders = [
             'orders' => Order::with('user', 'state', 'addresses')
-                ->when($this->sortBy['column'] === 'user',
-                    function ($query) {
-                        $query->orderBy(function ($query) {
+                ->when(
+                    'user' === $this->sortBy['column'],
+                    function ($query) use ($adaptedReq) {
+                        $query->orderBy(function ($query) use ($adaptedReq) {
                             $query
                                 ->selectRaw(
                                     'COALESCE(
-                                (SELECT company FROM order_addresses WHERE order_addresses.order_id = orders.id LIMIT 1),
-                                (SELECT CONCAT(users.name, " ", users.firstname)
-                                FROM users
-                                WHERE users.id = orders.user_id)
-                            )',
+                                        (SELECT company FROM order_addresses WHERE order_addresses.order_id = orders.id LIMIT 1),
+                                        (SELECT ' . $adaptedReq . ' FROM users
+                                        WHERE users.id = orders.user_id)
+                                    )',
                                 )
                                 ->limit(1);
                         }, $this->sortBy['direction']);
@@ -63,6 +62,7 @@ class extends Component
 
         $newCollection = $this->setPrettyOrdersIndexes($orders['orders']->getCollection());
         $orders['orders']->setCollection($newCollection);
+
         return $orders;
     }
 }; ?>
@@ -70,18 +70,10 @@ class extends Component
 <div>
     <x-header title="{{ __('Orders') }}" separator progress-indicator>
         <x-slot:actions>
-            <x-input
-                placeholder="{{ __('Search...') }}"
-                wire:model.live.debounce="search"
-                clearable
-                icon="o-magnifying-glass"
-            />
-            <x-button
-                icon="s-building-office-2"
-                label="{{ __('Dashboard') }}"
-                class="btn-outline lg:hidden"
-                link="{{ route('admin') }}"
-            />
+            <x-input placeholder="{{ __('Search...') }}" wire:model.live.debounce="search" clearable
+                icon="o-magnifying-glass" />
+            <x-button icon="s-building-office-2" label="{{ __('Dashboard') }}" class="btn-outline lg:hidden"
+                link="{{ route('admin') }}" />
         </x-slot:actions>
     </x-header>
 

@@ -7,6 +7,7 @@ use Mary\Traits\Toast;
 use Livewire\WithPagination;
 use Illuminate\Database\Eloquent\Builder;
 use App\Traits\ManageOrders;
+use App\Http\Tools\IndexesPrettier;
 
 new
 #[Title('Orders')]
@@ -27,39 +28,44 @@ class extends Component
 
     public function with(): array
 	{   //2fix sort by customsers (User)
-		return [
+		$orders = [
             'orders' => Order::with('user', 'state', 'addresses')
                 ->when($this->sortBy['column'] === 'user',
                     function ($query) {
                         $query->orderBy(function ($query) {
-                            $query->selectRaw('COALESCE(
+                            $query
+                                ->selectRaw(
+                                    'COALESCE(
                                 (SELECT company FROM order_addresses WHERE order_addresses.order_id = orders.id LIMIT 1),
                                 (SELECT CONCAT(users.name, " ", users.firstname)
                                 FROM users
                                 WHERE users.id = orders.user_id)
-                            )')
-                            ->limit(1);
+                            )',
+                                )
+                                ->limit(1);
                         }, $this->sortBy['direction']);
                     },
                     function ($query) {
                         $query->orderBy(...array_values($this->sortBy));
-                    }
+                    },
                 )
-                ->when($this->search, function (Builder $q)
-                {
+                ->when($this->search, function (Builder $q) {
                     $q->where('reference', 'like', "%{$this->search}%")
                         ->orWhereRelation('addresses', 'company', 'like', "%{$this->search}%")
                         ->orWhereRelation('state', 'name', 'like', "%{$this->search}%");
                 })
                 ->paginate($this->perPage),
-			'headersOrders' => $this->headersOrders(),
-		];
-	}
+            'headersOrders' => $this->headersOrders(),
+        ];
 
+        $newCollection = $this->setPrettyOrdersIndexes($orders['orders']->getCollection());
+        $orders['orders']->setCollection($newCollection);
+        return $orders;
+    }
 }; ?>
 
 <div>
-    <x-header title="{{ __('Orders') }}" separator progress-indicator >
+    <x-header title="{{ __('Orders') }}" separator progress-indicator>
         <x-slot:actions>
             <x-input
                 placeholder="{{ __('Search...') }}"

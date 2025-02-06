@@ -18,6 +18,11 @@ class extends Component
 
     public function with(): array
 	{
+        $orders=Order::with('user', 'state', 'addresses')
+        ->orderBy(...array_values($this->sortBy))
+        ->take(6)
+        ->get();
+        $this->setPrettyOrdersIndexes($orders);
 		return [
 			'productsCount' => Product::count(),
 			'ordersCount'   => Order::whereRelation('state', 'indice', '>', 3)
@@ -68,13 +73,11 @@ class extends Component
     </x-collapse>
 
     <x-header separator progress-indicator />
+
     <x-collapse wire:model="openOrders" class="shadow-md">
         <x-slot:heading>
             @lang('Latest orders')
         </x-slot:heading>
-        <x-header
-        class="my-0!important border-0 text-red-500"
-        separator progress-indicator />
 
         <x-slot:content>
             <x-card class="mt-6" title="" shadow separator >

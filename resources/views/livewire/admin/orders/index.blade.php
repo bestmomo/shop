@@ -52,7 +52,10 @@ class extends Component
                 ->when($this->search, function (Builder $q) {
                     $q->where('reference', 'like', "%{$this->search}%")
                         ->orWhereRelation('addresses', 'company', 'like', "%{$this->search}%")
-                        ->orWhereRelation('state', 'name', 'like', "%{$this->search}%");
+                        ->orWhereRelation('user', 'name', 'like', "%{$this->search}%")
+                        ->orWhereRelation('user', 'firstname', 'like', "%{$this->search}%")
+                        ->orWhere('total', 'like', "%{$this->search}%")
+                        ->orWhere('invoice_id', 'like', "%{$this->search}%");
                 })
                 ->paginate($this->perPage),
             'headersOrders' => $this->headersOrders(),

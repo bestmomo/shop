@@ -8,9 +8,9 @@ use Livewire\WithPagination;
 use Illuminate\Database\Eloquent\Builder;
 use App\Traits\ManageOrders;
 
-new 
-#[Title('Orders')] 
-#[Layout('components.layouts.admin')] 
+new
+#[Title('Orders')]
+#[Layout('components.layouts.admin')]
 class extends Component
 {
     use Toast, WithPagination, ManageOrders;
@@ -26,16 +26,16 @@ class extends Component
     }
 
     public function with(): array
-	{
+	{   //2fix sort by customsers (User)
 		return [
             'orders' => Order::with('user', 'state', 'addresses')
-                ->when($this->sortBy['column'] === 'user', 
+                ->when($this->sortBy['column'] === 'user',
                     function ($query) {
                         $query->orderBy(function ($query) {
                             $query->selectRaw('COALESCE(
                                 (SELECT company FROM order_addresses WHERE order_addresses.order_id = orders.id LIMIT 1),
-                                (SELECT CONCAT(users.name, " ", users.firstname) 
-                                FROM users 
+                                (SELECT CONCAT(users.name, " ", users.firstname)
+                                FROM users
                                 WHERE users.id = orders.user_id)
                             )')
                             ->limit(1);
@@ -55,23 +55,23 @@ class extends Component
 			'headersOrders' => $this->headersOrders(),
 		];
 	}
-   
+
 }; ?>
 
 <div>
     <x-header title="{{ __('Orders') }}" separator progress-indicator >
         <x-slot:actions>
-            <x-input 
-                placeholder="{{ __('Search...') }}" 
-                wire:model.live.debounce="search" 
+            <x-input
+                placeholder="{{ __('Search...') }}"
+                wire:model.live.debounce="search"
                 clearable
-                icon="o-magnifying-glass" 
+                icon="o-magnifying-glass"
             />
-            <x-button 
-                icon="s-building-office-2" 
-                label="{{ __('Dashboard') }}" 
-                class="btn-outline lg:hidden" 
-                link="{{ route('admin') }}" 
+            <x-button
+                icon="s-building-office-2"
+                label="{{ __('Dashboard') }}"
+                class="btn-outline lg:hidden"
+                link="{{ route('admin') }}"
             />
         </x-slot:actions>
     </x-header>

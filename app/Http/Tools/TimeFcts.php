@@ -1,12 +1,13 @@
 <?php
 
 /**
- * (ɔ) Mon CMS - 2024-2024
+ * (ɔ) Mon CMS - 2024-2025
  */
 
 namespace App\Http\Tools;
 
 use Carbon\Carbon;
+
 use Illuminate\Support\Facades\Config;
 
 class TimeFcts {

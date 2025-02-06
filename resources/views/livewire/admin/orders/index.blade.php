@@ -59,7 +59,8 @@ new #[Title('Orders')] #[Layout('components.layouts.admin')] class extends Compo
                 ->paginate($this->perPage),
             'headersOrders' => $this->headersOrders(),
         ];
-
+                // Debugbar::info($orders['orders']->first());
+                // Debugbar::info($orders['orders']->first()->user);
         $newCollection = $this->setPrettyOrdersIndexes($orders['orders']->getCollection());
         $orders['orders']->setCollection($newCollection);
 

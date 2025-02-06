@@ -2,6 +2,7 @@
 
 namespace App\Traits;
 
+use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Database\Eloquent\Collection;
 
 trait ManageOrders {
@@ -13,10 +14,11 @@ trait ManageOrders {
 	];
 
 	public function headersOrders(): array {
+        Debugbar::info($this);
 		return [
 			['key' => 'id', 'label' => __('#'), 'class' => 'font-bold text-center'],
 			['key' => 'reference', 'label' => __('Reference')],
-			['key' => 'user', 'label' => __('Customer')],
+			['key' => 'user', 'label' => __('Customer'), 'sortable' => false],
 			['key' => 'total', 'label' => __('Total price')],
 			['key' => 'created_at', 'label' => __('Date')],
 			['key' => 'state', 'label' => __(key: 'State'), 'sortable' => false],

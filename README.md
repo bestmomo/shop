@@ -95,3 +95,24 @@ Par exemple :
 
 Cela permet d'assurer une certaine uniformité et de faciliter la lecture.
 ```
+---
+
+## Rapide RoadMap
+
+### Problèmes observés (En cours [ ] et résolus [x])
+
+---
+
+* [/] ftN() tient compte de la langue 'Soit fournie, soit système
+* //[ ] Filtrage pour autoriser le tri / Client que pour orders/index (Puisque ça marche) et inactif dans listing de l'accueil Dashbord
+* //[ ] Création d'un service pour req orders pour pages utilisant orders/table
+* //[ ] hover Client → id, name, firstname+société-addr used
+
+---
+
+* [x] Désactivation globale du tri / client (Vu que problème daans listing accueil Dashboard
+* [x] Amélioration listing Client (orders/index)
+  * [x] Meilleures têtes de colonnes du listing
+  * [x] N° de Commande & Facture comme réels
+* [x] Listing client - Tri / client bug si SqLite → Fix
+* [x] Lien pour dashbord Front-End petit écran

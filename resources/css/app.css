@@ -87,30 +87,33 @@
     font-style: italic;
     opacity: 0;
     content: '@++';
+
     left: 45%;
     padding: 55px auto;
     margin: 20px;
+
     transform: translate(-47%, 0);
     transition: all .7s ease-in-out;
 }
 
 [tt]:hover::after {
-    border: 1px solid #ffffff60;
-    font-size: 12px;
-    font-style: normal;
-    color: rgb(0, 153, 173);
-    position: absolute;
     opacity: 1;
-    content: attr(tt);
-    border-radius: 5px;
-    background-color: #fff5f515;
-    width: 170px;
+    position: absolute;
 
     top: 0;
     left: 45%;
     right: 55px;
     padding: 55px auto;
     margin: 20px;
+    width: 170px;
+
+    border: 1px solid #ffffff60;
+    border-radius: 5px;
+    background-color: #fff5f515;
+    font-size: 12px;
+    font-style: normal;
+    color: rgb(0, 153, 173);
+    content: attr(tt);
 
     transform: translate(-47%, -32px);
     transition: all .7s ease-in-out;

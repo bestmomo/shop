@@ -1,9 +1,10 @@
 <?php
 
-use App\Models\{Order, Product, User};
-use Livewire\Attributes\{Layout, Title};
-use Livewire\Volt\Component;
 use App\Traits\ManageOrders;
+use Livewire\Volt\Component;
+use App\Models\{Order, Product, User};
+use Barryvdh\Debugbar\Facades\Debugbar;
+use Livewire\Attributes\{Layout, Title};
 
 new #[Title('Dashboard')] #[Layout('components.layouts.admin')] class extends Component {
     use ManageOrders;
@@ -14,14 +15,16 @@ new #[Title('Dashboard')] #[Layout('components.layouts.admin')] class extends Co
 
     public function with(): array
     {
-        //2do Fix Indexes
-        $orders = Order::with('user', 'state', 'addresses')->orderBy(...array_values($this->sortBy))->take(6)->get();
+        $orders = Order::with('user', 'state', 'addresses')
+        ->orderBy(...array_values($this->sortBy))
+        ->take(6)->get();
+        // Debugbar::info($orders->collect()->first());
         $orders = $this->setPrettyOrdersIndexes($orders);
         return [
             'productsCount' => Product::count(),
             'ordersCount' => Order::whereRelation('state', 'indice', '>', 3)->whereRelation('state', 'indice', '<', 6)->count(),
             'usersCount' => User::count(),
-            'orders' => $orders,
+            'orders' => $orders->collect(),
             'headersOrders' => $this->headersOrders(),
         ];
     }
@@ -60,7 +63,7 @@ new #[Title('Dashboard')] #[Layout('components.layouts.admin')] class extends Co
                 @include('livewire.admin.orders.table')
                 <x-slot:actions>
                     <x-button label="{{ __('See all orders') }}" class="btn-primary"
-                        link="{{ route('admin.orders.index') }}" />
+                        icon="s-list-bullet" link="{{ route('admin.orders.index') }}" />
                 </x-slot:actions>
             </x-card>
         </x-slot:content>

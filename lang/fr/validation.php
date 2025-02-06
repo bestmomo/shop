@@ -277,5 +277,18 @@ return [
         'winner'                   => 'winner',
         'work'                     => 'work',
         'year'                     => 'année',
+        'weight'                   => 'poids',
+        'quantity_alert'           => 'alerte de quantité',
     ],
+    'custom' => [
+        'firstname' => [
+            'required_unless' => 'Le champ prénom est obligatoire sauf si c\'est une adresse professionnelle.',
+        ],
+        'name' => [
+            'required_unless' => 'Le champ nom est obligatoire sauf si c\'est une adresse professionnelle.',
+        ],
+        'company' => [
+            'required_unless' => 'Le champ raison sociale est obligatoire si c\'est une adresse professionnelle.',
+        ],
+    ],    
 ];

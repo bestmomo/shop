@@ -4,8 +4,6 @@ namespace App\Traits;
 
 use Illuminate\Database\Eloquent\Collection;
 
-// require_once __DIR__.'/ManageOrderIndexes.php';
-
 trait ManageOrders {
 	use ManageOrderIndexes;
 
@@ -16,12 +14,12 @@ trait ManageOrders {
 
 	public function headersOrders(): array {
 		return [
-			['key' => 'id', 'label' => __('#')],
+			['key' => 'id', 'label' => __('#'), 'class' => 'text-center'],
 			['key' => 'reference', 'label' => __('Reference')],
 			['key' => 'user', 'label' => __('Customer')],
 			['key' => 'total', 'label' => __('Total price')],
 			['key' => 'created_at', 'label' => __('Date')],
-			['key' => 'state', 'label' => __('Etat'), 'sortable' => false],
+			['key' => 'state', 'label' => __(key: 'State'), 'sortable' => false],
 			['key' => 'invoice_id', 'label' => __('Invoice')],
 		];
 	}
@@ -34,11 +32,7 @@ trait ManageOrders {
 
 			return $order;
 		});
-		// dump($this);
-		// dump($this->getOrderId($orders->first()));
-		// $o1                                 = $orders->first();
-		// list($o1->orderId,$o1->invoiceId  ) = $this->getIndexes($o1);
 
-		return $orders;
+        return $orders;
 	}
 }

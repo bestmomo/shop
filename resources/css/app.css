@@ -8,7 +8,7 @@
 }
 
 /* Table pagination: active page highlight */
-.mary-table-pagination span[aria-current="page"] > span {
+.mary-table-pagination span[aria-current="page"]>span {
     @apply bg-primary text-base-100
 }
 
@@ -20,4 +20,98 @@
 /* Table pagination: for dark mode */
 .mary-table-pagination button {
     @apply bg-base-100
+}
+
+.tooltip {
+    /* a[title] { */
+    position: relative;
+    /* font-size: 1.1em;} */
+}
+
+/* a[title]:hover::after { */
+/* .tooltip:hover::after { */
+.tooltip ::after {
+    /* [title]::after { */
+    border: 2px solid #fff;
+    border-radius: 5px;
+    /* background-color: #fff5f515; */
+
+    background-color: red;
+
+    /* content: attr(title) " "; */
+    content: attr(title);
+    /* content: "Tri sur les 6 derniers chiffres"; */
+    position: absolute;
+    font-size: 12px;
+
+    margin: 20px;
+
+    /* padding-left: -5px;
+    padding-right: 0; */
+    padding: 15px 15px 15px 15px;
+
+    /* padding-inline-start: 5px; */
+    text-align: center;
+    color: rgb(0, 153, 173);
+    /* couleur du texte du titre */
+    width: 5em;
+
+    top: -30px;
+    /* déplace le tooltip vers le haut */
+
+    /* left: 50%; */
+    /* left: 0; */
+
+
+
+    /* centre le tooltip horizontalement */
+    transform: translateX(-47%);
+    /* ajuste la position horizontale */
+    /* white-space: pre-wrap; */
+    /* ajoute cette ligne */
+}
+
+/* .tooltipuuu::after { */
+/* .tooltip:hover::after { */
+/* .tooltipuuu:hover::after { */
+/* [title]::after { */
+/* .tooltipuuu:hover::after { */
+
+[tt] {
+    position: relative;
+}
+
+[tt]::after {
+    border: 1px solid #ffffff60;
+    position: absolute;
+    font-style: italic;
+    opacity: 0;
+    content: '@++';
+    left: 45%;
+    padding: 55px auto;
+    margin: 20px;
+    transform: translate(-47%, 0);
+    transition: all .7s ease-in-out;
+}
+
+[tt]:hover::after {
+    border: 1px solid #ffffff60;
+    font-size: 12px;
+    font-style: normal;
+    color: rgb(0, 153, 173);
+    position: absolute;
+    opacity: 1;
+    content: attr(tt);
+    border-radius: 5px;
+    background-color: #fff5f515;
+    width: 170px;
+
+    top: 0;
+    left: 45%;
+    right: 55px;
+    padding: 55px auto;
+    margin: 20px;
+
+    transform: translate(-47%, -32px);
+    transition: all .7s ease-in-out;
 }

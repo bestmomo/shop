@@ -18,11 +18,10 @@ new class() extends Component
 
 <div>
     <x-menu activate-by-route>
-        <x-menu-separator />
         <x-list-item :item="Auth::user()" value="name" sub-value="email" no-separator no-hover class="-mx-2 !-my-2 rounded">
             <x-slot:actions>
                 <x-button icon="o-power" wire:click="logout" class="btn-circle btn-ghost btn-xs"
-                    tooltip-left="{{ __('Logout') }}" no-wire-navigate />
+                tooltip-left="{{ __('Logout') }}" no-wire-navigate />
             </x-slot:actions>
         </x-list-item>
         <x-menu-separator />
@@ -32,6 +31,7 @@ new class() extends Component
             <x-menu-item title="{{ __('Listing') }}" icon="s-list-bullet" link="{{ route('admin.customers.index') }}" />
             <x-menu-item title="{{ __('Addresses') }}" icon="c-map-pin" link="{{ route('admin.addresses') }}" />
         </x-menu-sub>
+        <x-menu-separator />
         <x-menu-item icon="m-arrow-right-end-on-rectangle" title="{{ __('Go on store') }}" link="/" />
         <x-menu-item>
             <x-theme-toggle />

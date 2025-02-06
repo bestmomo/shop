@@ -14,16 +14,14 @@ new #[Title('Dashboard')] #[Layout('components.layouts.admin')] class extends Co
 
     public function with(): array
     {
-        echo bigN(round(123456789.12789, 2));
-
         //2do Fix Indexes
         $orders = Order::with('user', 'state', 'addresses')->orderBy(...array_values($this->sortBy))->take(6)->get();
-        $this->setPrettyOrdersIndexes($orders);
+        $orders = $this->setPrettyOrdersIndexes($orders);
         return [
             'productsCount' => Product::count(),
             'ordersCount' => Order::whereRelation('state', 'indice', '>', 3)->whereRelation('state', 'indice', '<', 6)->count(),
             'usersCount' => User::count(),
-            'orders' => Order::with('user', 'state', 'addresses')->orderBy(...array_values($this->sortBy))->take(6)->get(),
+            'orders' => $orders,
             'headersOrders' => $this->headersOrders(),
         ];
     }

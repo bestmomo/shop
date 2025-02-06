@@ -10,9 +10,9 @@ class AppServiceProvider extends ServiceProvider {
 	/**
 	 * Register any application services.
 	 */
-	public function register(): void {
-		//
-	}
+	// public function register(): void {
+	// 	//
+	// }
 
 	/**
 	 * Bootstrap any application services.
@@ -22,7 +22,6 @@ class AppServiceProvider extends ServiceProvider {
 			return;
 		}
 
-		//2fix langL()
 		Blade::directive(name: 'langL', handler: function ($expression) {
 			return "<?= transL({$expression}); ?>";
 		});
@@ -30,4 +29,3 @@ class AppServiceProvider extends ServiceProvider {
 		View::share('shop', Shop::firstOrFail());
 	}
 }
-?>

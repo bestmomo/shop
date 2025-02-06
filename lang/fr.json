@@ -454,5 +454,8 @@
     "Customer details": "Détails du client",
     "Identity": "Identité",
     "Last update": "Dernière mise à jour",
-    "#": "N° "
+    "#": "N° ",
+    "To soon.": "@ Bi1tô !",
+
+    "Sort by the last 6 digits":"Tri sur les 6 derniers chiffres"
 }

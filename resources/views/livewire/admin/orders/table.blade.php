@@ -1,9 +1,25 @@
 <x-card>
     <x-table striped :headers="$headersOrders" :rows="$orders" :sort-by="$sortBy" per-page="perPage" :with-pagination="$paginationOrders"
         link="/admin/orders/{id}">
+        @scope('header_id', $header)
+            <span class="tooltipuuu" tt="{{ __('Sort by the last 6 digits') }}">
+                {{ $header['label'] }}
+            </span>
+        @endscope
+        {{-- @scope('header_invoice_id', $header)
+        <a class="tooltip" title="{{ __('Sort by the last 6 digits') }}">
+            <span class="title"></span>
+            {{ $header['label'] }}
+        </a>
+        @endscope --}}
+        @scope('header_invoice_id', $header)
+            <span class="tooltipuuu" tt="{{ __('Sort by the last 6 digits') }}">
+                {{ $header['label'] }}
+            </span>
+        @endscope
         @scope('cell_id', $order)
             <span class="whitespace-nowrap">
-                <b>{{ $order->orderId }}</b class='text-xl'>
+                {{ $order->orderId }}
             </span>
         @endscope
         @scope('cell_user', $order)

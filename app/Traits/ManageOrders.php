@@ -14,17 +14,17 @@ trait ManageOrders {
 
 	public function headersOrders(): array {
 		return [
-			['key' => 'id', 'label' => __('#'), 'class' => 'text-center'],
+			['key' => 'id', 'label' => __('#'), 'class' => 'font-bold text-center'],
 			['key' => 'reference', 'label' => __('Reference')],
 			['key' => 'user', 'label' => __('Customer')],
 			['key' => 'total', 'label' => __('Total price')],
 			['key' => 'created_at', 'label' => __('Date')],
 			['key' => 'state', 'label' => __(key: 'State'), 'sortable' => false],
-			['key' => 'invoice_id', 'label' => __('Invoice')],
+			['key' => 'invoice_id', 'label' => __('Invoice'), 'class' => 'text-center'],
 		];
 	}
 
-	public function setPrettyOrdersIndexes($orders = null): Collection {
+	public function setPrettyOrdersIndexes(Collection $orders = null): Collection {
 		// echo get_class($orders);
 
 		$orders->transform(function ($order) {

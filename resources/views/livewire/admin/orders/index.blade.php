@@ -10,7 +10,8 @@ use Barryvdh\Debugbar\Facades\Debugbar;
 use Livewire\Attributes\{Layout, Title};
 use Illuminate\Database\Eloquent\Builder;
 
-new #[Title('Orders')] #[Layout('components.layouts.admin')] class extends Component {
+new #[Layout('components.layouts.admin')]
+class extends Component {
     use Toast, WithPagination, ManageOrders;
 
     public int $perPage = 10;
@@ -77,6 +78,7 @@ new #[Title('Orders')] #[Layout('components.layouts.admin')] class extends Compo
     }
 }; ?>
 
+@section('title', __('Orders'))
 <div>
     <x-header title="{{ __('Orders') }}" separator progress-indicator>
         <x-slot:actions>

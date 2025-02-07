@@ -2,7 +2,6 @@
 
 namespace App\Traits;
 
-use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Database\Eloquent\Collection;
 
 trait ManageOrders {
@@ -12,11 +11,9 @@ trait ManageOrders {
 		'column'    => 'invoice_id', //2ar  'created_at'
 		'direction' => 'desc',
 	];
+	public string $search = '';
 
 	public function headersOrders(): array {
-		// Debugbar::info($this->__name);
-		// Debugbar::info($this);
-
 		return [
 			['key' => 'id', 'label' => __('#'), 'class' => 'font-bold text-center'],
 			['key' => 'reference', 'label' => __('Reference')],
@@ -29,8 +26,6 @@ trait ManageOrders {
 	}
 
 	public function setPrettyOrdersIndexes(Collection $orders = null): Collection {
-		// echo get_class($orders);
-
 		$orders->transform(function ($order) {
 			list($order->orderId, $order->invoiceId) = $this->getIndexes(order: $order);
 

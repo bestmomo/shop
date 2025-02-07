@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\{BelongsTo, HasMany, HasOne};
 
 class Order extends Model {
 	use HasFactory;
-	// , ManageOrderIndexes;
+	//2ar , ManageOrderIndexes;
 
 	public $invoiceId;
 	protected $fillable = [
@@ -28,7 +28,7 @@ class Order extends Model {
 	// 	// $this->prettyIndex($this);
 	//     // dump(count($this));
 	//     echo '*';
-	//     // ************
+	//     //2ar ************
 	// }
 
 	public function addresses(): HasMany {

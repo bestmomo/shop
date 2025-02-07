@@ -11,24 +11,62 @@ use Illuminate\Database\Eloquent\Builder;
 class OrderService {
 	use ManageOrders;
 
-	public $params;
+	private object $req;
 
 	public function __construct($params) {
-		// $this->params = $params;
-		// debug, info, notice, warning, error, critical, alert, emergency
-		echo json_encode($params);
-		(new Memos())->debugBarTips();
+		$this->sortBy = $params->sortBy;
+        $this->search   = $params->search;
+		// (new Memos())->debugBarTips();
 
-		Debugbar::info($this);
-		$this->hello();
+		Debugbar::addMessage($this, 'Service');
+		Debugbar::addMessage($this->req()->toSql(), 'Req');
 	}
 
 	public function hello() {
 		// Debugbar::info('Req',  $req);
 		// Debugbar::message( $req, 'Req');
-		Debugbar::message($this);
 
 		return 'Hello';
+	}
+
+	public function req () {
+		$usedDbSystem = config('database.default', 'mysql');
+		$adaptedReq   = 'sqlite' === $usedDbSystem ? "users.name || ' ' || users.firstname" : "CONCAT(users.name, ' ', users.firstname)";
+
+        $sortBy = $this->sortBy;
+        $search = $this->search;
+
+		return Order::with('user', 'state', 'addresses')
+			->when(
+				'user' === $this->sortBy['column'],
+				function ($query) use ($adaptedReq) {
+					$query->orderBy(function ($query) use ($adaptedReq) {
+						$query
+							->selectRaw(
+								'COALESCE(
+                                        (SELECT company FROM order_addresses WHERE order_addresses.order_id = orders.id LIMIT 1),
+                                        (SELECT ' .
+								$adaptedReq .
+								' FROM users
+                                        WHERE users.id = orders.user_id)
+                                    )',
+							)
+							->limit(1);
+					}, $this->sortBy['direction']);
+				},
+				function ($query) {
+					$query->orderBy(...array_values($this->sortBy));
+				},
+			)
+			->when($this->search, function (Builder $q) {
+				$q->where('reference', 'like', "%{$this->search}%")
+					->orWhereRelation('addresses', 'company', 'like', "%{$this->search}%")
+					->orWhereRelation('user', 'name', 'like', "%{$this->search}%")
+					->orWhereRelation('user', 'firstname', 'like', "%{$this->search}%")
+					->orWhere('total', 'like', "%{$this->search}%")
+					->orWhere('invoice_id', 'like', "%{$this->search}%");
+			});
+            
 	}
 
 	public function getOrders($selection) {
@@ -66,7 +104,6 @@ class OrderService {
 						->orWhere('invoice_id', 'like', "%{$this->search}%");
 				})
 				->paginate($this->selection->perPage),
-			'headersOrders' => $this->headersOrders(),
 		];
 		// Debugbar::info($orders['orders']->first());
 		// Debugbar::info($orders['orders']->first()->user);

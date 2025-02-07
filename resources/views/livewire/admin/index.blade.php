@@ -6,7 +6,7 @@ use App\Models\{Order, Product, User};
 use Barryvdh\Debugbar\Facades\Debugbar;
 use Livewire\Attributes\{Layout, Title};
 
-new #[Title('Dashboard')] #[Layout('components.layouts.admin')] class extends Component {
+new #[Layout('components.layouts.admin')] class extends Component {
     use ManageOrders;
 
     public bool $openGlance = true;
@@ -22,7 +22,8 @@ new #[Title('Dashboard')] #[Layout('components.layouts.admin')] class extends Co
         $orders = $this->setPrettyOrdersIndexes($orders);
         return [
             'productsCount' => Product::count(),
-            'ordersCount' => Order::whereRelation('state', 'indice', '>', 3)->whereRelation('state', 'indice', '<', 6)->count(),
+            'ordersCount' => Order::whereRelation('state', 'indice', '>', 3)
+                                  ->whereRelation('state', 'indice', '<', 6)->count(),
             'usersCount' => User::count(),
             'orders' => $orders->collect(),
             'headersOrders' => $this->headersOrders(),
@@ -30,6 +31,7 @@ new #[Title('Dashboard')] #[Layout('components.layouts.admin')] class extends Co
     }
 }; ?>
 
+@section('title', content: __('Dashboard'))
 <div>
     <x-collapse wire:model="openGlance" class="shadow-md">
         <x-slot:heading>
@@ -68,5 +70,4 @@ new #[Title('Dashboard')] #[Layout('components.layouts.admin')] class extends Co
             </x-card>
         </x-slot:content>
     </x-collapse>
-
 </div>

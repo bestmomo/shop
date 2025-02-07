@@ -279,6 +279,8 @@ return [
         'year'                     => 'année',
         'weight'                   => 'poids',
         'quantity_alert'           => 'alerte de quantité',
+        'holder'                   => 'titulaire',
+        'bank_address'             => 'adresse de la banque',
     ],
     'custom' => [
         'firstname' => [

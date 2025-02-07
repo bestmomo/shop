@@ -26,7 +26,7 @@ class ShopFactory extends Factory
             'iban' => fake()->iban,
             'bank' => fake()->sentence(2),
             'bank_address' => fake()->address,
-            'facebook' => fake()->url,
+            'facebook' => 'https://www.facebook.com/' . fake()->userName(),
             'home' => fake()->sentence(3),
             'home_infos' => fake()->text,
             'home_shipping' => fake()->text,

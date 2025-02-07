@@ -33,6 +33,9 @@ new class() extends Component
             <x-menu-item title="{{ __('Addresses') }}" icon="c-map-pin" link="{{ route('admin.addresses') }}" />
         </x-menu-sub>
         <x-menu-item icon="s-building-storefront" title="{{ __('Catalog') }}" link="{{ route('admin.products.index') }}" />
+        <x-menu-sub title="{{ __('Settings') }}" icon="s-cog-8-tooth">
+            <x-menu-item title="{{ __('Store') }}" icon="c-building-storefront" link="{{ route('admin.parameters.store') }}" />
+        </x-menu-sub>
         <x-menu-item icon="m-arrow-right-end-on-rectangle" title="{{ __('Go on store') }}" link="/" />
         <x-menu-item>
             <x-theme-toggle />

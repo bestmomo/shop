@@ -10,7 +10,8 @@ use Barryvdh\Debugbar\Facades\Debugbar;
 use Livewire\Attributes\{Layout, Title};
 use Illuminate\Database\Eloquent\Builder;
 
-new #[Layout('components.layouts.admin')] class extends Component {
+new #[Layout('components.layouts.admin')]
+class extends Component {
     use Toast, WithPagination, ManageOrders;
 
     public int $perPage = 10;
@@ -27,7 +28,7 @@ new #[Layout('components.layouts.admin')] class extends Component {
         // On utilise un service pour récupérer les commandes
         // en fonction des paramètres de recherche et de tri
         // et des paramètres de pagination
-        $orders = (new orderService($this))->req()->paginate($this->perPage);
+        $orders = (new OrderService($this))->req()->paginate($this->perPage);
 
         // On ajoute un index pretty pour chaque commande
         // pour afficher un numéro de commande + lisible & + pro

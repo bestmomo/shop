@@ -2,11 +2,13 @@
 
 use App\Traits\ManageOrders;
 use Livewire\Volt\Component;
+use App\Services\OrderService;
 use App\Models\{Order, Product, User};
 use Barryvdh\Debugbar\Facades\Debugbar;
 use Livewire\Attributes\{Layout, Title};
 
-new #[Layout('components.layouts.admin')] class extends Component {
+new #[Layout('components.layouts.admin')]
+class extends Component {
     use ManageOrders;
 
     public bool $openGlance = true;
@@ -15,15 +17,11 @@ new #[Layout('components.layouts.admin')] class extends Component {
 
     public function with(): array
     {
-        $orders = Order::with('user', 'state', 'addresses')
-        ->orderBy(...array_values($this->sortBy))
-        ->take(6)->get();
-        // Debugbar::info($orders->collect()->first());
+        $orders = (new OrderService($this))->req()->take(6)->get();
         $orders = $this->setPrettyOrdersIndexes($orders);
         return [
             'productsCount' => Product::count(),
-            'ordersCount' => Order::whereRelation('state', 'indice', '>', 3)
-                                  ->whereRelation('state', 'indice', '<', 6)->count(),
+            'ordersCount' => Order::whereRelation('state', 'indice', '>', 3)->whereRelation('state', 'indice', '<', 6)->count(),
             'usersCount' => User::count(),
             'orders' => $orders->collect(),
             'headersOrders' => $this->headersOrders(),
@@ -64,8 +62,8 @@ new #[Layout('components.layouts.admin')] class extends Component {
             <x-card class="mt-6" title="" shadow separator>
                 @include('livewire.admin.orders.table')
                 <x-slot:actions>
-                    <x-button label="{{ __('See all orders') }}" class="btn-primary"
-                        icon="s-list-bullet" link="{{ route('admin.orders.index') }}" />
+                    <x-button label="{{ __('See all orders') }}" class="btn-primary" icon="s-list-bullet"
+                        link="{{ route('admin.orders.index') }}" />
                 </x-slot:actions>
             </x-card>
         </x-slot:content>

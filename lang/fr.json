@@ -497,5 +497,14 @@
     "Gray": "Gris",
     "Modifying a state": "Modification d'un état de commande",
     "State updated successfully.": "Etat mis à jour avec succès.",
-    "State created successfully.": "Etat créé avec succès."
+    "State created successfully.": "Etat créé avec succès.",
+    "Create a new country": "Création d'un nouveau pays",
+    "Country created successfully.": "Pays créé avec succès.",
+    "Are you sure to delete this country?": "Voulez-vous vraiment supprimer ce pays ?",
+    "Countries": "Pays",
+    "Country deleted successfully.": "Pays supprimé avec succès.",
+    "Enter name": "Entrez le nom",
+    "Enter VAT (e.g., 0.2)": "Entrez la TVA (par exemple, 0.2)",
+    "Edit a country": "Modification d'un pays",
+    "Country updated successfully.": "Pays mis à jour avec succès."
 }

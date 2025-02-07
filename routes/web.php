@@ -49,5 +49,7 @@ Route::middleware('auth')->group(function () {
 		Volt::route('/states', 'admin.parameters.states.index')->name('admin.parameters.states.index');
 		Volt::route('/states/create', 'admin.parameters.states.create')->name('admin.parameters.states.create');
 		Volt::route('/states/{state}/edit', 'admin.parameters.states.edit')->name('admin.parameters.states.edit');
+		Volt::route('/countries', 'admin.parameters.countries.index')->name('admin.parameters.countries.index');
+		Volt::route('/countries/{country}/edit', 'admin.parameters.countries.edit')->name('admin.parameters.countries.edit');
 	});
 });

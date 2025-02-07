@@ -1,14 +1,14 @@
 <x-card>
-    //2do hover Client → id, name, firstname+société-addr used
+    {{-- //2do hover Client → id, name, firstname+société-addr used --}}
     <x-table striped :headers="$headersOrders" :rows="$orders" :sort-by="$sortBy" per-page="perPage" :with-pagination="$paginationOrders"
         link="/admin/orders/{id}">
         @scope('header_id', $header)
-            <span class="tooltipuuu" tt="{{ __('Sort by the last 6 digits') }}">
+            <span class="tooltipdbl" tt="{{ __('Sort by the last 6 digits') }}">
                 {{ $header['label'] }}
             </span>
         @endscope
         @scope('header_invoice_id', $header)
-            <span class="tooltipuuu" tt="{{ __('Sort by the last 6 digits') }}">
+            <span class="tooltipdbl" tt="{{ __('Sort by the last 6 digits') }}">
                 {{ $header['label'] }}
             </span>
         @endscope

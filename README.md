@@ -103,14 +103,13 @@ Cela permet d'assurer une certaine uniformité et de faciliter la lecture.
 
 ---
 
-* [/] ftN() tient compte de la langue 'Soit fournie, soit système
-* //[ ] Filtrage pour autoriser le tri / Client que pour orders/index (Puisque ça marche) et inactif dans listing de l'accueil Dashbord
-* //[ ] Création d'un service pour req orders pour pages utilisant orders/table
+* //[/] Création d'un service pour req orders pour pages utilisant orders/table
 * //[ ] hover Client → id, name, firstname+société-addr used
 
 ---
 
-* [x] Désactivation globale du tri / client (Vu que problème daans listing accueil Dashboard
+* [x] Filtrage pour autoriser le tri / Client que pour orders/index (Puisque ça marche) et inactif dans listing de l'accueil Dashbord
+* [x] Désactivation globale du tri / client (Vu que problème dans listing accueil Dashboard
 * [x] Amélioration listing Client (orders/index)
   * [x] Meilleures têtes de colonnes du listing
   * [x] N° de Commande & Facture comme réels

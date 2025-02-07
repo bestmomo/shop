@@ -14,11 +14,13 @@ trait ManageOrders {
 	];
 
 	public function headersOrders(): array {
-        Debugbar::info($this);
+		// Debugbar::info($this->__name);
+		// Debugbar::info($this);
+
 		return [
 			['key' => 'id', 'label' => __('#'), 'class' => 'font-bold text-center'],
 			['key' => 'reference', 'label' => __('Reference')],
-			['key' => 'user', 'label' => __('Customer'), 'sortable' => false],
+			['key' => 'user', 'label' => __('Customer'), 'sortable' => 'admin.orders.index' === $this->__name],
 			['key' => 'total', 'label' => __('Total price')],
 			['key' => 'created_at', 'label' => __('Date')],
 			['key' => 'state', 'label' => __(key: 'State'), 'sortable' => false],
@@ -30,11 +32,11 @@ trait ManageOrders {
 		// echo get_class($orders);
 
 		$orders->transform(function ($order) {
-			[$order->orderId, $order->invoiceId] = $this->getIndexes(order: $order);
+			list($order->orderId, $order->invoiceId) = $this->getIndexes(order: $order);
 
 			return $order;
 		});
 
-        return $orders;
+		return $orders;
 	}
 }

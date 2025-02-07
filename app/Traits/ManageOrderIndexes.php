@@ -41,7 +41,6 @@ trait ManageOrderIndexes {
 	 * @return string      La chaîne formatée remplie de zéros complémentaires pour atteindre une longeur de 7 caractères.
 	 */
 	public function ftN(int|null $n): string {
-		//2see format // locale (US...)
 		$str                = (string) $n;
 		$formattedWholePart = sprintf('%06d', $n);
 

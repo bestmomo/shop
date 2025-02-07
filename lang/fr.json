@@ -487,5 +487,18 @@
     "Change": "Changement",
     "#": "N° ",
     "To soon.": "@ Bi1tô !",
-    "Sort by the last 6 digits": "Tri sur les 6 derniers chiffres"
+    "Sort by the last 6 digits": "Tri sur les 6 derniers chiffres",
+    "Color": "Couleur",
+    "Are you sure you want to delete this state?": "Voulez-vous vraiment supprimer cet état ?",
+    "Order status": "Etats de commande",
+    "Create a new state": "Création d'un nouvel état de commande",
+    "Enter state name": "Entrez le nom de l'état de commande",
+    "Enter unique slug": "Entrez un slug unique",
+    "Blue": "Bleu",
+    "Red": "Rouge",
+    "Green": "Vert",
+    "Gray": "Gris",
+    "Modifying a state": "Modification d'un état de commande",
+    "State updated successfully.": "Etat mis à jour avec succès.",
+    "State created successfully.": "Etat créé avec succès."
 }

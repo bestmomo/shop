@@ -2,8 +2,9 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use Livewire\Volt\Volt;
+use App\Services\OrderService;
+use Illuminate\Support\ServiceProvider;
 
 class VoltServiceProvider extends ServiceProvider
 {
@@ -13,6 +14,9 @@ class VoltServiceProvider extends ServiceProvider
     public function register(): void
     {
         //
+		$this->app->bind(OrderService::class, function ($app) {
+			return new OrderService();
+		});
     }
 
     /**

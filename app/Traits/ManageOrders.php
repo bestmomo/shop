@@ -20,7 +20,7 @@ trait ManageOrders {
 		return [
 			['key' => 'id', 'label' => __('#'), 'class' => 'font-bold text-center'],
 			['key' => 'reference', 'label' => __('Reference')],
-			['key' => 'user', 'label' => __('Customer'), 'sortable' => 'admin.orders.index' === $this->__name],
+			['key' => 'user', 'label' => __('Customer')],
 			['key' => 'total', 'label' => __('Total price')],
 			['key' => 'created_at', 'label' => __('Date')],
 			['key' => 'state', 'label' => __(key: 'State'), 'sortable' => false],

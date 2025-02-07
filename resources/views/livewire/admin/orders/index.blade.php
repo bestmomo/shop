@@ -5,6 +5,7 @@ use Mary\Traits\Toast;
 use App\Traits\ManageOrders;
 use Livewire\Volt\Component;
 use Livewire\WithPagination;
+use App\Services\OrderService;
 use Barryvdh\Debugbar\Facades\Debugbar;
 use Livewire\Attributes\{Layout, Title};
 use Illuminate\Database\Eloquent\Builder;
@@ -15,6 +16,12 @@ new #[Title('Orders')] #[Layout('components.layouts.admin')] class extends Compo
     public int $perPage = 10;
     public string $search = '';
     public bool $paginationOrders = true;
+    // private $orderService;
+
+    // public function __construct(OrderService $orderService)
+    // {
+    //     $this->orderService = $orderService;
+    // }
 
     public function deleteOrder(Order $order): void
     {
@@ -64,6 +71,8 @@ new #[Title('Orders')] #[Layout('components.layouts.admin')] class extends Compo
         $newCollection = $this->setPrettyOrdersIndexes($orders['orders']->getCollection());
         $orders['orders']->setCollection($newCollection);
 
+        $orders2 = new orderService($this->sortBy);
+        // Debugbar::info($orders2);
         return $orders;
     }
 }; ?>

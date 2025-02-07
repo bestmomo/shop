@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Shop;
+use App\Services\OrderService;
 use Illuminate\Support\Facades\{Blade, View};
 use Illuminate\Support\ServiceProvider;
 
@@ -22,10 +23,11 @@ class AppServiceProvider extends ServiceProvider {
 			return;
 		}
 
-		Blade::directive(name: 'langL', handler: function ($expression) {
-			return "<?= transL({$expression}); ?>";
-		});
-
 		View::share('shop', Shop::firstOrFail());
-	}
+
+		Blade::directive(name: 'langL', handler: function ($expression): string {
+			return "<?= transL({$expression}); ?>";
+});
 }
+}
+?>

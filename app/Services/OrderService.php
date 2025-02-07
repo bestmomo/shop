@@ -12,6 +12,7 @@ class OrderService {
 	use ManageOrders;
 
 	private object $req;
+	private $adaptedReq;
 
 	public function __construct($params) {
 		$this->sortBy = $params->sortBy;
@@ -21,8 +22,7 @@ class OrderService {
 	}
 
 	public function req () {
-		$usedDbSystem = config('database.default', 'mysql');
-		$adaptedReq   = 'sqlite' === $usedDbSystem ? "users.name || ' ' || users.firstname" : "CONCAT(users.name, ' ', users.firstname)";
+		$this->adaptedReq = 'sqlite' === config('database.default', 'mysql') ? "users.name || ' ' || users.firstname" : "CONCAT(users.name, ' ', users.firstname)";
 
 		$sortBy = $this->sortBy;
 		$search = $this->search;
@@ -30,14 +30,14 @@ class OrderService {
 		return Order::with('user', 'state', 'addresses')
 			->when(
 				'user' === $this->sortBy['column'],
-				function ($query) use ($adaptedReq) {
-					$query->orderBy(function ($query) use ($adaptedReq) {
+				function ($query) {
+					$query->orderBy(function ($query) {
 						$query
 							->selectRaw(
 								'COALESCE(
                                         (SELECT company FROM order_addresses WHERE order_addresses.order_id = orders.id LIMIT 1),
                                         (SELECT ' .
-								$adaptedReq .
+								$this->adaptedReq .
 								' FROM users
                                         WHERE users.id = orders.user_id)
                                     )',

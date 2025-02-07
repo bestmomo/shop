@@ -45,5 +45,6 @@ Route::middleware('auth')->group(function () {
 		Volt::route('/products', 'admin.products.index')->name('admin.products.index');
 		Volt::route('/products/create', 'admin.products.create')->name('admin.products.create');
 		Volt::route('/products/{product}/edit', 'admin.products.edit')->name('admin.products.edit');
+		Volt::route('/store', 'admin.parameters.store')->name('admin.parameters.store');
 	});
 });

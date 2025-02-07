@@ -474,5 +474,18 @@
     "Weight in kg": "Poids en kg",
     "Quantity available": "Quantité disponible",
     "Product updated successfully.": "Produit mis à jour avec succès.",
-    "Edit a product": "Modification d'un produit"
+    "Edit a product": "Modification d'un produit",
+    "Store": "Boutique",
+    "Phone": "Téléphone",
+    "Bank": "Banque",
+    "Holder": "Titulaire",
+    "Accepted payment methods": "Moyens de paiement acceptés",
+    "Store updated with success.": "Boutique mise à jour avec succès.",
+    "Shipping costs": "Frais de livraison",
+    "Title": "Titre",
+    "Activation of billing": "Activation de la facturation",
+    "Change": "Changement",
+    "#": "N° ",
+    "To soon.": "@ Bi1tô !",
+    "Sort by the last 6 digits": "Tri sur les 6 derniers chiffres"
 }

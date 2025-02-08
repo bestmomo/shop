@@ -432,7 +432,7 @@
     "Sort by the last 6 digits": "Tri sur les 6 derniers chiffres",
     "Payment ID": "ID paiement",
     "The invoice was generated with id": "La facture a été générée avec l'id",
-    "and the number": "et le n°",
+    "And the number": "et le n°",
     "Payment has been made": "Le paiement a été effectué",
     "Generate invoice": "Générer la facture",
     "Invoice generated successfully.": "Facture génerée avec succès.",
@@ -485,9 +485,6 @@
     "Title": "Titre",
     "Activation of billing": "Activation de la facturation",
     "Change": "Changement",
-    "#": "N° ",
-    "To soon.": "@ Bi1tô !",
-    "Sort by the last 6 digits": "Tri sur les 6 derniers chiffres",
     "Color": "Couleur",
     "Are you sure you want to delete this state?": "Voulez-vous vraiment supprimer cet état ?",
     "Order status": "Etats de commande",
@@ -509,5 +506,13 @@
     "Enter name": "Entrez le nom",
     "Enter VAT (e.g., 0.2)": "Entrez la TVA (par exemple, 0.2)",
     "Edit a country": "Modification d'un pays",
-    "Country updated successfully.": "Pays mis à jour avec succès."
+    "Country updated successfully.": "Pays mis à jour avec succès.",
+    "Create a new page": "Création d'une nouvelle page",
+    "Page created successfully.": "Page crée avec succès.",
+    "Are you sure you want to delete this page?": "Voulez-vous vraiment supprimer cette page ?",
+    "Page deleted successfully.": "Page supprimée avec succès.",
+    "Enter page title": "Entrez le titre de la page",
+    "Text": "Texte",
+    "Edit a page": "Modification d'une page",
+"Page updated successfully.": "Page mise à jour avec succès."
 }

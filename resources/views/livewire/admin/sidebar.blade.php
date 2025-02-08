@@ -37,6 +37,7 @@ new class() extends Component
             <x-menu-item title="{{ __('Store') }}" icon="c-building-storefront" link="{{ route('admin.parameters.store') }}" />
             <x-menu-item title="{{ __('Order status') }}" icon="m-eye" link="{{ route('admin.parameters.states.index') }}" />
             <x-menu-item title="{{ __('Countries') }}" icon="c-map-pin" link="{{ route('admin.parameters.countries.index') }}" />
+            <x-menu-item title="{{ __('Pages') }}" icon="o-document-duplicate" link="{{ route('admin.parameters.pages.index') }}" />
         </x-menu-sub>
         <x-menu-item icon="m-arrow-right-end-on-rectangle" title="{{ __('Go on store') }}" link="/" />
         <x-menu-item>

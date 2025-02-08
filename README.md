@@ -95,3 +95,23 @@ Par exemple :
 
 Cela permet d'assurer une certaine uniformité et de faciliter la lecture.
 ```
+---
+
+## Rapide RoadMap
+
+### Problèmes observés (En cours [ ] et résolus [x])
+
+---
+
+* //[/] Listings clients: hover Client → id, name, firstname+société-addr used
+
+---
+
+* [x] Création d'un service pour req orders pour pages utilisant orders/table
+* [x] Filtrage pour autoriser le tri / Client que pour orders/index (Puisque ça marche) et inactif dans listing de l'accueil Dashbord
+* [x] Désactivation globale du tri / client (Vu que problème dans listing accueil Dashboard
+* [x] Amélioration listing Client (orders/index)
+  * [x] Meilleures têtes de colonnes du listing
+  * [x] N° de Commande & Facture comme réels
+* [x] Listing client - Tri / client bug si SqLite → Fix
+* [x] Lien pour Dashbord Front-End petit écran

@@ -1,22 +1,20 @@
 <?php
 
-use Livewire\Volt\Component;
-use Livewire\Attributes\{Layout, Title};
 use App\Models\Order;
 use Mary\Traits\Toast;
-use Livewire\WithPagination;
-use Illuminate\Database\Eloquent\Builder;
 use App\Traits\ManageOrders;
+use Livewire\Volt\Component;
+use Livewire\WithPagination;
+use App\Services\OrderService;
+use Barryvdh\Debugbar\Facades\Debugbar;
+use Livewire\Attributes\{Layout, Title};
+use Illuminate\Database\Eloquent\Builder;
 
-new 
-#[Title('Orders')] 
-#[Layout('components.layouts.admin')] 
-class extends Component
-{
+new #[Layout('components.layouts.admin')]
+class extends Component {
     use Toast, WithPagination, ManageOrders;
 
     public int $perPage = 10;
-    public string $search = '';
     public bool $paginationOrders = true;
 
     public function deleteOrder(Order $order): void
@@ -26,53 +24,30 @@ class extends Component
     }
 
     public function with(): array
-	{
-		return [
-            'orders' => Order::with('user', 'state', 'addresses')
-                ->when($this->sortBy['column'] === 'user', 
-                    function ($query) {
-                        $query->orderBy(function ($query) {
-                            $query->selectRaw('COALESCE(
-                                (SELECT company FROM order_addresses WHERE order_addresses.order_id = orders.id LIMIT 1),
-                                (SELECT CONCAT(users.name, " ", users.firstname) 
-                                FROM users 
-                                WHERE users.id = orders.user_id)
-                            )')
-                            ->limit(1);
-                        }, $this->sortBy['direction']);
-                    },
-                    function ($query) {
-                        $query->orderBy(...array_values($this->sortBy));
-                    }
-                )
-                ->when($this->search, function (Builder $q)
-                {
-                    $q->where('reference', 'like', "%{$this->search}%")
-                        ->orWhereRelation('addresses', 'company', 'like', "%{$this->search}%")
-                        ->orWhereRelation('state', 'name', 'like', "%{$this->search}%");
-                })
-                ->paginate($this->perPage),
-			'headersOrders' => $this->headersOrders(),
-		];
-	}
-   
+    {
+        // On utilise un service pour récupérer les commandes
+        // en fonction des paramètres de recherche et de tri
+        // et des paramètres de pagination
+        $orders = (new OrderService($this))->req()->paginate($this->perPage);
+
+        // On ajoute un index pretty pour chaque commande
+        // pour afficher un numéro de commande + lisible & + pro
+        $orders->setCollection($this->setPrettyOrdersIndexes($orders->getCollection()));
+
+        // On renvoie les en-têtes de la table des commandes
+        // et la liste des commandes
+        return ['headersOrders' => $this->headersOrders(), 'orders' => $orders];
+    }
 }; ?>
 
+@section('title', __('Orders'))
 <div>
-    <x-header title="{{ __('Orders') }}" separator progress-indicator >
+    <x-header title="{{ __('Orders') }}" separator progress-indicator>
         <x-slot:actions>
-            <x-input 
-                placeholder="{{ __('Search...') }}" 
-                wire:model.live.debounce="search" 
-                clearable
-                icon="o-magnifying-glass" 
-            />
-            <x-button 
-                icon="s-building-office-2" 
-                label="{{ __('Dashboard') }}" 
-                class="btn-outline lg:hidden" 
-                link="{{ route('admin') }}" 
-            />
+            <x-input placeholder="{{ __('Search...') }}" wire:model.live.debounce="search" clearable
+                icon="o-magnifying-glass" />
+            <x-button icon="s-building-office-2" label="{{ __('Dashboard') }}" class="btn-outline lg:hidden"
+                link="{{ route('admin') }}" />
         </x-slot:actions>
     </x-header>
 

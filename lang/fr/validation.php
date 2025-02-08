@@ -281,6 +281,7 @@ return [
         'quantity_alert'           => 'alerte de quantité',
         'holder'                   => 'titulaire',
         'bank_address'             => 'adresse de la banque',
+        'tax'                      => 'TVA',
     ],
     'custom' => [
         'firstname' => [

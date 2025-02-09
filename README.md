@@ -107,7 +107,7 @@ Cela permet d'assurer une certaine uniformité et de faciliter la lecture.
 
 * //[ ] Supression de tous les $adaptedReq (Adaptation des reqs pour PostGres + SqLite, vu que même environement pour tous les devs)
   
-* //[ ] Docker: Création d'un dépôt pour dev de Sillo-Shopen 1 clic): Nginx, MySQL, PhpMyAdmin, MailPit intégré
+* //[ ] Docker: Création d'un dépôt pour dev de Sillo-Shop (En 1 clic: Nginx, PHP, MySQL, PhpMyAdmin, NodeJS, ViteJS (Avec HotReload), MailPit intégré, etc...)
   
 * //[ ] Docker: Création d'un dépôt public de Sillo-Shop démo (en 1 clic: Ouverture auto du browser avec visu. du site + 1 fenêtre pour visu. des emails émis par le site en HTML (MailPit:8025)
 

@@ -28,9 +28,9 @@ trait ManageOrderIndexes {
 	 */
 	public function ftD(string $d, $sep = ''): string {
 		return
-		substr(string: $d, offset: 8, length: 2) . $sep .
+		substr(string: $d, offset: 2, length: 2) . $sep .
 		substr(string: $d, offset: 5, length: 2) . $sep .
-		substr(string: $d, offset: 2, length: 2);
+		substr(string: $d, offset: 8, length: 2);
 	}
 
 	/**

@@ -8,14 +8,15 @@ trait ManageOrders {
 	use ManageOrderIndexes;
 
 	public array $sortBy = [
-		'column'    => 'invoice_id', //2ar  'created_at'
-		'direction' => 'desc',
+		'column'    => 'id', // sort 'created_at'
+		'direction' => 'desc', // 'desc'
 	];
 	public string $search = '';
 
 	public function headersOrders(): array {
 		return [
-			['key' => 'id', 'label' => __('#'), 'class' => 'font-bold text-center'],
+			['key' => 'id', 'label' => __('#'),
+             'class' => 'text-center'],
 			['key' => 'reference', 'label' => __('Reference')],
 			['key' => 'user', 'label' => __('Customer')],
 			['key' => 'total', 'label' => __('Total price')],

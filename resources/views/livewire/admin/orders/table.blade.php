@@ -40,12 +40,13 @@
         @endscope
 
         @scope('cell_user', $order)
-            {{-- @include('livewire.admin.partials.userOrderPopover', ['user' => $order->user]) --}}
+            {{-- <x-address :address="$order->addresses->last()" /> --}}
             <x-popover>
                 <x-slot:trigger>
                     {{ $order->addresses->first()->company ?? $order->user->name . ' ' . $order->user->firstname }}
                     <x-slot:content class="pop-small">
-                        @include('livewire.admin.partials.userOrderPopover', ['user' => $order->user])
+                        @lang('Delivery address'):<br>
+                        <x-address :address="$order->addresses->last()" />
                     </x-slot:content>
                 </x-slot:trigger>
             </x-popover>

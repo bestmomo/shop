@@ -103,13 +103,13 @@ Cela permet d'assurer une certaine uniformité et de faciliter la lecture.
 
 ---
 
-* //[ ] Shop delivery fees
-* //[ ] Shop pages
-* //[ ] Countries
-* //[ ] Shop states
-* //[ ] Shop
-* //[ ] Catalog
-* //[/] Customers
+* //[ ] Shop : les frais de port
+* //[ ] Shop : les pages
+* //[ ] Shop : les pays
+* //[ ] Shop : états de commande
+* //[ ] Shop : la boutique
+* //[ ] Shop : le catalogue
+* //[/] Shop : les clients
 
 ---
 

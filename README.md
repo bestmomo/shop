@@ -105,7 +105,7 @@ Cela permet d'assurer une certaine uniformité et de faciliter la lecture.
 
 * //[ ] Config dans le Docker dev, de VSC auto-démarré avec certaines extensions utiles (Todo, Database, Config des couleurs dans le code, etc...)
 
-* //[ ] Supression de tous les $adaptedReq (Adaptation des reqs pour PostGres + SqLite, vu que même environement pour tous les devs)
+* //[ ] Suppression de tous les $adaptedReq (Adaptation des reqs pour PostGres + SqLite, vu que même envirronement pour tous les devs)
   
 * //[ ] Docker: Création d'un dépôt pour dev de Sillo-Shop (En 1 clic: Nginx, PHP, MySQL, PhpMyAdmin, NodeJS, ViteJS (Avec HotReload), MailPit intégré, etc...)
   

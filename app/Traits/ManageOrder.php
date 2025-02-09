@@ -4,7 +4,7 @@ namespace App\Traits;
 
 use App\Models\Order;
 
-trait ManageOrderIndexes {
+trait ManageOrder {
 	/**
 	 * Formate la date et l'ID de la commande ou de la facture pour générer un numéro de commande ressemblant à un numéro de commande réel de commande ou facture.
 	 *
@@ -28,9 +28,9 @@ trait ManageOrderIndexes {
 	 */
 	public function ftD(string $d, $sep = ''): string {
 		return
-		substr(string: $d, offset: 8, length: 2) . $sep .
+		substr(string: $d, offset: 2, length: 2) . $sep .
 		substr(string: $d, offset: 5, length: 2) . $sep .
-		substr(string: $d, offset: 2, length: 2);
+		substr(string: $d, offset: 8, length: 2);
 	}
 
 	/**
@@ -46,4 +46,8 @@ trait ManageOrderIndexes {
 
 		return substr($formattedWholePart, 0, 3) . ' ' . substr($formattedWholePart, 3);
 	}
+	public function uuu() {
+		return 'oki';
+	}
+
 }

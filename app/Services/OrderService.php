@@ -17,15 +17,12 @@ class OrderService {
 	public function __construct($params) {
 		$this->sortBy = $params->sortBy;
 		$this->search = $params->search;
-		Debugbar::addMessage($this->req()->toSql(), 'Req');
-		(new Memos())->debugBarTips();
+		// Debugbar::addMessage($this->req()->toSql(), 'Req OrderService');
+		// (new Memos())->debugBarTips();
 	}
 
 	public function req () {
 		$this->adaptedReq = 'sqlite' === config('database.default', 'mysql') ? "users.name || ' ' || users.firstname" : "CONCAT(users.name, ' ', users.firstname)";
-
-		$sortBy = $this->sortBy;
-		$search = $this->search;
 
 		return Order::with('user', 'state', 'addresses')
 			->when(
@@ -58,4 +55,5 @@ class OrderService {
 					->orWhere('invoice_id', 'like', "%{$this->search}%");
 			});
 	}
+
 }

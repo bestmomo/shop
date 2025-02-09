@@ -1,8 +1,8 @@
 <?php
 
-use Livewire\Volt\Volt;
-use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\IsAdmin;
+use Illuminate\Support\Facades\Route;
+use Livewire\Volt\Volt;
 
 Volt::route('/', 'index')->name('home');
 Volt::route('/pages/{page:slug}', 'page')->name('pages');
@@ -17,7 +17,6 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-
 	Route::prefix('order')->group(function () {
 		Volt::route('/creation', 'order.index')->name('order.index');
 		Volt::route('/confirmation/{id}', 'order.confirmation')->name('order.confirmation');
@@ -34,9 +33,9 @@ Route::middleware('auth')->group(function () {
 		Volt::route('/orders/{order}', 'account.orders.show')->name('orders.show');
 	});
 
-	Route::middleware(IsAdmin::class)->prefix('admin')->group(function ()
-	{
+	Route::middleware(IsAdmin::class)->prefix('admin')->group(function () {
 		Volt::route('/dashboard', 'admin.index')->name('admin');
+		Volt::route('/torders', 'admin.orders.tindex')->name('admin.torders.tindex');
 		Volt::route('/orders', 'admin.orders.index')->name('admin.orders.index');
 		Volt::route('/orders/{order}', 'admin.orders.show')->name('admin.orders.show');
 		Volt::route('/customers', 'admin.customers.index')->name('admin.customers.index');

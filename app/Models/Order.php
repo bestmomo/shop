@@ -2,14 +2,13 @@
 
 namespace App\Models;
 
-// use App\Traits\ManageOrderIndexes;
+// use App\Traits\ManageOrder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\{BelongsTo, HasMany, HasOne};
 
 class Order extends Model {
 	use HasFactory;
-	//2ar , ManageOrderIndexes;
 
 	public $invoiceId;
 	protected $fillable = [
@@ -22,14 +21,6 @@ class Order extends Model {
 		'pick',
 		'total',
 	];
-
-	// public function __construct() {
-	//     // $order = parent::__construct($this);
-	// 	// $this->prettyIndex($this);
-	//     // dump(count($this));
-	//     echo '*';
-	//     //2ar ************
-	// }
 
 	public function addresses(): HasMany {
 		return $this->hasMany(OrderAddress::class);

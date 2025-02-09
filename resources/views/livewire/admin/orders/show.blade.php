@@ -208,7 +208,7 @@ class extends Component
                 <x-icon name="o-shopping-cart" class="mr-3 w-6 h-6 text-primary" />
                 <span>
                     <strong>@lang('Validated orders') :</strong>
-                    <x-badge value="{{ $order->user->orders->where('state_id', '>', 5)->count() }}" class="badge-success" />
+                    <x-badge value="{{ $order->user->orders->where('state_id', '>', 6)->count() }}" class="badge-success" />
                 </span>
             </div>
         </div>

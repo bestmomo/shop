@@ -38,9 +38,19 @@
         @scope('cell_reference', $order)
             {{ $order->reference }}
         @endscope
+
         @scope('cell_user', $order)
-            {{ $order->addresses->first()->company ?? $order->user->name . ' ' . $order->user->firstname }}
+            {{-- @include('livewire.admin.partials.userOrderPopover', ['user' => $order->user]) --}}
+            <x-popover>
+                <x-slot:trigger>
+                    {{ $order->addresses->first()->company ?? $order->user->name . ' ' . $order->user->firstname }}
+                    <x-slot:content class="pop-small">
+                        @include('livewire.admin.partials.userOrderPopover', ['user' => $order->user])
+                    </x-slot:content>
+                </x-slot:trigger>
+            </x-popover>
         @endscope
+
         @scope('cell_total', $order)
             <div class="whitespace-nowrap text-right pr-7">
                 {{ number_format($order->total, 2, ',', ' ') }} €
@@ -79,5 +89,6 @@
                 </table>
             @endif
         @endscope
+
     </x-table>
 </x-card>

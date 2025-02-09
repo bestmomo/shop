@@ -103,10 +103,17 @@ Cela permet d'assurer une certaine uniformité et de faciliter la lecture.
 
 ---
 
-* //[/] Listings clients: hover Client → id, name, firstname+société-addr used
+* //[ ] Shop delivery fees
+* //[ ] Shop pages
+* //[ ] Countries
+* //[ ] Shop states
+* //[ ] Shop
+* //[ ] Catalog
+* //[/] Customers
 
 ---
 
+* [x] Listings clients: hover Client → Delivery address
 * [x] Création d'un service pour req orders pour pages utilisant orders/table
 * [x] Filtrage pour autoriser le tri / Client que pour orders/index (Puisque ça marche) et inactif dans listing de l'accueil Dashbord
 * [x] Désactivation globale du tri / client (Vu que problème dans listing accueil Dashboard

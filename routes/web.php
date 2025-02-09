@@ -50,5 +50,11 @@ Route::middleware('auth')->group(function () {
 		Volt::route('/states/{state}/edit', 'admin.parameters.states.edit')->name('admin.parameters.states.edit');
 		Volt::route('/countries', 'admin.parameters.countries.index')->name('admin.parameters.countries.index');
 		Volt::route('/countries/{country}/edit', 'admin.parameters.countries.edit')->name('admin.parameters.countries.edit');
+		Volt::route('/pages', 'admin.parameters.pages.index')->name('admin.parameters.pages.index');
+		Volt::route('/pages/create', 'admin.parameters.pages.create')->name('admin.parameters.pages.create');
+		Volt::route('/pages/{page}/edit', 'admin.parameters.pages.edit')->name('admin.parameters.pages.edit');
+		Volt::route('/ranges', 'admin.parameters.shipping.ranges')->name('admin.parameters.shipping.ranges');
+		Volt::route('/rates', 'admin.parameters.shipping.rates')->name('admin.parameters.shipping.rates');
+		Volt::route('/maintenance', 'admin.maintenance')->name('admin.maintenance');
 	});
 });

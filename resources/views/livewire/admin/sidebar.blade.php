@@ -37,7 +37,13 @@ new class() extends Component
             <x-menu-item title="{{ __('Store') }}" icon="c-building-storefront" link="{{ route('admin.parameters.store') }}" />
             <x-menu-item title="{{ __('Order status') }}" icon="m-eye" link="{{ route('admin.parameters.states.index') }}" />
             <x-menu-item title="{{ __('Countries') }}" icon="c-map-pin" link="{{ route('admin.parameters.countries.index') }}" />
+            <x-menu-item title="{{ __('Pages') }}" icon="o-document-duplicate" link="{{ route('admin.parameters.pages.index') }}" />
+            <x-menu-sub title="{{ __('Shipments') }}" icon="s-truck">
+                <x-menu-item title="{{ __('Ranges') }}" icon="o-circle-stack" link="{{ route('admin.parameters.shipping.ranges') }}" />
+                <x-menu-item title="{{ __('Rates') }}" icon="s-currency-euro" link="{{ route('admin.parameters.shipping.rates') }}" />
+            </x-menu-sub>
         </x-menu-sub>
+        <x-menu-item title="{{ __('Maintenance') }}" icon="c-wrench-screwdriver" link="{{ route('admin.maintenance') }}" :class="App::isDownForMaintenance() ? 'bg-red-300' : ''" />
         <x-menu-item icon="m-arrow-right-end-on-rectangle" title="{{ __('Go on store') }}" link="/" />
         <x-menu-item>
             <x-theme-toggle />

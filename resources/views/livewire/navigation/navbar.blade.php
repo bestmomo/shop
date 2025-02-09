@@ -56,7 +56,7 @@ new class extends Component {
 };
 ?>
 
-<x-nav sticky full-width :class="'bg-cyan-700 text-white'">
+<x-nav sticky full-width :class="App::isDownForMaintenance() ? 'bg-red-300' : 'bg-cyan-700 text-white'">
 
     <x-slot:brand>
         <label for="main-drawer" class="mr-3 lg:hidden">

@@ -8,7 +8,7 @@ trait ManageOrders {
 	use ManageOrder;
 
 	public array $sortBy = [
-		'column'    => 'id', //2ar sort 'created_at' + direction
+		'column'    => 'id', //Original sort 'created_at' + direction
 		'direction' => 'desc', // 'desc'
 	];
 	public string $search = '';

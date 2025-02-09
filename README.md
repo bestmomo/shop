@@ -97,19 +97,30 @@ Cela permet d'assurer une certaine uniformité et de faciliter la lecture.
 ```
 ---
 
-## Rapide RoadMap
+## RoadMap
 
-### Problèmes observés (En cours [ ] et résolus [x])
+### Problèmes observés/Objectifs (Planifiés [ ], en cours [/] et résolus/réalisés [x])
 
 ---
 
-* //[ ] Shop : les frais de port
-* //[ ] Shop : les pages
-* //[ ] Shop : les pays
-* //[ ] Shop : états de commande
-* //[ ] Shop : la boutique
-* //[ ] Shop : le catalogue
-* //[/] Shop : les clients
+* //[ ] Config dans le Docker dev, de VSC auto-démarré avec certaines extensions utiles (Todo, Database, Config des couleurs dans le code, etc...)
+
+* //[ ] Supression de tous les $adaptedReq (Adaptation des reqs pour PostGres + SqLite, vu que même environement pour tous les devs)
+  
+* //[ ] Docker: Création d'un dépôt pour dev de Sillo-Shopen 1 clic): Nginx, MySQL, PhpMyAdmin, MailPit intégré
+  
+* //[ ] Docker: Création d'un dépôt public de Sillo-Shop démo (en 1 clic: Ouverture auto du browser avec visu. du site + 1 fenêtre pour visu. des emails émis par le site en HTML (MailPit:8025)
+
+---
+
+* ...
+* //[ ] Shop : Les frais de port
+* //[ ] Shop : Les pages
+* //[ ] Shop : Les pays
+* //[ ] Shop : États de commande
+* //[ ] Shop : La boutique
+* //[ ] Shop : Le catalogue
+* //[/] Shop : Les clients
 
 ---
 

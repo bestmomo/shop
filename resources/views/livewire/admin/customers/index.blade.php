@@ -7,9 +7,8 @@ use Mary\Traits\Toast;
 use Livewire\WithPagination;
 use Illuminate\Database\Eloquent\Builder;
 
-new 
-#[Title('Customers')] 
-#[Layout('components.layouts.admin')] 
+new
+#[Layout('components.layouts.admin')]
 class extends Component
 {
     use Toast, WithPagination;
@@ -26,8 +25,8 @@ class extends Component
     public function headers(): array
     {
         return [
-            ['key' => 'name', 'label' => __('Name')], 
-            ['key' => 'firstname', 'label' => __('Firstname')],            
+            ['key' => 'name', 'label' => __('Name')],
+            ['key' => 'firstname', 'label' => __('Firstname')],
             ['key' => 'email', 'label' => __('Email')],
             ['key' => 'created_at', 'label' => __('Registration')],
             ['key' => 'newsletter', 'label' => __('Newsletter')],
@@ -48,37 +47,38 @@ class extends Component
                 {
                     $query->where('name', 'like', "%{$this->search}%");
                 })
-                ->paginate($this->perPage),			
+                ->paginate($this->perPage),
 			'headers' => $this->headers(),
 		];
 	}
-   
+
 }; ?>
 
+@section('title', __('Customers'))
 <div>
     <x-header title="{{ __('Customers') }}" separator progress-indicator >
         <x-slot:actions>
-            <x-input 
-                placeholder="{{ __('Search a name...') }}" 
-                wire:model.live.debounce="search" 
+            <x-input
+                placeholder="{{ __('Search a name...') }}"
+                wire:model.live.debounce="search"
                 clearable
-                icon="o-magnifying-glass" 
+                icon="o-magnifying-glass"
             />
-            <x-button 
-                icon="s-building-office-2" 
-                label="{{ __('Dashboard') }}" 
-                class="btn-outline lg:hidden" 
-                link="{{ route('admin') }}" 
+            <x-button
+                icon="s-building-office-2"
+                label="{{ __('Dashboard') }}"
+                class="btn-outline lg:hidden"
+                link="{{ route('admin') }}"
             />
         </x-slot:actions>
     </x-header>
 
     <x-card>
-        <x-table 
-            striped 
-            :headers="$headers" 
-            :rows="$users" 
-            :sort-by="$sortBy" 
+        <x-table
+            striped
+            :headers="$headers"
+            :rows="$users"
+            :sort-by="$sortBy"
             per-page="perPage"
             with-pagination
             link="/admin/customers/{id}"
@@ -110,12 +110,12 @@ class extends Component
                     @if($deleteButton)
                         <x-popover>
                             <x-slot:trigger>
-                                <x-button 
-                                    icon="o-trash" 
-                                    wire:click="deleteUser({{ $user->id }})" 
-                                    wire:confirm="{{ __('Are you sure you want to delete this user?') }}" 
-                                    spinner 
-                                    class="text-red-500 btn-ghost btn-sm" 
+                                <x-button
+                                    icon="o-trash"
+                                    wire:click="deleteUser({{ $user->id }})"
+                                    wire:confirm="{{ __('Are you sure you want to delete this user?') }}"
+                                    spinner
+                                    class="text-red-500 btn-ghost btn-sm"
                                 />
                             </x-slot:trigger>
                             <x-slot:content class="pop-small">

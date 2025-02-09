@@ -6,7 +6,6 @@ use App\Models\User;
 use Mary\Traits\Toast;
 
 new
-#[Title('Customer')]
 #[Layout('components.layouts.admin')]
 class extends Component
 {
@@ -19,7 +18,7 @@ class extends Component
         return [
             ['key' => 'reference', 'label' => __('Reference')],
             ['key' => 'created_at', 'label' => __('Date')],
-            ['key' => 'total', 'label' => __('Total price')],
+            ['key' => 'total', 'label' => __('Total price'), 'class'=>'text-right'],
             ['key' => 'state', 'label' => __('State')],
         ];
     }
@@ -39,6 +38,7 @@ class extends Component
 
 }; ?>
 
+@section('title', __('Customer'). ' '.$user->name)
 <div>
     <x-header title="{{ __('Customer details') }}" separator progress-indicator>
         <x-slot:actions>
@@ -120,7 +120,7 @@ class extends Component
                 {{ $order->total }} €
             @endscope
             @scope('cell_state', $order)
-                <x-badge value="{{ $order->state->name }}" class="p-3 bg-{{ $order->state->color }}-400 self-start sm:self-center" />
+                <x-badge value="{{ $order->state->name }}" class="p-3 bg-{{ $order->state->color }}-400 self-start sm:self-center text-black" />
             @endscope
         </x-table>
     </x-card><br>

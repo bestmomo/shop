@@ -119,11 +119,11 @@ Cela permet d'assurer une certaine uniformité et de faciliter la lecture.
 * //[ ] Shop : Les pays
 * //[ ] Shop : États de commande
 * //[ ] Shop : La boutique
-* //[ ] Shop : Le catalogue
-* //[/] Shop : Les clients
+* //[/] Shop : Le catalogue
 
 ---
 
+* [x] Shop : Les clients
 * [x] Listings clients: hover Client → Delivery address
 * [x] Création d'un service pour req orders pour pages utilisant orders/table
 * [x] Filtrage pour autoriser le tri / Client que pour orders/index (Puisque ça marche) et inactif dans listing de l'accueil Dashbord

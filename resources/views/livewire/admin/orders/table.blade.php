@@ -53,8 +53,8 @@
         @endscope
 
         @scope('cell_total', $order)
-            <div class="whitespace-nowrap text-right pr-7">
-                {{ number_format($order->total, 2, ',', ' ') }} €
+            <div class="text-right whitespace-nowrap pr-7">
+                {{ number_format($order->totalOrder, 2, ',', ' ') }} €
             </div>
         @endscope
 

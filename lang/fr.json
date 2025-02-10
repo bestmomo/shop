@@ -533,5 +533,6 @@
     "Rates": "Tarifs",
     "Rates saved successfully.": "Tarifs enregistrés avec succès.",
     "Go to bypass page": "Aller sur la page de passage",
-    "Maintenance mode": "Mode maintenance"
+    "Maintenance mode": "Mode maintenance",
+    "Are you sure you want to delete this customer?": "Voulez-vous vraiment supprimer ce client ?"
 }

@@ -88,7 +88,7 @@ new #[Layout('components.layouts.admin')] class extends Component {
                         <x-popover>
                             <x-slot:trigger>
                                 <x-button icon="o-trash" wire:click="deleteUser({{ $user->id }})"
-                                    wire:confirm="{{ __('Are you sure you want to delete this user?') }}" spinner
+                                    wire:confirm="{{ __('Are you sure you want to delete this customer?') }}" spinner
                                     class="text-red-500 btn-ghost btn-sm" />
                             </x-slot:trigger>
                             <x-slot:content class="pop-small">

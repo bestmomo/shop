@@ -23,5 +23,5 @@
 <hr>
     <li class="font-bold uppercase text-right">{{ $address->country->name }}</li>
 
-    <li><x-icon name="o-phone"  class="text-green-400"/><em>{{ $address->phone }}</em></li>
+    <li><x-icon name="o-phone" class="text-green-400"/><em>{{ $address->phone }}</em></li>
 </ul>

@@ -1,27 +1,32 @@
 <?php
 
-use LaravelLang\LocaleList\Locale;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Config;
+/**
+ * (ɔ) Sillo-Shop - 2024-2025
+ */
+
 use Barryvdh\Debugbar\Facades\Debugbar;
+use Illuminate\Support\Facades\{App, Config};
+use LaravelLang\LocaleList\Locale;
 
 if (!function_exists('price_without_vat')) {
-	function price_without_vat(float $price_with_vat, float $vat_rate = .2): float {
-		
+	function price_without_vat(float $price_with_vat, float $vat_rate = .2): float
+	{
 		return round($price_with_vat / (1 + (float) env('VAT_RATE', $vat_rate)), 2);
 	}
 }
 
 // Translation Lower case first
 if (!function_exists('transL')) {
-	function transL($key, $replace = [], $locale = null) {
+	function transL($key, $replace = [], $locale = null)
+	{
 		$key = trans($key, $replace, $locale);
 
 		return mb_substr(mb_strtolower($key, 'UTF-8'), 0, 1) . mb_substr($key, 1);
 	}
 }
 if (!function_exists('__L')) {
-	function __L($key, $replace = [], $locale = null) {
+	function __L($key, $replace = [], $locale = null)
+	{
 		return transL($key, $replace, $locale);
 	}
 }
@@ -34,13 +39,14 @@ if (!function_exists('bigN')) {
 	 * Si $locale n'est pas fournie, la locale de l'application est utilisée.
 	 * Usage si besoin de préciser le nombre n de décimales : bigN(round(r, n))
 	 *
-	 * @param float|int $r        Le nombre à formatter.
+	 * @param float|int   $r      le nombre à formatter
 	 * @param null|string $locale La locale à utiliser. Si null, la locale de l'application est utilisée.
-	 * @param mixed $dec
-	 * @return string             La chaine de caractères correspondant au nombre formaté.
+	 *
+	 * @return string la chaine de caractères correspondant au nombre formaté
 	 */
-	function bigN(float|int $r, $dec = 2, $locale = null): bool|string {
-		$locale ??= substr(Config::get('app.locale'), 0, 2);;
+	function bigN(float|int $r, $dec = 2, $locale = null): bool|string
+	{
+		$locale ??= substr(Config::get('app.locale'), 0, 2);
 		$fmt = new NumberFormatter(locale: $locale, style: NumberFormatter::DECIMAL);
 
 		// echo $locale . '<hr>';
@@ -56,22 +62,23 @@ if (!function_exists('ftC')) {
 	 * Retourne une chaine de caractères correspondant au montant $amount formaté en fonction de la locale de l'application.
 	 * La locale est définie par la constante APP_LOCALE dans le fichier .env.
 	 * Si le montant est nul ou vide, une chaine vide est retournée.
+	 * Ex.: 123456 → 12 456.00 € pour .env/APP_LOCALE=fr
+	 * Ex.: 123456 → $12,456.00 pour .env/APP_LOCALE=en_USD
+     *
+     * ⚠️ L'extension 'Intl' doit être activée (Cas par défaut dans les dernières versions de PHP).
 	 *
-	 * @param float|int $amount Le montant à formatter.
-	 * @param null|mixed $locale
-	 * @return string           La chaine de caractères correspondant au montant formaté.
+	 * @param float|int   $amount le montant à formatter
+	 * @param null|string $locale
+	 *
+	 * @return string la chaine de caractères correspondant au montant formaté
 	 */
-	function ftC($amount, $locale = null): bool|string {
-		// $locale     = 'fr_EUR';
-		// $locale = 'en_JPY';
-		// $locale = 'en_RMB';
-		// $locale = 'en_CNY';
-		// $locale = 'de_EUR';
-		// $locale = 'de_EUR';
-		// $locale     = 'en_GBP';
-		// $locale     = 'en_USD';
-		// $locale     = 'fr_CAND';
-		// $locale     = 'cn_CNY';
+	function ftC($amount, $locale = null): bool|string
+	{
+		// Décommenter 1 seule à la fois pour forcer la conf et voir l'affichage du prix (Listing)
+		// $locale = 'en_JPY'; // ¥12,345.68
+		// $locale = 'de_EUR'; // 12.345,68 €
+		// $locale = 'en_GBP'; // £12,345.68
+		// $locale = 'en_USD'; // $12,345.68
 
 		$locale ??= config('app.locale');
 
@@ -80,14 +87,11 @@ if (!function_exists('ftC')) {
 		$currency  = $matches[1] ?? 'EUR';
 		$formatter = new NumberFormatter($locale, NumberFormatter::CURRENCY);
 		$formatted = $formatter->formatCurrency($amount, $currency);
-		// $formatted = $formatter->formatCurrency($amount, match ($matches[1]) {
+		// À oublier pour l'heure: $formatted = $formatter->formatCurrency($amount, match ($matches[1]) {
 		// 	'en'    => 'GBP',
 		// 	'us'    => 'USD',
 		// 	default => 'EUR'
 		// });
-		Debugbar::info($locale);
-		Debugbar::info($lang);
-		Debugbar::info(message: $currency);
 		Debugbar::info($formatted);
 
 		return $formatted;

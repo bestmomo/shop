@@ -17,17 +17,16 @@ class TimeFcts {
 	 * @return string The locale, ex.: fr → fr_FR
 	 */
 	public function appLocale(): bool|string {
-		$languageCode = Config::get('app.locale');
+		$languageCode = substr(Config::get('app.locale'), 0, 2);
 
 		return \Locale::composeLocale(['language' => $languageCode, 'region' => strtoupper($languageCode)]);
 	}
 
-	public function getCurrentDate() {
+    public function getCurrentDate() {
 		Carbon::setLocale(app()->getLocale());
 		$dateJ = Carbon::now()->isoFormat('dddd D MMMM YYYY');
 		$dateH = Carbon::now()->isoFormat('H\\Hmm');
 		$dateH = str_replace(' ', '&nbsp;', $dateH);
-
 		return $dateJ . ' ' . __('à') . '&nbsp;' . $dateH;
 	}
 }

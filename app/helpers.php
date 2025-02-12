@@ -31,48 +31,52 @@ if (!function_exists('__L')) {
 	}
 }
 
-if (!function_exists('bigN')) {
+if (!function_exists(function: 'bigR')) {
 	/**
-	 * Formatte un nombre en fonction de la locale.
+	 * Formatte un grand nombre Réel (BIG_Real) en fonction de la locale.
 	 *
+     * Ex. :
+     * - fr    : 12 345,00 €
+     * - de_EUR: $12,345.00
+     * - en_USD: $12,345.00
+     * 
 	 * Retourne une chaine de caractères correspondant au nombre $r formaté en fonction de la locale $locale.
 	 * Si $locale n'est pas fournie, la locale de l'application est utilisée.
-	 * Usage si besoin de préciser le nombre n de décimales : bigN(round(r, n))
+	 * Usage si besoin de préciser le nombre n de décimales : bigR(round(r, n))
 	 *
 	 * @param float|int   $r      le nombre à formatter
 	 * @param null|string $locale La locale à utiliser. Si null, la locale de l'application est utilisée.
 	 *
 	 * @return string la chaine de caractères correspondant au nombre formaté
 	 */
-	function bigN(float|int $r, $dec = 2, $locale = null): bool|string
+	function bigR(float|int $r, $dec = 2, $locale = null): bool|string
 	{
 		$locale ??= substr(Config::get('app.locale'), 0, 2);
 		$fmt = new NumberFormatter(locale: $locale, style: NumberFormatter::DECIMAL);
 
-		// echo $locale . '<hr>';
+		// echo "$locale<hr>";
 
 		return $fmt->format(num: round($r, $dec));
 	}
 }
 
-if (!function_exists('ftC')) {
+if (!function_exists('ftA')) {
 	/**
-	 * Formatte un montant en fonction de la locale de l'application.
+	 * Formatte un montant (FormaT_Amount) en fonction de la locale de l'application.
 	 *
 	 * Retourne une chaine de caractères correspondant au montant $amount formaté en fonction de la locale de l'application.
 	 * La locale est définie par la constante APP_LOCALE dans le fichier .env.
 	 * Si le montant est nul ou vide, une chaine vide est retournée.
-	 * Ex.: 123456 → 12 456.00 € pour .env/APP_LOCALE=fr
+	 * Ex.: 123456 → 12 456,00 € pour .env/APP_LOCALE=fr
 	 * Ex.: 123456 → $12,456.00 pour .env/APP_LOCALE=en_USD
-     *
-     * ⚠️ L'extension 'Intl' doit être activée (Cas par défaut dans les dernières versions de PHP).
+	 *
+	 * ⚠️ L'extension 'Intl' doit être activée (Cas par défaut dans les dernières versions de PHP).
 	 *
 	 * @param float|int   $amount le montant à formatter
 	 * @param null|string $locale
-	 *
-	 * @return string la chaine de caractères correspondant au montant formaté
+	 *	 * @return string la chaine de caractères correspondant au montant formaté
 	 */
-	function ftC($amount, $locale = null): bool|string
+	function ftA($amount, $locale = null): bool|string
 	{
 		// Décommenter 1 seule à la fois pour forcer la conf et voir l'affichage du prix (Listing)
 		// $locale = 'en_JPY'; // ¥12,345.68

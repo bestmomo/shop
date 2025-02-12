@@ -61,7 +61,7 @@ new #[Layout('components.layouts.admin')] class extends Component {
             @endscope
 
             @scope('cell_price', $product)
-                {{ ftC($product->price) }}
+                {{ ftA($product->price) }}
             @endscope
 
             @scope('cell_active', $product)
@@ -74,7 +74,7 @@ new #[Layout('components.layouts.admin')] class extends Component {
 
             @scope('cell_quantity', $product)
                 <p class="">
-                    {{ bigN($product->quantity) }}
+                    {{ bigR($product->quantity, 0) }}
                 </p>
             @endscope
 

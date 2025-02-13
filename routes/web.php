@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * (ɔ) Sillo-Shop - 2024-2025
+ */
+
 use App\Http\Middleware\IsAdmin;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
@@ -56,5 +60,9 @@ Route::middleware('auth')->group(function () {
 		Volt::route('/ranges', 'admin.parameters.shipping.ranges')->name('admin.parameters.shipping.ranges');
 		Volt::route('/rates', 'admin.parameters.shipping.rates')->name('admin.parameters.shipping.rates');
 		Volt::route('/maintenance', 'admin.maintenance')->name('admin.maintenance');
+	});
+
+	Route::middleware(IsAdmin::class)->group(function () {
+		Volt::route('/t', 'admin.tests.test')->name('admin.test');
 	});
 });

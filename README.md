@@ -7,7 +7,7 @@ Ce code correspond à un Shop basé sur le FrameWork Laravel, suite d'une série
 ## Tip:
 
 ```bash
-php artisan optimize && php artisan optimize:clear && php artisan cache:clear && php artisan view:clear && php artisan config:clear
+php artisan optimize && php artisan optimize:clear && php artisan cache:clear && php artisan view:clear && php artisan config:clear && composer dump-autoload
 ```
 
 → Vous pouvez d'un seul geste, copier, coller dans votre terminal puis exécuter ces commandes lorsque vous en avez besoin. 😉

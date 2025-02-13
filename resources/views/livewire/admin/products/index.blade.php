@@ -23,7 +23,8 @@ new #[Layout('components.layouts.admin')] class extends Component {
             ['key' => 'name', 'label' => __('Name')],
             ['key' => 'price', 'label' => __('Price incl. VAT'), 'class' => 'text-right'],
             ['key' => 'active', 'label' => __('Active'), 'class' => 'text-center'],
-            ['key' => 'quantity', 'label' => __('Quantity'), 'class' => 'text-right']
+            ['key' => 'promotion_price', 'label' => __('Promotion'), 'class' => 'text-right'],
+            ['key' => 'quantity', 'label' => __('Quantity'), 'class' => 'text-right'],
         ];
     }
 
@@ -32,6 +33,13 @@ new #[Layout('components.layouts.admin')] class extends Component {
         $product->delete();
         $this->success(__('Product deleted successfully.'));
     }
+
+    public function updated($property): void
+    {
+        if (! is_array($property) && $property != "") {
+            $this->resetPage();
+        }
+    } 
 
     public function with(): array
     {
@@ -55,7 +63,7 @@ new #[Layout('components.layouts.admin')] class extends Component {
 
     <x-card>
         <x-table striped :headers="$headers" :rows="$products" :sort-by="$sortBy" per-page="perPage" with-pagination
-            link="/admin/products/{id}/edit">
+            link="/admin/products/{id}/edit" >
             @scope('cell_image', $product)
                 <img src="{{ asset('storage/photos/' . $product->image) }}" width="60" alt="">
             @endscope
@@ -73,15 +81,36 @@ new #[Layout('components.layouts.admin')] class extends Component {
             @endscope
 
             @scope('cell_quantity', $product)
-                <p class="">
+                @if($product->quantity < $product->quantity_alert)
+                    <x-badge class="p-3 my-4 badge-error" value="{{ bigR($product->quantity, 0) }}" />
+                @else
                     {{ bigR($product->quantity, 0) }}
-                </p>
+                @endif
+            @endscope
+
+            @scope('cell_promotion_price', $product)
+                @if($product->promotion_price)
+                    @if(now()->isBefore($product->promotion_start_date))
+                        <x-badge class="p-3 my-4 badge-info" value="{{ trans('Coming soon') }}" />
+                    @elseif(now()->between($product->promotion_start_date, $product->promotion_end_date))
+                        <x-badge class="p-3 my-4 badge-success" value="{{ trans('In promotion') }}" />
+                    @else
+                        <x-badge class="p-3 my-4 badge-error" value="{{ trans('Expired') }}" />
+                    @endIf
+                    <span class="{{ now()->between($product->promotion_start_date, $product->promotion_end_date) ? 'text-red-500' : ''}} ml-2">
+                        {{ $product->promotion_price }} €
+                    </span>
+                    <br>
+                    <span class="whitespace-nowrap">
+                        {{ $product->promotion_start_date->isoFormat('LL') }} - {{ $product->promotion_end_date->isoFormat('LL') }}
+                    </span>
+                @endif
             @endscope
 
             @scope('actions', $product)
                 <x-popover>
                     <x-slot:trigger>
-                        <x-button icon="o-trash" wire:click="deleteProduct({{ $product->id }})"
+                        <x-button icon="o-trash" wire:click="deleteProduct({{ $product->id }}"
                             wire:confirm="{{ __('Are you sure you want to delete this product?') }}" spinner
                             class="text-red-500 btn-ghost btn-sm" />
                     </x-slot:trigger>

@@ -282,6 +282,9 @@ return [
         'holder'                   => 'titulaire',
         'bank_address'             => 'adresse de la banque',
         'tax'                      => 'TVA',
+        "promotion_price"          => "prix de promotion",
+        "promotion_start_date"     => "date de début de la promotion",
+        "promotion_end_date"       => "date de fin de la promotion",
     ],
     'custom' => [
         'firstname' => [
@@ -292,6 +295,16 @@ return [
         ],
         'company' => [
             'required_unless' => 'Le champ raison sociale est obligatoire si c\'est une adresse professionnelle.',
+        ],
+        'promotion_start_date' => [
+            'required_if' => 'Le champ date de début de la promotion est obligatoire.',
+        ],
+        'promotion_end_date' => [
+            'required_if' => 'Le champ date de fin de la promotion est obligatoire.',
+        ],
+        'promotion_price' => [
+            'required_if' => 'Le champ prix de promotion est obligatoire.',
+            'lt' => 'Le prix de promotion doit être inférieur au prix original.',
         ],
     ],    
 ];

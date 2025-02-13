@@ -2,6 +2,7 @@
 
 use Livewire\Volt\Component;
 use App\Models\Product;
+use Carbon\Carbon;
 
 new class extends Component
 {
@@ -30,9 +31,16 @@ new class extends Component
     <br>
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         @foreach ($products as $product)
+            @php          
+                if ($product->promotion_price && now()->between($product->promotion_start_date, $product->promotion_end_date)) {
+                    $titleContent = '<span class="line-through">' . number_format($product->price, 2, ',', ' ') . ' € TTC</span> <span class="text-red-500">' . number_format($product->promotion_price, 2, ',', ' ') . ' € TTC</span>';
+                } else {
+                    $titleContent = number_format($product->price, 2, ',', ' ') . ' € TTC';
+                }
+            @endphp
             <x-card
-                class="shadow-md transition duration-500 ease-in-out shadow-gray-500 hover:shadow-xl hover:shadow-gray-500"
-                title="{{ number_format($product->price, 2, ',', ' ') . ' € TTC' }}" >
+                class="shadow-md transition duration-500 ease-in-out shadow-gray-500 hover:shadow-xl hover:shadow-gray-500" >
+                {!! $titleContent !!}<br>               
                 {!! $product->name !!}
                 @unless($product->quantity)
                     <br><span class="text-red-500">@lang('Product out of stock')</span>

@@ -30,6 +30,13 @@ new #[Layout('components.layouts.admin')] class extends Component {
         $this->success(__('User deleted successfully.'));
     }
 
+    public function updated($property): void
+    {
+        if (! is_array($property) && $property != "") {
+            $this->resetPage();
+        }
+    }  
+
     public function with(): array
     {
         return [

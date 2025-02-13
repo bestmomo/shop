@@ -40,7 +40,6 @@
         @endscope
 
         @scope('cell_user', $order)
-            {{-- <x-address :address="$order->addresses->last()" /> --}}
             <x-popover>
                 <x-slot:trigger>
                     {{ $order->addresses->first()->company ?? $order->user->name . ' ' . $order->user->firstname }}

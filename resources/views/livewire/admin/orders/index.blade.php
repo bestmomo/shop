@@ -23,6 +23,13 @@ class extends Component {
         $this->success(__('Order deleted successfully.'));
     }
 
+    public function updated($property): void
+    {
+        if (! is_array($property) && $property != "") {
+            $this->resetPage();
+        }
+    } 
+
     public function with(): array
     {
         // On utilise un service pour récupérer les commandes

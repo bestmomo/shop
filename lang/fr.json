@@ -537,5 +537,13 @@
     "Maintenance mode": "Mode maintenance",
     "Are you sure you want to delete this customer?": "Voulez-vous vraiment supprimer ce client ?",
     "Please wait... Opening a valid page...": "Veuillez attendre... Ouverture d'une page valide...",
-    "No result": "Aucun résultat"
+    "No result": "Aucun résultat",
+    "Promotion price": "Prix de promotion",
+    "Enter product promotion price": "Entrez le prix de promotion du produit",
+    "Promotion start date": "Date de début de la promotion du produit",
+    "Promotion end date": "Date de fin de la promotion du produit",
+    "Product out of stock": "Produit hors stock",
+    "Coming soon": "Prochainement",
+    "In promotion": "En promotion",
+    "Expired": "Expiré"
 }

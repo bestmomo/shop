@@ -9,6 +9,7 @@ new class extends Component {
 
     public Product $product;
     public int $quantity = 1;
+    public bool $hasPromotion = false;
     
     public function mount(Product $product): void
     {
@@ -17,6 +18,8 @@ new class extends Component {
         }
 
         $this->product = $product;
+
+        $this->hasPromotion = $product->promotion_price && now()->between($product->promotion_start_date, $product->promotion_end_date);
     }
 
     public function save(): void
@@ -24,7 +27,7 @@ new class extends Component {
         Cart::add([
             'id' => $this->product->id,
             'name' => $this->product->name,
-            'price' => $this->product->price,
+            'price' => $this->hasPromotion ? $this->product->promotion_price : $this->product->price,
             'quantity' => $this->quantity,
             'attributes' => ['image' => $this->product->image],
             'associatedModel' => $this->product,
@@ -43,7 +46,16 @@ new class extends Component {
         </div>
         <div>
             <div class="text-2xl font-bold">{{ $product->name }}</div>
-            <x-badge class="p-3 my-4 badge-neutral" value="{{ number_format($product->price, 2, ',', ' ') . ' € TTC' }}" />
+
+            @if($hasPromotion)
+                <div class="flex items-center space-x-2">
+                    <x-badge class="p-3 my-4 badge-neutral line-through" value="{{ number_format($product->price, 2, ',', ' ') . ' € TTC' }}" />
+                    <x-badge class="p-3 my-4 badge-error" value="{{ number_format($product->promotion_price, 2, ',', ' ') . ' € TTC' }}" />
+                </div>
+            @else
+                <x-badge class="p-3 my-4 badge-neutral" value="{{ number_format($product->price, 2, ',', ' ') . ' € TTC' }}" />
+            @endif
+
             <p class="mb-4">{{ $product->description }}</p>
             <x-input class="!w-[80px]" wire:model="quantity" type="number" min="1" label="{{ __('Quantity')}}" />
             <x-button class="mt-4 btn-primary" wire:click="save" icon="o-shopping-cart" spinner >{{ __('Add to cart')}}</x-button>

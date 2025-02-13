@@ -19,6 +19,7 @@ class extends Component
     public function mount(Product $product): void
     {
         $this->product = $product;
+        $this->promotion = $product->promotion_price != null;
         $this->fill($this->product);
     }
 
@@ -29,6 +30,12 @@ class extends Component
         if ($this->image instanceof TemporaryUploadedFile) {
             $path = basename($this->image->store('photos', 'public'));
             $data['image'] = $path;
+        }
+
+        if(!$this->promotion) {
+            $data['promotion_price'] = null;
+            $data['promotion_start_date'] = null;
+            $data['promotion_end_date'] = null;
         }
 
         $this->product->update($data);

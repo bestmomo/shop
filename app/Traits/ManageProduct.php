@@ -13,6 +13,10 @@ trait ManageProduct
     public int $quantity = 0;
     public int $quantity_alert = 0;
     public bool $active = false;
+    public bool $promotion = false;
+    public ?float $promotion_price = null;
+    public ?string $promotion_start_date = null;
+    public ?string $promotion_end_date = null;
 
     protected function validateProductData(array $additionalData = []): array
     {
@@ -25,6 +29,9 @@ trait ManageProduct
             'quantity' => 'required|numeric|min:0',
             'quantity_alert' => 'required|numeric|min:-1|lte:quantity',
             'active' => 'required|boolean',
+            'promotion_price' => 'required_if:promotion,true|nullable|numeric|min:0|regex:/^(\d+(?:[\.\,]\d{1,2})?)$/|lt:price',
+            'promotion_start_date' => 'required_if:promotion,true|nullable|date',
+            'promotion_end_date' => 'required_if:promotion,true|nullable|date|after:promotion_start_date',
         ];
 
         return $this->validate(array_merge($rules, $additionalData));

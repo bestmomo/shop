@@ -21,6 +21,12 @@ class extends Component
         $path = basename($this->image->store('photos', 'public'));
         $data['image'] = $path;
 
+        if(!$this->promotion) {
+            $data['promotion_price'] = null;
+            $data['promotion_start_date'] = null;
+            $data['promotion_end_date'] = null;
+        }
+
         Product::create($data);
 
         $this->success(__('Product created successfully.'), redirectTo: '/admin/products');

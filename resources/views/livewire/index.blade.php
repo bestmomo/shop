@@ -14,6 +14,7 @@ new class extends Component
 
 }; ?>
 
+@section('title', __('Home'))
 <div class="container mx-auto">
     @if (session('registered'))
         <x-alert

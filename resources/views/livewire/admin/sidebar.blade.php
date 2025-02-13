@@ -48,5 +48,7 @@ new class() extends Component
         <x-menu-item>
             <x-theme-toggle />
         </x-menu-item>
+        <x-menu-separator />
+            <p class="text-right mr-3"><a href="{{ route('admin.test') }}" title=" {{ __('Test page') }} "><x-icon name="c-cog" /></a></p>
     </x-menu>
 </div>

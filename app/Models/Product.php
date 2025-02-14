@@ -23,8 +23,8 @@ class Product extends Model
     protected function casts(): array
     {
         return [
-            'promotion_start_date' => 'datetime:d-m-Y',
-            'promotion_end_date' => 'datetime:d-m-Y',
+            'promotion_start_date' => 'datetime:Y-m-d',
+            'promotion_end_date' => 'datetime:Y-m-d',
         ];
     }
 }

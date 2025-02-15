@@ -51,7 +51,7 @@
     "Down": "Descendre",
     "Duplicate": "Dupliquer",
     "Duplicate :name": "Dupliquer :name",
-    "Edit": "Éditer",
+    "Edit": "Modifier",
     "Edit :name": "Modifier :name",
     "Enable": "Activer",
     "Encrypted environment file already exists.": "Encrypted environment file already exists.",
@@ -545,5 +545,14 @@
     "Product out of stock": "Produit hors stock",
     "Coming soon": "Prochainement",
     "In promotion": "En promotion",
-    "Expired": "Expiré"
+    "Expired": "Expiré",
+    "Global promotion": "Promotion globale",
+    "Active promotion": "Promotion active",
+    "Start date": "Date de début",
+    "End date": "Date de fin",
+    "Percentage discount": "Remise en pourcentage",
+    "Enter discount percentage": "Entrez le pourcentage de remise",
+    "Promotion updated successfully.": "Promotion mise à jour avec succès.",
+    "in progress": "en cours",
+    "Expired_feminine": "Expirée"
 }

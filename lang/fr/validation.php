@@ -285,6 +285,7 @@ return [
         "promotion_price"          => "prix de promotion",
         "promotion_start_date"     => "date de début de la promotion",
         "promotion_end_date"       => "date de fin de la promotion",
+        "promotion_percentage"     => "pourcentage de promotion",
     ],
     'custom' => [
         'firstname' => [

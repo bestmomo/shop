@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-use App\Models\ { User, Address, Country, Product, Colissimo, Range, State, Shop, Page, Order };
+use App\Models\ { User, Address, Country, Product, Colissimo, Range, State, Shop, Page, Order, Setting };
 
 class DatabaseSeeder extends Seeder
 {

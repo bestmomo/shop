@@ -56,8 +56,8 @@ new #[Layout('components.layouts.admin')] class extends Component {
         <x-slot:actions>
             <x-button icon="s-building-office-2" label="{{ __('Dashboard') }}" class="btn-outline lg:hidden"
                 link="{{ route('admin') }}" />
-            <x-button icon="o-plus" label="{!! __('Create a new product') !!}" link="/admin/products/create" spinner
-                class="btn-primary" />
+                <x-button icon="o-currency-euro" label="{!! __('Global promotion') !!}" link="/admin/products/promotion" spinner class="btn-success" />
+            <x-button icon="o-plus" label="{!! __('Create a new product') !!}" link="/admin/products/create" spinner class="btn-primary" />
         </x-slot:actions>
     </x-header>
 

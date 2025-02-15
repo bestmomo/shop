@@ -3,7 +3,7 @@
 use App\Traits\ManageOrders;
 use Livewire\Volt\Component;
 use App\Services\OrderService;
-use App\Models\{Order, Product, User};
+use App\Models\{Order, Product, User, Setting};
 use Barryvdh\Debugbar\Facades\Debugbar;
 use Livewire\Attributes\{Layout, Title};
 
@@ -19,11 +19,30 @@ class extends Component {
     {
         $orders = (new OrderService($this))->req()->take(6)->get();
         $orders = $this->setPrettyOrdersIndexes($orders);
+
+        $promotion = Setting::where('key', 'promotion')->first();
+        $textPromotion = '';
+
+        if ($promotion) {
+            $now = now();
+            if ($now->isBefore($promotion->date1)) {
+                $textPromotion = transL('Coming soon');
+            } elseif ($now->between($promotion->date1, $promotion->date2)) {
+                $textPromotion = trans('in progress');
+            } else {
+                $textPromotion = transL('Expired_feminine');
+            }
+        }
+
         return [
             'productsCount' => Product::count(),
-            'ordersCount' => Order::whereRelation('state', 'indice', '>', 3)->whereRelation('state', 'indice', '<', 6)->count(),
+            'ordersCount' => Order::whereRelation('state', 'indice', '>', 3)
+                                  ->whereRelation('state', 'indice', '<', 6)
+                                  ->count(),
             'usersCount' => User::count(),
             'orders' => $orders->collect(),
+            'promotion' => $promotion,
+            'textPromotion' => $textPromotion,
             'headersOrders' => $this->headersOrders(),
         ];
     }
@@ -50,6 +69,15 @@ class extends Component {
             </a>
         </x-slot:content>
     </x-collapse>
+
+    @if(!is_null($promotion->value))
+        <br>
+        <x-alert title="{{ __('Global promotion') }} {{ $textPromotion }}" description="{{ __('From') }} {{ $promotion->date1->isoFormat('LL') }} {{ __('to') }} {{ $promotion->date2->isoFormat('LL') }} {{ __L('Percentage discount') }} {{ $promotion->value }}%" icon="o-currency-euro" class="alert-warning" >
+            <x-slot:actions>
+                <x-button label="{{ __('Edit') }}" class="btn-outline" link="{{ route('admin.products.promotion') }}" />
+            </x-slot:actions>
+        </x-alert>
+    @endIf
 
     <x-header separator progress-indicator />
 

@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Models\Shop;
-use App\Services\OrderService;
 use Illuminate\Support\Facades\{Blade, View};
 use Illuminate\Support\ServiceProvider;
 
@@ -27,7 +26,7 @@ class AppServiceProvider extends ServiceProvider {
 
 		Blade::directive(name: 'langL', handler: function ($expression): string {
 			return "<?= transL({$expression}); ?>";
-});
-}
+		});
+	}
 }
 ?>

@@ -63,7 +63,6 @@ class extends Component {
     }
 }; ?>
 
-@section('title', content: __('Dashboard'))
 <div>
     <x-collapse wire:model="openGlance" class="shadow-md">
         <x-slot:heading>

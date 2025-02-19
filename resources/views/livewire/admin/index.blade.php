@@ -45,7 +45,7 @@ class extends Component {
         }
 
         return [
-            'productsCount' => Product::count(),
+            'productsCount' => Product::where('active', true)->count(),
             'ordersCount' => Order::whereRelation('state', 'indice', '>', 3)
                                   ->whereRelation('state', 'indice', '<', 6)
                                   ->count(),

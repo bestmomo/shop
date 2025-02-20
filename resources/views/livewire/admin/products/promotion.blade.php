@@ -20,9 +20,11 @@ new #[Layout('components.layouts.admin')] #[Title('Global promotion')] class ext
     {
         $this->setting = Setting::where('key', 'promotion')->firstOrCreate(['key' => 'promotion']);
         $this->promotion = !is_null($this->setting->value);
-        $this->promotion_percentage = $this->setting->value;
-        $this->promotion_start_date = $this->setting->date1->format('Y-m-d');
-        $this->promotion_end_date = $this->setting->date2->format('Y-m-d');
+        if($this->promotion){
+            $this->promotion_percentage = $this->setting->value;
+            $this->promotion_start_date = $this->setting->date1->format('Y-m-d');
+            $this->promotion_end_date = $this->setting->date2->format('Y-m-d');
+        }
     }
 
     public function save(): void

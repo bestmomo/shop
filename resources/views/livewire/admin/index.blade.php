@@ -30,10 +30,10 @@ class extends Component {
         $orders = (new OrderService($this))->req()->take(6)->get();
         $orders = $this->setPrettyOrdersIndexes($orders);
 
-        $promotion = Setting::where('key', 'promotion')->first();
+        $promotion = Setting::where('key', 'promotion')->firstOrCreate(['key' => 'promotion']);
         $textPromotion = '';
 
-        if ($promotion) {
+        if ($promotion->value) {
             $now = now();
             if ($now->isBefore($promotion->date1)) {
                 $textPromotion = transL('Coming soon');

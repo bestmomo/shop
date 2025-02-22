@@ -113,7 +113,7 @@ class DatabaseSeeder extends Seeder
         }
 
         Order::factory()
-          ->count(30)
+          ->count(100)
           ->create()
           ->each(function ($order) {
               $address = $order->user->addresses()->take(1)->get()->makeHidden(['id', 'user_id'])->toArray();

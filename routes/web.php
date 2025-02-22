@@ -61,6 +61,7 @@ Route::middleware('auth')->group(function () {
 		Volt::route('/rates', 'admin.parameters.shipping.rates')->name('admin.parameters.shipping.rates');
 		Volt::route('/maintenance', 'admin.maintenance')->name('admin.maintenance');
 		Volt::route('/products/promotion', 'admin.products.promotion')->name('admin.products.promotion');
+		Volt::route('/stats', 'admin.stats')->name('admin.stats');
 	});
 
 	Route::middleware(IsAdmin::class)->group(function () {

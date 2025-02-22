@@ -50,7 +50,7 @@ class OrderFactory extends Factory
             'tax' => [0, .2][mt_rand(0, 1)],
             'invoice_id' => $invoice_id,
             'invoice_number' => $invoice_number,
-            'created_at' => fake()->dateTimeBetween('-2 years'),
+            'created_at' => fake()->dateTimeBetween('-3 years'),
         ];
     }
 }

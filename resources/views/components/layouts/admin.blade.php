@@ -10,6 +10,10 @@
         {{ (isset($title) ? $title . ' | ' : (View::hasSection('title') ? View::getSection('title') . ' | ' : '')) . config('app.name') }}
     </title>
 
+    @if(Route::currentRouteName() == 'admin.stats')
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    @endIf
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <script src="{{ asset('storage/scripts/tinymce.min.js') }}" referrerpolicy="origin"></script>

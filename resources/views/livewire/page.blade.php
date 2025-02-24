@@ -6,7 +6,7 @@ use App\Models\Page;
 new class extends Component {
 
     public Page $page;
-    
+
     public function mount(Page $page): void
     {
         $this->page = $page;

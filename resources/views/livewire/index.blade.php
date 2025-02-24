@@ -32,10 +32,10 @@ new class extends Component {
                         ' € TTC</span>';
                 } else {
                     $titleContent =
-                        '<span class="line-through">' .
-                        number_format($product->price, 2, ',', ' ') .
-                        ' € TTC</span> <span class="text-red-500">' .
+                        '<span class="text-red-500 text-xl mr-3">' .
                         number_format($bestPrice, 2, ',', ' ') .
+                        ' € TTC</span><span class="line-through">' .
+                        number_format($product->price, 2, ',', ' ') .
                         ' € TTC</span>';
                 }
             @endphp

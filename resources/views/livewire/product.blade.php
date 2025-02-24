@@ -11,7 +11,7 @@ new class extends Component {
     public int $quantity = 1;
     public bool $hasPromotion = false;
     public float $bestPrice = 0;
-    
+
     public function mount(Product $product): void
     {
         if (!$product->active) {
@@ -30,12 +30,12 @@ new class extends Component {
             'id' => $this->product->id,
             'name' => $this->product->name,
             'price' => $this->bestPrice,
-            'quantity' => $this->quantity,            
+            'quantity' => $this->quantity,
             'attributes' => ['image' => $this->product->image],
             'associatedModel' => $this->product,
         ]);
 
-        $this->dispatch('cart-updated'); 
+        $this->dispatch('cart-updated');
 
         $this->info(__('Product added to cart.'), position: 'bottom-end');
     }
@@ -48,15 +48,10 @@ new class extends Component {
         </div>
         <div>
             <div class="text-2xl font-bold">{{ $product->name }}</div>
-
             @if($hasPromotion)
-                <div class="flex items-center space-x-2">
-                    <x-badge class="p-3 my-4 badge-neutral line-through" value="{{ number_format($product->price, 2, ',', ' ') . ' € TTC' }}" />
-                    <x-badge class="p-3 my-4 badge-error" value="{{ number_format($bestPrice, 2, ',', ' ') . ' € TTC' }}" />
-                </div>
-            @else
-                <x-badge class="p-3 my-4 badge-neutral" value="{{ number_format($product->price, 2, ',', ' ') . ' € TTC' }}" />
+                <x-badge class="p-3 my-4 mr-2 badge-error font-bold" value="{{ ftA($bestPrice) }} {{ __('VAT') }}" />
             @endif
+            <x-badge class="p-3 my-4 badge-neutral {{ $hasPromotion ? 'line-through' : '' }}" value="{{ ftA($product->price) }} {{ __('VAT') ?? '' }}" value="{{ ftA($product->price) }} {{ __('VAT') }}" />
 
             <p class="mb-4">{{ $product->description }}</p>
             <x-input class="!w-[80px]" wire:model="quantity" type="number" min="1" label="{{ __('Quantity')}}" />

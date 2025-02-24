@@ -19,7 +19,7 @@ return [
 		'plugins'        => 'codesample fullscreen',
 		'toolbar'        => 'undo redo style | fontfamily fontsize | alignleft aligncenter alignright alignjustify | bullist numlist | copy cut paste pastetext | hr | codesample | link image quicktable | fullscreen',
 		'toolbar_sticky' => true,
-		'min_height'     => 500,
+		'min_height'     => 475,
 		'license_key'    => 'gpl',
 		'valid_elements' => '*[*]',
 	],

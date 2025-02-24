@@ -32,7 +32,7 @@ new class extends Component {
                 $priceStyle = '';
 
                 if ($bestPrice < $product->price) {
-                    $priceStyle='line-through';
+                    $priceStyle = 'line-through';
                     $tooltip =
                         __('Until') .
                         ' ' .
@@ -43,10 +43,13 @@ new class extends Component {
                     $titleContent =
                         '<a title="' .
                         $tooltip .
-                        '"><span class="text-red-500 text-xl mr-3">' .
-                        ftA($bestPrice).' TTC</span></a>';
+                        '"><span class="text-red-500 text-xl mr-3 font-bold">' .
+                        ftA($bestPrice) .
+                        ' ' .
+                        __('VAT') .
+                        '</span></a>';
                 }
-                $titleContent .= "<span class={$priceStyle}>" . ftA($product->price) . " TTC</span>";
+                $titleContent .= "<span class={$priceStyle}>" . ftA($product->price) . ' '.__('VAT') . '</span>';
             @endphp
             <x-card
                 class="shadow-md transition duration-500 ease-in-out shadow-gray-500 hover:shadow-xl hover:shadow-gray-500 flex flex-col justify-between">

@@ -39,7 +39,7 @@ if (!function_exists(function: 'bigR')) {
      * - fr    : 12 345,00 €
      * - de_EUR: $12,345.00
      * - en_USD: $12,345.00
-     * 
+     *
 	 * Retourne une chaine de caractères correspondant au nombre $r formaté en fonction de la locale $locale.
 	 * Si $locale n'est pas fournie, la locale de l'application est utilisée.
 	 * Usage si besoin de préciser le nombre n de décimales : bigR(round(r, n))
@@ -96,7 +96,7 @@ if (!function_exists('ftA')) {
 		// 	'us'    => 'USD',
 		// 	default => 'EUR'
 		// });
-		Debugbar::info($formatted);
+		// Debugbar::info($formatted);
 
 		return $formatted;
 	}
@@ -111,21 +111,21 @@ if (!function_exists('ftA')) {
 		function getBestPrice($product)
 		{
 			$promoGlobal = \App\Models\Setting::where('key', 'promotion')->first();
-	
+
 			// Vérifie si la promotion globale est valide
 			$globalPromoValid = $promoGlobal && $promoGlobal->value && now()->between($promoGlobal->date1, $promoGlobal->date2);
-	
+
 			// Vérifie si la promotion spécifique du produit est valide
 			$productPromoValid = $product->promotion_price && now()->between($product->promotion_start_date, $product->promotion_end_date);
-	
+
 			// Initialise le meilleur prix avec le prix normal du produit
 			$bestPrice = $product->price;
-	
+
 			// Si la promotion spécifique du produit est valide, utilise ce prix
 			if ($productPromoValid) {
 				$bestPrice = $product->promotion_price;
 			}
-	
+
 			// Si la promotion globale est valide, calcule le prix avec la réduction globale
 			if ($globalPromoValid) {
 				$globalPromoPrice = $product->price * (1 - $promoGlobal->value / 100);
@@ -133,7 +133,7 @@ if (!function_exists('ftA')) {
 					$bestPrice = $globalPromoPrice;
 				}
 			}
-	
+
 			return $bestPrice;
 		}
 	}

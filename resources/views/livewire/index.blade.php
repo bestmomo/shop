@@ -31,25 +31,26 @@ new class extends Component {
                 $titleContent = '';
                 $priceStyle = '';
 
-                if ($bestPrice < $product->price) {
+                if ($bestPrice < $product->price && $product->promotion_end_date) {
                     $priceStyle = 'line-through';
-                    $tooltip =
-                        __('Until') .
-                        ' ' .
-                        ($product->promotion_end_date->format('d') .
+                    // dump($bestPrice, $product->promotion_end_date);
+                        $tooltip =
+                            __('Until') .
                             ' ' .
-                            trans($product->promotion_end_date->format('F'))) .
-                        ' !';
-                    $titleContent =
-                        '<a title="' .
-                        $tooltip .
-                        '"><span class="text-red-500 text-xl mr-3 font-bold">' .
-                        ftA($bestPrice) .
-                        ' ' .
-                        __('VAT') .
-                        '</span></a>';
+                            ($product->promotion_end_date->format('d') .
+                                ' ' .
+                                trans($product->promotion_end_date->format('F'))) .
+                            ' !';
+                        $titleContent =
+                            '<a title="' .
+                            $tooltip .
+                            '"><span class="text-red-500 text-xl mr-3 font-bold">' .
+                            ftA($bestPrice) .
+                            ' ' .
+                            __('VAT') .
+                            '</span></a>';
                 }
-                $titleContent .= "<span class={$priceStyle}>" . ftA($product->price) . ' '.__('VAT') . '</span>';
+                $titleContent .= "<span class={$priceStyle}>" . ftA($product->price) . ' ' . __('VAT') . '</span>';
             @endphp
             <x-card
                 class="shadow-md transition duration-500 ease-in-out shadow-gray-500 hover:shadow-xl hover:shadow-gray-500 flex flex-col justify-between">

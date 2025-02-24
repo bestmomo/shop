@@ -53,7 +53,7 @@
 
         @scope('cell_total', $order)
             <div class="text-right whitespace-nowrap pr-7">
-                {{ number_format($order->totalOrder, 2, ',', ' ') }} €
+                {{ ftA($order->totalOrder) }}
             </div>
         @endscope
 

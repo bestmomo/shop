@@ -30,25 +30,28 @@ new class extends Component {
                 }
                 $titleContent = '';
                 $priceStyle = '';
+                //2do repenser le systèmes des promotions... Un Model à part entière...?
 
+                // La promotion globale est prioritaire à une promotion 'individuelle'
                 if ($bestPrice < $product->price && $product->promotion_end_date) {
+                    $tooltip =
+                        __('Until') .
+                        ' ' .
+                        ($product->promotion_end_date->format('d') .
+                            ' ' .
+                            trans($product->promotion_end_date->format('F'))) .
+                        ' !';
+                }
+                if ($bestPrice < $product->price) {
                     $priceStyle = 'line-through';
-                    // dump($bestPrice, $product->promotion_end_date);
-                        $tooltip =
-                            __('Until') .
-                            ' ' .
-                            ($product->promotion_end_date->format('d') .
-                                ' ' .
-                                trans($product->promotion_end_date->format('F'))) .
-                            ' !';
-                        $titleContent =
-                            '<a title="' .
-                            $tooltip .
-                            '"><span class="text-red-500 text-xl mr-3 font-bold">' .
-                            ftA($bestPrice) .
-                            ' ' .
-                            __('VAT') .
-                            '</span></a>';
+                    $titleContent =
+                        '<a title="' .
+                        ($tooltip ?? '') .
+                        '"><span class="text-red-500 text-xl mr-3 font-bold">' .
+                        ftA($bestPrice) .
+                        ' ' .
+                        __('VAT') .
+                        '</span></a>';
                 }
                 $titleContent .= "<span class={$priceStyle}>" . ftA($product->price) . ' ' . __('VAT') . '</span>';
             @endphp

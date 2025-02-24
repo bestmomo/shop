@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="corporate" >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+    <meta name="csrf-token" content="A0LN1gb2j9aZ1OQAXGLW5fudeQ65Ajr4P427QW0u">
+        <title>
+        Accueil | Sillo-Shop
+    </title>
+
+    <script type="module" src="http://[::1]:8000/@vite/client" data-navigate-track="reload"></script><link rel="stylesheet" href="http://[::1]:8000/resources/css/app.css" data-navigate-track="reload" /><script type="module" src="http://[::1]:8000/resources/js/app.js" data-navigate-track="reload"></script><link rel='stylesheet' type='text/css' property='stylesheet' href='/_debugbar/assets/stylesheets?v=1738771272&theme=auto' data-turbolinks-eval='false' data-turbo-eval='false'><script src='/_debugbar/assets/javascript?v=1738771272' data-turbolinks-eval='false' data-turbo-eval='false'></script><script data-turbo-eval='false'>jQuery.noConflict(true);</script>
+<script> Sfdump = window.Sfdump || (function (doc) { doc.documentElement.classList.add('sf-js-enabled'); var rxEsc = /([.*+?^${}()|\[\]\/\\])/g, idRx = /\bsf-dump-\d+-ref[012]\w+\b/, keyHint = 0 <= navigator.platform.toUpperCase().indexOf('MAC') ? 'Cmd' : 'Ctrl', addEventListener = function (e, n, cb) { e.addEventListener(n, cb, false); }; if (!doc.addEventListener) { addEventListener = function (element, eventName, callback) { element.attachEvent('on' + eventName, function (e) { e.preventDefault = function () {e.returnValue = false;}; e.target = e.srcElement; callback(e); }); }; } function toggle(a, recursive) { var s = a.nextSibling || {}, oldClass = s.className, arrow, newClass; if (/\bsf-dump-compact\b/.test(oldClass)) { arrow = '▼'; newClass = 'sf-dump-expanded'; } else if (/\bsf-dump-expanded\b/.test(oldClass)) { arrow = '▶'; newClass = 'sf-dump-compact'; } else { return false; } if (doc.createEvent && s.dispatchEvent) { var event = doc.createEvent('Event'); event.initEvent('sf-dump-expanded' === newClass ? 'sfbeforedumpexpand' : 'sfbeforedumpcollapse', true, false); s.dispatchEvent(event); } a.lastChild.innerHTML = arrow; s.className = s.className.replace(/\bsf-dump-(compact|expanded)\b/, newClass); if (recursive) { try { a = s.querySelectorAll('.'+oldClass); for (s = 0; s < a.length; ++s) { if (-1 == a[s].className.indexOf(newClass)) { a[s].className = newClass; a[s].previousSibling.lastChild.innerHTML = arrow; } } } catch (e) { } } return true; }; function collapse(a, recursive) { var s = a.nextSibling || {}, oldClass = s.className; if (/\bsf-dump-expanded\b/.test(oldClass)) { toggle(a, recursive); return true; } return false; }; function expand(a, recursive) { var s = a.nextSibling || {}, oldClass = s.className; if (/\bsf-dump-compact\b/.test(oldClass)) { toggle(a, recursive); return true; } return false; }; function collapseAll(root) { var a = root.querySelector('a.sf-dump-toggle'); if (a) { collapse(a, true); expand(a); return true; } return false; } function reveal(node) { var previous, parents = []; while ((node = node.parentNode || {}) && (previous = node.previousSibling) && 'A' === previous.tagName) { parents.push(previous); } if (0 !== parents.length) { parents.forEach(function (parent) { expand(parent); }); return true; } return false; } function highlight(root, activeNode, nodes) { resetHighlightedNodes(root); Array.from(nodes||[]).forEach(function (node) { if (!/\bsf-dump-highlight\b/.test(node.className)) { node.className = node.className + ' sf-dump-highlight'; } }); if (!/\bsf-dump-highlight-active\b/.test(activeNode.className)) { activeNode.className = activeNode.className + ' sf-dump-highlight-active'; } } function resetHighlightedNodes(root) { Array.from(root.querySelectorAll('.sf-dump-str, .sf-dump-key, .sf-dump-public, .sf-dump-protected, .sf-dump-private')).forEach(function (strNode) { strNode.className = strNode.className.replace(/\bsf-dump-highlight\b/, ''); strNode.className = strNode.className.replace(/\bsf-dump-highlight-active\b/, ''); }); } return function (root, x) { root = doc.getElementById(root); var indentRx = new RegExp('^('+(root.getAttribute('data-indent-pad') || ' ').replace(rxEsc, '\\$1')+')+', 'm'), options = {"maxDepth":1,"maxStringLength":160,"fileLinkFormat":false}, elt = root.getElementsByTagName('A'), len = elt.length, i = 0, s, h, t = []; while (i < len) t.push(elt[i++]); for (i in x) { options[i] = x[i]; } function a(e, f) { addEventListener(root, e, function (e, n) { if ('A' == e.target.tagName) { f(e.target, e); } else if ('A' == e.target.parentNode.tagName) { f(e.target.parentNode, e); } else { n = /\bsf-dump-ellipsis\b/.test(e.target.className) ? e.target.parentNode : e.target; if ((n = n.nextElementSibling) && 'A' == n.tagName) { if (!/\bsf-dump-toggle\b/.test(n.className)) { n = n.nextElementSibling || n; } f(n, e, true); } } }); }; function isCtrlKey(e) { return e.ctrlKey || e.metaKey; } function xpathString(str) { var parts = str.match(/[^'"]+|['"]/g).map(function (part) { if ("'" == part) { return '"\'"'; } if ('"' == part) { return "'\"'"; } return "'" + part + "'"; }); return "concat(" + parts.join(",") + ", '')"; } function xpathHasClass(className) { return "contains(concat(' ', normalize-space(@class), ' '), ' " + className +" ')"; } a('mouseover', function (a, e, c) { if (c) { e.target.style.cursor = "pointer"; } }); a('click', function (a, e, c) { if (/\bsf-dump-toggle\b/.test(a.className)) { e.preventDefault(); if (!toggle(a, isCtrlKey(e))) { var r = doc.getElementById(a.getAttribute('href').slice(1)), s = r.previousSibling, f = r.parentNode, t = a.parentNode; t.replaceChild(r, a); f.replaceChild(a, s); t.insertBefore(s, r); f = f.firstChild.nodeValue.match(indentRx); t = t.firstChild.nodeValue.match(indentRx); if (f && t && f[0] !== t[0]) { r.innerHTML = r.innerHTML.replace(new RegExp('^'+f[0].replace(rxEsc, '\\$1'), 'mg'), t[0]); } if (/\bsf-dump-compact\b/.test(r.className)) { toggle(s, isCtrlKey(e)); } } if (c) { } else if (doc.getSelection) { try { doc.getSelection().removeAllRanges(); } catch (e) { doc.getSelection().empty(); } } else { doc.selection.empty(); } } else if (/\bsf-dump-str-toggle\b/.test(a.className)) { e.preventDefault(); e = a.parentNode.parentNode; e.className = e.className.replace(/\bsf-dump-str-(expand|collapse)\b/, a.parentNode.className); } }); elt = root.getElementsByTagName('SAMP'); len = elt.length; i = 0; while (i < len) t.push(elt[i++]); len = t.length; for (i = 0; i < len; ++i) { elt = t[i]; if ('SAMP' == elt.tagName) { a = elt.previousSibling || {}; if ('A' != a.tagName) { a = doc.createElement('A'); a.className = 'sf-dump-ref'; elt.parentNode.insertBefore(a, elt); } else { a.innerHTML += ' '; } a.title = (a.title ? a.title+'\n[' : '[')+keyHint+'+click] Expand all children'; a.innerHTML += elt.className == 'sf-dump-compact' ? '<span>▶</span>' : '<span>▼</span>'; a.className += ' sf-dump-toggle'; x = 1; if ('sf-dump' != elt.parentNode.className) { x += elt.parentNode.getAttribute('data-depth')/1; } } else if (/\bsf-dump-ref\b/.test(elt.className) && (a = elt.getAttribute('href'))) { a = a.slice(1); elt.className += ' sf-dump-hover'; elt.className += ' '+a; if (/[\[{]$/.test(elt.previousSibling.nodeValue)) { a = a != elt.nextSibling.id && doc.getElementById(a); try { s = a.nextSibling; elt.appendChild(a); s.parentNode.insertBefore(a, s); if (/^[@#]/.test(elt.innerHTML)) { elt.innerHTML += ' <span>▶</span>'; } else { elt.innerHTML = '<span>▶</span>'; elt.className = 'sf-dump-ref'; } elt.className += ' sf-dump-toggle'; } catch (e) { if ('&' == elt.innerHTML.charAt(0)) { elt.innerHTML = '…'; elt.className = 'sf-dump-ref'; } } } } } if (doc.evaluate && Array.from && root.children.length > 1) { root.setAttribute('tabindex', 0); SearchState = function () { this.nodes = []; this.idx = 0; }; SearchState.prototype = { next: function () { if (this.isEmpty()) { return this.current(); } this.idx = this.idx < (this.nodes.length - 1) ? this.idx + 1 : 0; return this.current(); }, previous: function () { if (this.isEmpty()) { return this.current(); } this.idx = this.idx > 0 ? this.idx - 1 : (this.nodes.length - 1); return this.current(); }, isEmpty: function () { return 0 === this.count(); }, current: function () { if (this.isEmpty()) { return null; } return this.nodes[this.idx]; }, reset: function () { this.nodes = []; this.idx = 0; }, count: function () { return this.nodes.length; }, }; function showCurrent(state) { var currentNode = state.current(), currentRect, searchRect; if (currentNode) { reveal(currentNode); highlight(root, currentNode, state.nodes); if ('scrollIntoView' in currentNode) { currentNode.scrollIntoView(true); currentRect = currentNode.getBoundingClientRect(); searchRect = search.getBoundingClientRect(); if (currentRect.top < (searchRect.top + searchRect.height)) { window.scrollBy(0, -(searchRect.top + searchRect.height + 5)); } } } counter.textContent = (state.isEmpty() ? 0 : state.idx + 1) + ' of ' + state.count(); } var search = doc.createElement('div'); search.className = 'sf-dump-search-wrapper sf-dump-search-hidden'; search.innerHTML = ' <input type="text" class="sf-dump-search-input"> <span class="sf-dump-search-count">0 of 0<\/span> <button type="button" class="sf-dump-search-input-previous" tabindex="-1"> <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1683 1331l-166 165q-19 19-45 19t-45-19L896 965l-531 531q-19 19-45 19t-45-19l-166-165q-19-19-19-45.5t19-45.5l742-741q19-19 45-19t45 19l742 741q19 19 19 45.5t-19 45.5z"\/><\/svg> <\/button> <button type="button" class="sf-dump-search-input-next" tabindex="-1"> <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1683 808l-742 741q-19 19-45 19t-45-19L109 808q-19-19-19-45.5t19-45.5l166-165q19-19 45-19t45 19l531 531 531-531q19-19 45-19t45 19l166 165q19 19 19 45.5t-19 45.5z"\/><\/svg> <\/button> '; root.insertBefore(search, root.firstChild); var state = new SearchState(); var searchInput = search.querySelector('.sf-dump-search-input'); var counter = search.querySelector('.sf-dump-search-count'); var searchInputTimer = 0; var previousSearchQuery = ''; addEventListener(searchInput, 'keyup', function (e) { var searchQuery = e.target.value; /* Don't perform anything if the pressed key didn't change the query */ if (searchQuery === previousSearchQuery) { return; } previousSearchQuery = searchQuery; clearTimeout(searchInputTimer); searchInputTimer = setTimeout(function () { state.reset(); collapseAll(root); resetHighlightedNodes(root); if ('' === searchQuery) { counter.textContent = '0 of 0'; return; } var classMatches = [ "sf-dump-str", "sf-dump-key", "sf-dump-public", "sf-dump-protected", "sf-dump-private", ].map(xpathHasClass).join(' or '); var xpathResult = doc.evaluate('.//span[' + classMatches + '][contains(translate(child::text(), ' + xpathString(searchQuery.toUpperCase()) + ', ' + xpathString(searchQuery.toLowerCase()) + '), ' + xpathString(searchQuery.toLowerCase()) + ')]', root, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null); while (node = xpathResult.iterateNext()) state.nodes.push(node); showCurrent(state); }, 400); }); Array.from(search.querySelectorAll('.sf-dump-search-input-next, .sf-dump-search-input-previous')).forEach(function (btn) { addEventListener(btn, 'click', function (e) { e.preventDefault(); -1 !== e.target.className.indexOf('next') ? state.next() : state.previous(); searchInput.focus(); collapseAll(root); showCurrent(state); }) }); addEventListener(root, 'keydown', function (e) { var isSearchActive = !/\bsf-dump-search-hidden\b/.test(search.className); if ((114 === e.keyCode && !isSearchActive) || (isCtrlKey(e) && 70 === e.keyCode)) { /* F3 or CMD/CTRL + F */ if (70 === e.keyCode && document.activeElement === searchInput) { /* * If CMD/CTRL + F is hit while having focus on search input, * the user probably meant to trigger browser search instead. * Let the browser execute its behavior: */ return; } e.preventDefault(); search.className = search.className.replace(/\bsf-dump-search-hidden\b/, ''); searchInput.focus(); } else if (isSearchActive) { if (27 === e.keyCode) { /* ESC key */ search.className += ' sf-dump-search-hidden'; e.preventDefault(); resetHighlightedNodes(root); searchInput.value = ''; } else if ( (isCtrlKey(e) && 71 === e.keyCode) /* CMD/CTRL + G */ || 13 === e.keyCode /* Enter */ || 114 === e.keyCode /* F3 */ ) { e.preventDefault(); e.shiftKey ? state.previous() : state.next(); collapseAll(root); showCurrent(state); } } }); } if (0 >= options.maxStringLength) { return; } try { elt = root.querySelectorAll('.sf-dump-str'); len = elt.length; i = 0; t = []; while (i < len) t.push(elt[i++]); len = t.length; for (i = 0; i < len; ++i) { elt = t[i]; s = elt.innerText || elt.textContent; x = s.length - options.maxStringLength; if (0 < x) { h = elt.innerHTML; elt[elt.innerText ? 'innerText' : 'textContent'] = s.substring(0, options.maxStringLength); elt.className += ' sf-dump-str-collapse'; elt.innerHTML = '<span class=sf-dump-str-collapse>'+h+'<a class="sf-dump-ref sf-dump-str-toggle" title="Collapse"> ◀</a></span>'+ '<span class=sf-dump-str-expand>'+elt.innerHTML+'<a class="sf-dump-ref sf-dump-str-toggle" title="'+x+' remaining characters"> ▶</a></span>'; } } } catch (e) { } }; })(document); </script><style> .sf-js-enabled .phpdebugbar pre.sf-dump .sf-dump-compact, .sf-js-enabled .sf-dump-str-collapse .sf-dump-str-collapse, .sf-js-enabled .sf-dump-str-expand .sf-dump-str-expand { display: none; } .sf-dump-hover:hover { background-color: #B729D9; color: #FFF !important; border-radius: 2px; } .phpdebugbar pre.sf-dump { display: block; white-space: pre; padding: 5px; overflow: initial !important; } .phpdebugbar pre.sf-dump:after { content: ""; visibility: hidden; display: block; height: 0; clear: both; } .phpdebugbar pre.sf-dump .sf-dump-ellipsization { display: inline-flex; } .phpdebugbar pre.sf-dump a { text-decoration: none; cursor: pointer; border: 0; outline: none; color: inherit; } .phpdebugbar pre.sf-dump img { max-width: 50em; max-height: 50em; margin: .5em 0 0 0; padding: 0; background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAHUlEQVQY02O8zAABilCaiQEN0EeA8QuUcX9g3QEAAjcC5piyhyEAAAAASUVORK5CYII=) #D3D3D3; } .phpdebugbar pre.sf-dump .sf-dump-ellipsis { text-overflow: ellipsis; white-space: nowrap; overflow: hidden; } .phpdebugbar pre.sf-dump .sf-dump-ellipsis-tail { flex-shrink: 0; } .phpdebugbar pre.sf-dump code { display:inline; padding:0; background:none; } .sf-dump-public.sf-dump-highlight, .sf-dump-protected.sf-dump-highlight, .sf-dump-private.sf-dump-highlight, .sf-dump-str.sf-dump-highlight, .sf-dump-key.sf-dump-highlight { background: rgba(111, 172, 204, 0.3); border: 1px solid #7DA0B1; border-radius: 3px; } .sf-dump-public.sf-dump-highlight-active, .sf-dump-protected.sf-dump-highlight-active, .sf-dump-private.sf-dump-highlight-active, .sf-dump-str.sf-dump-highlight-active, .sf-dump-key.sf-dump-highlight-active { background: rgba(253, 175, 0, 0.4); border: 1px solid #ffa500; border-radius: 3px; } .phpdebugbar pre.sf-dump .sf-dump-search-hidden { display: none !important; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper { font-size: 0; white-space: nowrap; margin-bottom: 5px; display: flex; position: -webkit-sticky; position: sticky; top: 5px; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > * { vertical-align: top; box-sizing: border-box; height: 21px; font-weight: normal; border-radius: 0; background: #FFF; color: #757575; border: 1px solid #BBB; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > input.sf-dump-search-input { padding: 3px; height: 21px; font-size: 12px; border-right: none; border-top-left-radius: 3px; border-bottom-left-radius: 3px; color: #000; min-width: 15px; width: 100%; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-input-next, .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-input-previous { background: #F2F2F2; outline: none; border-left: none; font-size: 0; line-height: 0; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-input-next { border-top-right-radius: 3px; border-bottom-right-radius: 3px; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-input-next > svg, .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-input-previous > svg { pointer-events: none; width: 12px; height: 12px; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-count { display: inline-block; padding: 0 5px; margin: 0; border-left: none; line-height: 21px; font-size: 12px; }.phpdebugbar pre.sf-dump, .phpdebugbar pre.sf-dump .sf-dump-default{word-wrap: break-word; white-space: pre-wrap; word-break: normal}.phpdebugbar pre.sf-dump .sf-dump-num{font-weight:bold; color:#1299DA}.phpdebugbar pre.sf-dump .sf-dump-const{font-weight:bold}.phpdebugbar pre.sf-dump .sf-dump-str{font-weight:bold; color:#3A9B26}.phpdebugbar pre.sf-dump .sf-dump-note{color:#1299DA}.phpdebugbar pre.sf-dump .sf-dump-ref{color:#7B7B7B}.phpdebugbar pre.sf-dump .sf-dump-public{color:#000000}.phpdebugbar pre.sf-dump .sf-dump-protected{color:#000000}.phpdebugbar pre.sf-dump .sf-dump-private{color:#000000}.phpdebugbar pre.sf-dump .sf-dump-meta{color:#B729D9}.phpdebugbar pre.sf-dump .sf-dump-key{color:#3A9B26}.phpdebugbar pre.sf-dump .sf-dump-index{color:#1299DA}.phpdebugbar pre.sf-dump .sf-dump-ellipsis{color:#A0A000}.phpdebugbar pre.sf-dump .sf-dump-virtual{font-style:italic}.phpdebugbar pre.sf-dump .sf-dump-ns{user-select:none;}.phpdebugbar pre.sf-dump .sf-dump-ellipsis-note{color:#1299DA}</style>
+<!-- Livewire Styles --><style >[wire\:loading][wire\:loading], [wire\:loading\.delay][wire\:loading\.delay], [wire\:loading\.inline-block][wire\:loading\.inline-block], [wire\:loading\.inline][wire\:loading\.inline], [wire\:loading\.block][wire\:loading\.block], [wire\:loading\.flex][wire\:loading\.flex], [wire\:loading\.table][wire\:loading\.table], [wire\:loading\.grid][wire\:loading\.grid], [wire\:loading\.inline-flex][wire\:loading\.inline-flex] {display: none;}[wire\:loading\.delay\.none][wire\:loading\.delay\.none], [wire\:loading\.delay\.shortest][wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter][wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short][wire\:loading\.delay\.short], [wire\:loading\.delay\.default][wire\:loading\.delay\.default], [wire\:loading\.delay\.long][wire\:loading\.delay\.long], [wire\:loading\.delay\.longer][wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest][wire\:loading\.delay\.longest] {display: none;}[wire\:offline][wire\:offline] {display: none;}[wire\:dirty]:not(textarea):not(input):not(select) {display: none;}:root {--livewire-progress-bar-color: #2299dd;}[x-cloak] {display: none !important;}</style>
+</head>
+<body class="min-h-screen font-sans antialiased bg-base-200/50 dark:bg-base-200">
+
+
+    <div wire:snapshot="{&quot;data&quot;:{&quot;CartItems&quot;:0,&quot;content&quot;:[[],{&quot;class&quot;:&quot;Darryldecode\\Cart\\CartCollection&quot;,&quot;s&quot;:&quot;clctn&quot;}],&quot;total&quot;:0,&quot;url&quot;:&quot;http:\/\/127.0.0.1:8000&quot;},&quot;memo&quot;:{&quot;id&quot;:&quot;M2CtICsobRbHDd01rhnv&quot;,&quot;name&quot;:&quot;navigation.navbar&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;fr&quot;},&quot;checksum&quot;:&quot;c0348a2b944f7c39e405d8ae67228b5bec2f8df57ad89031244a07ad171ff7d4&quot;}" wire:effects="{&quot;listeners&quot;:[&quot;cart-updated&quot;]}" wire:id="M2CtICsobRbHDd01rhnv" class="bg-base-100 border-base-300 border-b sticky top-0 z-10 bg-cyan-700 text-white">
+        <div class="flex items-center px-6 py-5">
+            <div class="flex-1 flex items-center">
+                <label for="main-drawer" class="mr-3 lg:hidden">
+            <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+            <svg class="inline w-5 h-5 cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+</svg>
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->        </label>
+
+        <a href="/" wire:navigate>
+            <a href="/" wire:navigate>
+        <!-- Hidden when collapsed -->
+        <div class="hidden-when-collapsed">
+            <div class="">
+                <img src="http://127.0.0.1:8000/storage/photos/logo1.png" alt="" class="h-auto w-26 sm:w-32 md:w-40 lg:w-48 xl:w-56">
+            </div>
+        </div>
+
+        <!-- Display when collapsed -->
+        <div class="display-when-collapsed hidden mx-5 mt-4 lg:mb-6 h-[28px]">
+            <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+            <svg class="inline -mb-1 w-6 text-purple-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon">
+  <path d="M11.644 1.59a.75.75 0 0 1 .712 0l9.75 5.25a.75.75 0 0 1 0 1.32l-9.75 5.25a.75.75 0 0 1-.712 0l-9.75-5.25a.75.75 0 0 1 0-1.32l9.75-5.25Z"/>
+  <path d="m3.265 10.602 7.668 4.129a2.25 2.25 0 0 0 2.134 0l7.668-4.13 1.37.739a.75.75 0 0 1 0 1.32l-9.75 5.25a.75.75 0 0 1-.71 0l-9.75-5.25a.75.75 0 0 1 0-1.32l1.37-.738Z"/>
+  <path d="m10.933 19.231-7.668-4.13-1.37.739a.75.75 0 0 0 0 1.32l9.75 5.25c.221.12.489.12.71 0l9.75-5.25a.75.75 0 0 0 0-1.32l-1.37-.738-7.668 4.13a2.25 2.25 0 0 1-2.134-.001Z"/>
+</svg>
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->        </div>
+    </a>        </a>
+            </div>
+            <div class="flex items-center gap-4">
+                <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+        <span class="hidden lg:block">
+            <!--[if BLOCK]><![endif]-->                <details
+        x-data="{open: false}"
+        @click.outside="open = false"
+        :open="open"
+        class="dropdown"
+    >
+        <!-- CUSTOM TRIGGER -->
+        <!--[if BLOCK]><![endif]-->            <summary x-ref="button" @click.prevent="open = !open" class="list-none">
+                <!--[if BLOCK]><![endif]-->        <button
+
+        wire:key="mary93c80aa0d89cbb287ba902e03b2c49c1"
+        type="button"
+        class="btn normal-case btn-ghost"
+
+
+
+
+            >
+
+        <!-- SPINNER LEFT -->
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+        <!-- ICON -->
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+        <!-- LABEL / SLOT -->
+        <!--[if BLOCK]><![endif]-->            <span class="">
+                CHINEL Polly
+            </span>
+            <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+        <!--[if ENDBLOCK]><![endif]-->
+
+        <!-- ICON RIGHT -->
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+        <!-- SPINNER RIGHT -->
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+    <!--[if BLOCK]><![endif]-->        </button>
+    <!--[if ENDBLOCK]><![endif]-->
+            </summary>
+        <!--[if ENDBLOCK]><![endif]-->
+
+        <ul
+            class="p-2 shadow menu z-[1] border border-base-200 bg-base-100 dark:bg-base-200 rounded-box w-auto min-w-max"
+            @click="open = false"
+                            x-anchor.bottom-start="$refs.button"
+                    >
+            <div wire:key="dropdown-slot-mary8aa6cf1d951b256ff450b92a85ac24c7">
+                <span class="text-black">
+                                                <!--[if BLOCK]><![endif]-->                            <li>
+        <a
+            class="my-0.5 hover:text-inherit rounded-md whitespace-nowrap"
+
+                            href="http://127.0.0.1:8000/admin/dashboard"
+
+
+                                    wire:navigate
+
+                    >
+            <!-- SPINNER -->
+            <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+            <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+            <!--[if BLOCK]><![endif]-->            <span class="mary-hideable whitespace-nowrap truncate">
+                <!--[if BLOCK]><![endif]-->                    Administration
+
+                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+                <!--[if ENDBLOCK]><![endif]-->
+            </span>
+            <!--[if ENDBLOCK]><![endif]-->
+        </a>
+    </li>                        <!--[if ENDBLOCK]><![endif]-->
+                        <li>
+        <a
+            class="my-0.5 hover:text-inherit rounded-md whitespace-nowrap"
+
+                            href="http://127.0.0.1:8000/account/profile"
+
+
+                                    wire:navigate
+
+                    >
+            <!-- SPINNER -->
+            <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+            <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+            <!--[if BLOCK]><![endif]-->            <span class="mary-hideable whitespace-nowrap truncate">
+                <!--[if BLOCK]><![endif]-->                    Mon profil
+
+                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+                <!--[if ENDBLOCK]><![endif]-->
+            </span>
+            <!--[if ENDBLOCK]><![endif]-->
+        </a>
+    </li>                        <li>
+        <a
+            class="my-0.5 hover:text-inherit rounded-md whitespace-nowrap"
+
+                            href="http://127.0.0.1:8000/account/addresses"
+
+
+                                    wire:navigate
+
+                    >
+            <!-- SPINNER -->
+            <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+            <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+            <!--[if BLOCK]><![endif]-->            <span class="mary-hideable whitespace-nowrap truncate">
+                <!--[if BLOCK]><![endif]-->                    Mes adresses
+
+                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+                <!--[if ENDBLOCK]><![endif]-->
+            </span>
+            <!--[if ENDBLOCK]><![endif]-->
+        </a>
+    </li>                        <li>
+        <a
+            class="my-0.5 hover:text-inherit rounded-md whitespace-nowrap"
+
+                            href="http://127.0.0.1:8000/account/orders"
+
+
+                                    wire:navigate
+
+                    >
+            <!-- SPINNER -->
+            <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+            <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+            <!--[if BLOCK]><![endif]-->            <span class="mary-hideable whitespace-nowrap truncate">
+                <!--[if BLOCK]><![endif]-->                    Mes commandes
+
+                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+                <!--[if ENDBLOCK]><![endif]-->
+            </span>
+            <!--[if ENDBLOCK]><![endif]-->
+        </a>
+    </li>                        <li>
+        <a
+            class="my-0.5 hover:text-inherit rounded-md whitespace-nowrap"
+
+                            href="http://127.0.0.1:8000/account/rgpd"
+
+
+                                    wire:navigate
+
+                    >
+            <!-- SPINNER -->
+            <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+            <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+            <!--[if BLOCK]><![endif]-->            <span class="mary-hideable whitespace-nowrap truncate">
+                <!--[if BLOCK]><![endif]-->                    RGPD
+
+                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+                <!--[if ENDBLOCK]><![endif]-->
+            </span>
+            <!--[if ENDBLOCK]><![endif]-->
+        </a>
+    </li>                        <li>
+        <a
+            class="my-0.5 hover:text-inherit rounded-md whitespace-nowrap" wire:click="logout"
+
+
+                    >
+            <!-- SPINNER -->
+            <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+            <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+            <!--[if BLOCK]><![endif]-->            <span class="mary-hideable whitespace-nowrap truncate">
+                <!--[if BLOCK]><![endif]-->                    Déconnexion
+
+                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+                <!--[if ENDBLOCK]><![endif]-->
+            </span>
+            <!--[if ENDBLOCK]><![endif]-->
+        </a>
+    </li>
+                    </span>
+            </div>
+        </ul>
+    </details>            <!--[if ENDBLOCK]><![endif]-->
+        </span>
+            </div>
+        </div>
+    </div>
+
+    <main class="w-full mx-auto">
+    <div class="drawer lg:drawer-open">
+        <input id="main-drawer" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content w-full mx-auto p-5 lg:px-10 lg:py-5">
+            <!-- MAIN CONTENT -->
+            <div wire:snapshot="{&quot;data&quot;:[],&quot;memo&quot;:{&quot;id&quot;:&quot;35IOOCIXX81pROXKdcyp&quot;,&quot;name&quot;:&quot;index&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;fr&quot;},&quot;checksum&quot;:&quot;f5a130803c691c607fa26275898c1e2e92589a35f3c9b93eb887a27312b4b29f&quot;}" wire:effects="[]" wire:id="35IOOCIXX81pROXKdcyp" class="container mx-auto">
+    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+    <div
+        class="card bg-base-100 rounded-lg p-5 shadow-sm w-full shadow-md shadow-gray-500" wire:key="marybe34bf20c4142824ec8b66d6cf71cdca"
+    >
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+        <div>
+            Aut eius libero voluptas qui.
+        </div>
+
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+    </div>    <br>
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <!--[if BLOCK]><![endif]-->                        <div
+        class="card bg-base-100 rounded-lg p-5 shadow-md transition duration-500 ease-in-out shadow-gray-500 hover:shadow-xl hover:shadow-gray-500 flex flex-col justify-between" wire:key="maryd5e1f57608bb77b1bcf1facfef629bcd"
+    >
+        <!--[if BLOCK]><![endif]-->            <figure class="mb-5 -m-5">
+                <!--[if BLOCK]><![endif]-->                            <a href="http://127.0.0.1:8000/products/1">
+                        <!--[if ENDBLOCK]><![endif]-->
+                        <img src="http://127.0.0.1:8000/storage/photos/montre.png" alt="Montre" />
+                        <!--[if BLOCK]><![endif]-->                            </a>
+                        <!--[if ENDBLOCK]><![endif]-->
+            </figure>
+        <!--[if ENDBLOCK]><![endif]-->
+
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+        <div>
+            <span class=>56,00 € TTC</span><br>
+                <b>Montre</b>
+                <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+                <!--[if BLOCK]><![endif]-->                                     <!--[if ENDBLOCK]><![endif]-->
+        </div>
+
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+    </div>
+
+    <div class="card bg-base-100 rounded-lg p-5 shadow-md transition duration-500 ease-in-out shadow-gray-500 hover:shadow-xl hover:shadow-gray-500 flex flex-col justify-between" wire:key="maryd5e1f57608bb77b1bcf1facfef629bcd" >
+        <!--[if BLOCK]><![endif]-->
+        <figure class="mb-5 -m-5">
+            <!--[if BLOCK]><![endif]-->
+            <a href="http://127.0.0.1:8000/products/2"><!--[if ENDBLOCK]><![endif]--><img src="http://127.0.0.1:8000/storage/photos/lunettes.png" alt="Lunettes" /><!--[if BLOCK]><![endif]--></a>
+            <!--[if ENDBLOCK]><![endif]-->
+        </figure>
+        <!--[if ENDBLOCK]><![endif]-->
+
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+        <div>
+            <a title="Jusqu'au 04 mars !"><span class="text-red-500 text-xl mr-3">69,90 € TTC</span><span class=line-through>75,00 € TTC</span>
+                <b>Lunettes</b>
+                <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+                <!--[if BLOCK]><![endif]-->                                     <!--[if ENDBLOCK]><![endif]-->
+        </div>
+
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+    </div>                                <div
+        class="card bg-base-100 rounded-lg p-5 shadow-md transition duration-500 ease-in-out shadow-gray-500 hover:shadow-xl hover:shadow-gray-500 flex flex-col justify-between" wire:key="maryd5e1f57608bb77b1bcf1facfef629bcd"
+    >
+        <!--[if BLOCK]><![endif]-->            <figure class="mb-5 -m-5">
+                <!--[if BLOCK]><![endif]-->                            <a href="http://127.0.0.1:8000/products/3">
+                        <!--[if ENDBLOCK]><![endif]-->
+                        <img src="http://127.0.0.1:8000/storage/photos/noix.png" alt="Noix" />
+                        <!--[if BLOCK]><![endif]-->                            </a>
+                        <!--[if ENDBLOCK]><![endif]-->
+            </figure>
+        <!--[if ENDBLOCK]><![endif]-->
+
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+        <div>
+            <span class=>26,00 € TTC</span><br>
+                <b>Noix</b>
+                <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+                <!--[if BLOCK]><![endif]-->                                     <!--[if ENDBLOCK]><![endif]-->
+        </div>
+
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+    </div>                                <div
+        class="card bg-base-100 rounded-lg p-5 shadow-md transition duration-500 ease-in-out shadow-gray-500 hover:shadow-xl hover:shadow-gray-500 flex flex-col justify-between" wire:key="maryd5e1f57608bb77b1bcf1facfef629bcd"
+    >
+        <!--[if BLOCK]><![endif]-->            <figure class="mb-5 -m-5">
+                <!--[if BLOCK]><![endif]-->                            <a href="http://127.0.0.1:8000/products/4">
+                        <!--[if ENDBLOCK]><![endif]-->
+                        <img src="http://127.0.0.1:8000/storage/photos/pain.png" alt="Pain" />
+                        <!--[if BLOCK]><![endif]-->                            </a>
+                        <!--[if ENDBLOCK]><![endif]-->
+            </figure>
+        <!--[if ENDBLOCK]><![endif]-->
+
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+        <div>
+            <span class=>12,00 € TTC</span><br>
+                <b>Pain</b>
+                <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+                <!--[if BLOCK]><![endif]-->                                     <!--[if ENDBLOCK]><![endif]-->
+        </div>
+
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+    </div>                                <div
+        class="card bg-base-100 rounded-lg p-5 shadow-md transition duration-500 ease-in-out shadow-gray-500 hover:shadow-xl hover:shadow-gray-500 flex flex-col justify-between" wire:key="maryd5e1f57608bb77b1bcf1facfef629bcd"
+    >
+        <!--[if BLOCK]><![endif]-->            <figure class="mb-5 -m-5">
+                <!--[if BLOCK]><![endif]-->                            <a href="http://127.0.0.1:8000/products/5">
+                        <!--[if ENDBLOCK]><![endif]-->
+                        <img src="http://127.0.0.1:8000/storage/photos/pc.png" alt="Pc portable" />
+                        <!--[if BLOCK]><![endif]-->                            </a>
+                        <!--[if ENDBLOCK]><![endif]-->
+            </figure>
+        <!--[if ENDBLOCK]><![endif]-->
+
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+        <div>
+            <span class=>450,00 € TTC</span><br>
+                <b>Pc portable</b>
+                <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+                <!--[if BLOCK]><![endif]-->                                     <!--[if ENDBLOCK]><![endif]-->
+        </div>
+
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+    </div>                                <div
+        class="card bg-base-100 rounded-lg p-5 shadow-md transition duration-500 ease-in-out shadow-gray-500 hover:shadow-xl hover:shadow-gray-500 flex flex-col justify-between" wire:key="maryd5e1f57608bb77b1bcf1facfef629bcd"
+    >
+        <!--[if BLOCK]><![endif]-->            <figure class="mb-5 -m-5">
+                <!--[if BLOCK]><![endif]-->                            <a href="http://127.0.0.1:8000/products/6">
+                        <!--[if ENDBLOCK]><![endif]-->
+                        <img src="http://127.0.0.1:8000/storage/photos/rollers.png" alt="Rollers" />
+                        <!--[if BLOCK]><![endif]-->                            </a>
+                        <!--[if ENDBLOCK]><![endif]-->
+            </figure>
+        <!--[if ENDBLOCK]><![endif]-->
+
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+        <div>
+            <span class=>1 500,00 € TTC</span><br>
+                <b>Rollers</b>
+                <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+                <!--[if BLOCK]><![endif]-->                                     <!--[if ENDBLOCK]><![endif]-->
+        </div>
+
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+    </div>        <!--[if ENDBLOCK]><![endif]-->
+    </div>
+    <br>
+    <div
+        class="card bg-base-100 rounded-lg p-5 shadow-sm w-full shadow-md shadow-gray-500" wire:key="marybe34bf20c4142824ec8b66d6cf71cdca"
+    >
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+        <div>
+            <div
+        x-data="{ model: window.Livewire.find('35IOOCIXX81pROXKdcyp').entangle('') }"
+        class="join join-vertical w-full shadow-md shadow-gray-500"
+        wire:key="accordion-mary97f1910bb9da17052cc125b844521628"
+    >
+            <div
+        class="collapse border border-base-300 join-item collapse-arrow"
+
+        wire:key="collapse-maryfaaf2ac3ee389ecee762d6704d5e76f1"
+    >
+            <!-- Detects if it is inside an accordion.  -->
+            <!--[if BLOCK]><![endif]-->                <input id="radio-maryfaaf2ac3ee389ecee762d6704d5e76f1" type="radio" value="group1" x-model="model" />
+            <!--[if ENDBLOCK]><![endif]-->
+
+            <div
+                class="collapse-title text-xl font-medium"
+
+                                    :class="model == 'group1' && 'z-10'"
+                    @click="if (model == 'group1') model = null"
+                            >
+                Informations générales
+            </div>
+            <div class="collapse-content" wire:key="content-maryfaaf2ac3ee389ecee762d6704d5e76f1">
+                <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+                Sunt qui quod minus et sed sint dolores sint. Doloremque quo exercitationem saepe laborum aut. Tenetur aut quis quia ut.
+            </div>
+    </div>            <div
+        class="collapse border border-base-300 join-item collapse-arrow"
+
+        wire:key="collapse-maryf75fa11ccb06f17b4d0b3eb5494a8678"
+    >
+            <!-- Detects if it is inside an accordion.  -->
+            <!--[if BLOCK]><![endif]-->                <input id="radio-maryf75fa11ccb06f17b4d0b3eb5494a8678" type="radio" value="group2" x-model="model" />
+            <!--[if ENDBLOCK]><![endif]-->
+
+            <div
+                class="collapse-title text-xl font-medium"
+
+                                    :class="model == 'group2' && 'z-10'"
+                    @click="if (model == 'group2') model = null"
+                            >
+                Frais de port
+            </div>
+            <div class="collapse-content" wire:key="content-maryf75fa11ccb06f17b4d0b3eb5494a8678">
+                <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+                Blanditiis quo harum sit labore. Occaecati quo quisquam debitis magnam vero perspiciatis dignissimos. Veniam eos cupiditate qui quis ut. Eos et molestiae placeat dicta cum architecto.
+            </div>
+    </div>
+    </div>
+        </div>
+
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+    </div></div>
+        </div>
+
+        <!-- SIDEBAR -->
+                    <div
+                x-data="{
+                    collapsed: false,
+                    collapseText: 'Collapse',
+                    toggle() {
+                        this.collapsed = !this.collapsed;
+                        fetch('/mary/toogle-sidebar?collapsed=' + this.collapsed);
+                        this.$dispatch('sidebar-toggled', this.collapsed);
+                    }
+                }"
+
+                @menu-sub-clicked="if(collapsed) { toggle() }"
+                class="drawer-side z-20 lg:z-auto"
+            >
+                <label for="main-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+
+                <!-- SIDEBAR CONTENT -->
+                <div
+                    :class="collapsed
+                        ? '!w-[70px] [&>*_summary::after]:!hidden [&_.mary-hideable]:!hidden [&_.display-when-collapsed]:!block [&_.hidden-when-collapsed]:!hidden'
+                        : '!w-[270px] [&>*_summary::after]:!block [&_.mary-hideable]:!block [&_.hidden-when-collapsed]:!block [&_.display-when-collapsed]:!hidden'"
+
+                    class="flex flex-col !transition-all !duration-100 ease-out overflow-x-hidden overflow-y-auto h-screen w-[270px] [&amp;&gt;*_summary::after]:block [&amp;_.mary-hideable]:block [&amp;_.hidden-when-collapsed]:block [&amp;_.display-when-collapsed]:hidden bg-base-100 lg:bg-inherit lg:hidden" drawer="main-drawer" collapsible="collapsible"
+                >
+                    <div class="flex-1">
+                        <div wire:snapshot="{&quot;data&quot;:[],&quot;memo&quot;:{&quot;id&quot;:&quot;oFVfzjyyTsNMEzDcYd0f&quot;,&quot;name&quot;:&quot;navigation.sidebar&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;fr&quot;},&quot;checksum&quot;:&quot;d761a327ef1e5ab4bacf6f22dc04433809035c18810ed8da8aa11cf38369a1e0&quot;}" wire:effects="[]" wire:id="oFVfzjyyTsNMEzDcYd0f">
+    <ul class="menu rounded-md" >
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+        <!--[if BLOCK]><![endif]-->            <div wire:key="mary2045bef58f1c4d5a178308d34cb43e8a">
+        <div
+            class="flex justify-start items-center gap-4 px-3 -mx-2 !-my-2 rounded"
+        >
+
+            <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+            <!-- AVATAR -->
+            <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+            <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+
+            <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+            <!-- CONTENT -->
+            <div class="flex-1 overflow-hidden whitespace-nowrap text-ellipsis truncate w-0 mary-hideable">
+                <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+                <div class="py-3">
+                    <div  class="font-semibold truncate" >
+                        CHINEL
+                    </div>
+
+                    <div  class="text-gray-400 text-sm truncate" >
+                        admin@example.com
+                    </div>
+                </div>
+
+                <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+            </div>
+
+            <!-- ACTION -->
+            <!--[if BLOCK]><![endif]-->                <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+                    <div class="py-3 flex items-center gap-3 mary-hideable">
+                            <!--[if BLOCK]><![endif]-->        <button
+
+        wire:key="mary4b17f93b91181e2ad6a1d484ae447143"
+        type="button" wire:click="logout"
+        class="btn normal-case !inline-flex lg:tooltip lg:tooltip-left btn-circle btn-ghost btn-xs" wire:click="logout"
+
+
+
+                    data-tip="Déconnexion"
+
+            >
+
+        <!-- SPINNER LEFT -->
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+        <!-- ICON -->
+        <!--[if BLOCK]><![endif]-->            <span class="block" >
+                <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+            <svg class="inline w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M5.636 5.636a9 9 0 1 0 12.728 0M12 3v9"/>
+</svg>
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->            </span>
+        <!--[if ENDBLOCK]><![endif]-->
+
+        <!-- LABEL / SLOT -->
+        <!--[if BLOCK]><![endif]-->
+        <!--[if ENDBLOCK]><![endif]-->
+
+        <!-- ICON RIGHT -->
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+        <!-- SPINNER RIGHT -->
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+    <!--[if BLOCK]><![endif]-->        </button>
+    <!--[if ENDBLOCK]><![endif]-->
+                    </div>
+
+                <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+            <!--[if ENDBLOCK]><![endif]-->
+        </div>
+
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+    </div>            <hr class="my-3"/>
+
+    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->            <!--[if BLOCK]><![endif]-->                <li>
+        <a
+            class="my-0.5 hover:text-inherit rounded-md whitespace-nowrap"
+
+                            href="http://127.0.0.1:8000/admin/dashboard"
+
+
+                                    wire:navigate
+
+                    >
+            <!-- SPINNER -->
+            <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+            <!--[if BLOCK]><![endif]-->                <span class="block -mt-0.5" >
+                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+            <svg class="inline w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon">
+  <path fill-rule="evenodd" d="M3 2.25a.75.75 0 0 0 0 1.5v16.5h-.75a.75.75 0 0 0 0 1.5H15v-18a.75.75 0 0 0 0-1.5H3ZM6.75 19.5v-2.25a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-.75.75h-3a.75.75 0 0 1-.75-.75ZM6 6.75A.75.75 0 0 1 6.75 6h.75a.75.75 0 0 1 0 1.5h-.75A.75.75 0 0 1 6 6.75ZM6.75 9a.75.75 0 0 0 0 1.5h.75a.75.75 0 0 0 0-1.5h-.75ZM6 12.75a.75.75 0 0 1 .75-.75h.75a.75.75 0 0 1 0 1.5h-.75a.75.75 0 0 1-.75-.75ZM10.5 6a.75.75 0 0 0 0 1.5h.75a.75.75 0 0 0 0-1.5h-.75Zm-.75 3.75A.75.75 0 0 1 10.5 9h.75a.75.75 0 0 1 0 1.5h-.75a.75.75 0 0 1-.75-.75ZM10.5 12a.75.75 0 0 0 0 1.5h.75a.75.75 0 0 0 0-1.5h-.75ZM16.5 6.75v15h5.25a.75.75 0 0 0 0-1.5H21v-12a.75.75 0 0 0 0-1.5h-4.5Zm1.5 4.5a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75h-.008a.75.75 0 0 1-.75-.75v-.008Zm.75 2.25a.75.75 0 0 0-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 0 0 .75-.75v-.008a.75.75 0 0 0-.75-.75h-.008ZM18 17.25a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75h-.008a.75.75 0 0 1-.75-.75v-.008Z" clip-rule="evenodd"/>
+</svg>
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->                </span>
+            <!--[if ENDBLOCK]><![endif]-->
+
+            <!--[if BLOCK]><![endif]-->            <span class="mary-hideable whitespace-nowrap truncate">
+                <!--[if BLOCK]><![endif]-->                    Administration
+
+                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+                <!--[if ENDBLOCK]><![endif]-->
+            </span>
+            <!--[if ENDBLOCK]><![endif]-->
+        </a>
+    </li>            <!--[if ENDBLOCK]><![endif]-->
+            <hr class="my-3"/>
+
+    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->            <li>
+        <a
+            class="my-0.5 hover:text-inherit rounded-md whitespace-nowrap"
+
+                            href="http://127.0.0.1:8000/account/profile"
+
+
+                                    wire:navigate
+
+                    >
+            <!-- SPINNER -->
+            <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+            <!--[if BLOCK]><![endif]-->                <span class="block -mt-0.5" >
+                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+            <svg class="inline w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/>
+</svg>
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->                </span>
+            <!--[if ENDBLOCK]><![endif]-->
+
+            <!--[if BLOCK]><![endif]-->            <span class="mary-hideable whitespace-nowrap truncate">
+                <!--[if BLOCK]><![endif]-->                    Mon profil
+
+                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+                <!--[if ENDBLOCK]><![endif]-->
+            </span>
+            <!--[if ENDBLOCK]><![endif]-->
+        </a>
+    </li>            <li>
+        <a
+            class="my-0.5 hover:text-inherit rounded-md whitespace-nowrap"
+
+                            href="http://127.0.0.1:8000/account/addresses"
+
+
+                                    wire:navigate
+
+                    >
+            <!-- SPINNER -->
+            <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+            <!--[if BLOCK]><![endif]-->                <span class="block -mt-0.5" >
+                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+            <svg class="inline w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/>
+</svg>
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->                </span>
+            <!--[if ENDBLOCK]><![endif]-->
+
+            <!--[if BLOCK]><![endif]-->            <span class="mary-hideable whitespace-nowrap truncate">
+                <!--[if BLOCK]><![endif]-->                    Mes adresses
+
+                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+                <!--[if ENDBLOCK]><![endif]-->
+            </span>
+            <!--[if ENDBLOCK]><![endif]-->
+        </a>
+    </li>            <li>
+        <a
+            class="my-0.5 hover:text-inherit rounded-md whitespace-nowrap"
+
+                            href="http://127.0.0.1:8000/account/orders"
+
+
+                                    wire:navigate
+
+                    >
+            <!-- SPINNER -->
+            <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+            <!--[if BLOCK]><![endif]-->                <span class="block -mt-0.5" >
+                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+            <svg class="inline w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"/>
+</svg>
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->                </span>
+            <!--[if ENDBLOCK]><![endif]-->
+
+            <!--[if BLOCK]><![endif]-->            <span class="mary-hideable whitespace-nowrap truncate">
+                <!--[if BLOCK]><![endif]-->                    Mes commandes
+
+                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+                <!--[if ENDBLOCK]><![endif]-->
+            </span>
+            <!--[if ENDBLOCK]><![endif]-->
+        </a>
+    </li>            <li>
+        <a
+            class="my-0.5 hover:text-inherit rounded-md whitespace-nowrap"
+
+                            href="http://127.0.0.1:8000/account/rgpd"
+
+
+                                    wire:navigate
+
+                    >
+            <!-- SPINNER -->
+            <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+            <!--[if BLOCK]><![endif]-->                <span class="block -mt-0.5" >
+                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+            <svg class="inline w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"/>
+</svg>
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->                </span>
+            <!--[if ENDBLOCK]><![endif]-->
+
+            <!--[if BLOCK]><![endif]-->            <span class="mary-hideable whitespace-nowrap truncate">
+                <!--[if BLOCK]><![endif]-->                    RGPD
+
+                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+                <!--[if ENDBLOCK]><![endif]-->
+            </span>
+            <!--[if ENDBLOCK]><![endif]-->
+        </a>
+    </li>            <hr class="my-3"/>
+
+    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->        <!--[if ENDBLOCK]><![endif]-->
+    </ul></div>
+                    </div>
+
+                     <!-- SIDEBAR COLLAPSE -->
+                                        <ul class="menu rounded-md hidden !bg-inherit lg:block" >
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+        <li>
+        <a
+            class="my-0.5 hover:text-inherit rounded-md whitespace-nowrap" @click="toggle"
+
+
+                    >
+            <!-- SPINNER -->
+            <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+
+            <!--[if BLOCK]><![endif]-->                <span class="block -mt-0.5" >
+                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+            <svg class="inline w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25"/>
+</svg>
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->                </span>
+            <!--[if ENDBLOCK]><![endif]-->
+
+            <!--[if BLOCK]><![endif]-->            <span class="mary-hideable whitespace-nowrap truncate">
+                <!--[if BLOCK]><![endif]-->                    Collapse
+
+                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+                <!--[if ENDBLOCK]><![endif]-->
+            </span>
+            <!--[if ENDBLOCK]><![endif]-->
+        </a>
+    </li>
+    </ul>                                    </div>
+            </div>
+                <!-- END SIDEBAR-->
+
+    </div>
+</main>
+
+ <!-- FOOTER -->
+
+
+    <hr><br>
+    <footer wire:snapshot="{&quot;data&quot;:[],&quot;memo&quot;:{&quot;id&quot;:&quot;1hGC7rcumNZB85wAIsBf&quot;,&quot;name&quot;:&quot;navigation.footer&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;fr&quot;},&quot;checksum&quot;:&quot;b373bcb3cde1d58791eaf12aa6bdcc37e13d6e65e2177446c59194007c66aaae&quot;}" wire:effects="[]" wire:id="1hGC7rcumNZB85wAIsBf" class="p-10 text-white bg-cyan-700 footer">
+    <nav>
+      <a href="http://127.0.0.1:8000/pages/livraisons" class="link link-hover">Livraisons</a>
+      <a href="http://127.0.0.1:8000/pages/mentions-legales" class="link link-hover">Mentions légales</a>
+      <a href="http://127.0.0.1:8000/pages/conditions-generales-de-vente" class="link link-hover">Conditions générales de vente</a>
+    </nav>
+    <nav>
+        <a href="http://127.0.0.1:8000/pages/politique-de-confidentialite" class="link link-hover">Politique de confidentialité        <a href="http://127.0.0.1:8000/pages/respect-environnement" class="link link-hover">Respect de l'environnement</a>
+        <a href="http://127.0.0.1:8000/pages/mandat-administratif" class="link link-hover">Mandat administratif</a>
+    </nav>
+    <nav>
+      <h6 class="footer-title">Médias sociaux</h6>
+      <div class="grid grid-flow-col gap-4">
+        <a href="https://www.facebook.com/martine88" target="_blank">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            class="fill-current">
+            <path
+              d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
+          </svg>
+        </a>
+      </div>
+    </nav>
+</footer>    <br>
+
+
+    <div>
+    <div x-persist="mary-toaster">
+    <div
+        x-cloak
+        x-data="{ show: false, timer: '', toast: ''}"
+        @mary-toast.window="
+                        clearTimeout(timer);
+                        toast = $event.detail.toast
+                        setTimeout(() => show = true, 100);
+                        timer = setTimeout(() => show = false, $event.detail.toast.timeout);
+                        "
+    >
+        <div
+            class="toast rounded-md fixed cursor-pointer z-[999]"
+            :class="toast.position || 'toast-top toast-end'"
+            x-show="show"
+            x-classes="alert alert-success alert-warning alert-error alert-info top-10 end-10 toast toast-top toast-bottom toast-center toast-end toast-middle toast-start"
+            @click="show = false"
+        >
+            <div class="alert gap-2" :class="toast.css">
+                <div x-html="toast.icon"></div>
+                <div class="grid">
+                    <div x-html="toast.title" class="font-bold"></div>
+                    <div x-html="toast.description" class="text-xs"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.toast = function(payload){
+            window.dispatchEvent(new CustomEvent('mary-toast', {detail: payload}))
+        }
+
+        document.addEventListener('livewire:init', () => {
+            Livewire.hook('request', ({fail}) => {
+                fail(({status, content, preventDefault}) => {
+                    try {
+                        let result = JSON.parse(content);
+
+                        if (result?.toast && typeof window.toast === "function") {
+                            window.toast(result);
+                        }
+
+                        if ((result?.prevent_default ?? false) === true) {
+                            preventDefault();
+                        }
+                    } catch (e) {
+                        console.log(e)
+                    }
+                })
+            })
+        })
+    </script>
+    </div>
+</div><script type="text/javascript">
+var phpdebugbar = new PhpDebugBar.DebugBar();
+phpdebugbar.setHideEmptyTabs(false);
+phpdebugbar.addIndicator("php_version", new PhpDebugBar.DebugBar.Indicator({"icon":"code","tooltip":"PHP Version"}), "right");
+phpdebugbar.addTab("messages", new PhpDebugBar.DebugBar.Tab({"icon":"list-alt","title":"Messages", "widget": new PhpDebugBar.Widgets.MessagesWidget()}));
+phpdebugbar.addIndicator("time", new PhpDebugBar.DebugBar.Indicator({"icon":"clock-o","tooltip":"Request Duration"}), "right");
+phpdebugbar.addTab("timeline", new PhpDebugBar.DebugBar.Tab({"icon":"tasks","title":"Timeline", "widget": new PhpDebugBar.Widgets.TimelineWidget()}));
+phpdebugbar.addIndicator("memory", new PhpDebugBar.DebugBar.Indicator({"icon":"cogs","tooltip":"Memory Usage"}), "right");
+phpdebugbar.addTab("exceptions", new PhpDebugBar.DebugBar.Tab({"icon":"bug","title":"Exceptions", "widget": new PhpDebugBar.Widgets.ExceptionsWidget()}));
+phpdebugbar.addTab("views", new PhpDebugBar.DebugBar.Tab({"icon":"leaf","title":"Views", "widget": new PhpDebugBar.Widgets.TemplatesWidget()}));
+phpdebugbar.addTab("route", new PhpDebugBar.DebugBar.Tab({"icon":"share","title":"Route", "widget": new PhpDebugBar.Widgets.HtmlVariableListWidget()}));
+phpdebugbar.addIndicator("currentroute", new PhpDebugBar.DebugBar.Indicator({"icon":"share","tooltip":"Route"}), "right");
+phpdebugbar.addTab("queries", new PhpDebugBar.DebugBar.Tab({"icon":"database","title":"Queries", "widget": new PhpDebugBar.Widgets.LaravelQueriesWidget()}));
+phpdebugbar.addTab("models", new PhpDebugBar.DebugBar.Tab({"icon":"cubes","title":"Models", "widget": new PhpDebugBar.Widgets.HtmlVariableListWidget()}));
+phpdebugbar.addTab("livewire", new PhpDebugBar.DebugBar.Tab({"icon":"bolt","title":"Livewire", "widget": new PhpDebugBar.Widgets.VariableListWidget()}));
+phpdebugbar.addTab("emails", new PhpDebugBar.DebugBar.Tab({"icon":"inbox","title":"Mails", "widget": new PhpDebugBar.Widgets.MailsWidget()}));
+phpdebugbar.addTab("gate", new PhpDebugBar.DebugBar.Tab({"icon":"list-alt","title":"Gate", "widget": new PhpDebugBar.Widgets.MessagesWidget()}));
+phpdebugbar.addTab("session", new PhpDebugBar.DebugBar.Tab({"icon":"archive","title":"Session", "widget": new PhpDebugBar.Widgets.VariableListWidget()}));
+phpdebugbar.addTab("request", new PhpDebugBar.DebugBar.Tab({"icon":"tags","title":"Request", "widget": new PhpDebugBar.Widgets.HtmlVariableListWidget()}));
+phpdebugbar.setDataMap({
+"php_version": ["php.version", ],
+"messages": ["messages.messages", []],
+"messages:badge": ["messages.count", null],
+"time": ["time.duration_str", '0ms'],
+"timeline": ["time", {}],
+"memory": ["memory.peak_usage_str", '0B'],
+"exceptions": ["exceptions.exceptions", []],
+"exceptions:badge": ["exceptions.count", null],
+"views": ["views", []],
+"views:badge": ["views.nb_templates", 0],
+"route": ["route", {}],
+"currentroute": ["route.uri", ],
+"queries": ["queries", []],
+"queries:badge": ["queries.nb_statements", 0],
+"models": ["models.data", {}],
+"models:badge": ["models.count", 0],
+"livewire": ["livewire.data", {}],
+"livewire:badge": ["livewire.count", 0],
+"emails": ["symfonymailer_mails.mails", []],
+"emails:badge": ["symfonymailer_mails.count", null],
+"gate": ["gate.messages", []],
+"gate:badge": ["gate.count", null],
+"session": ["session", {}],
+"request": ["request", {}]
+});
+phpdebugbar.restoreState();
+phpdebugbar.enableAjaxHandlerTab();
+phpdebugbar.ajaxHandler = new PhpDebugBar.AjaxHandler(phpdebugbar, undefined, true);
+phpdebugbar.ajaxHandler.bindToFetch();
+phpdebugbar.ajaxHandler.bindToXHR();
+phpdebugbar.setOpenHandler(new PhpDebugBar.OpenHandler({"url":"http:\/\/127.0.0.1:8000\/_debugbar\/open"}));
+phpdebugbar.addDataSet({"__meta":{"id":"X5f642bfb8908b6e650587fc2efe07df1","datetime":"2025-02-24 16:47:09","utime":1740412029.687049,"method":"GET","uri":"\/","ip":"127.0.0.1"},"php":{"version":"8.3.4","interface":"cli-server"},"messages":{"count":2,"messages":[{"message":"69.9","message_html":"\u003Cpre class=sf-dump id=sf-dump-829981171 data-indent-pad=\u0022  \u0022\u003E\u003Cspan class=sf-dump-num\u003E69.9\u003C\/span\u003E\n\u003C\/pre\u003E\u003Cscript\u003ESfdump(\u0022sf-dump-829981171\u0022, {\u0022maxDepth\u0022:0})\u003C\/script\u003E\n","is_string":false,"label":"info","time":1740412029.514285,"xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fvendor%2Fbarryvdh%2Flaravel-debugbar%2Fsrc%2FLaravelDebugbar.php\u0026line=1158","ajax":false,"filename":"LaravelDebugbar.php","line":"1158"}},{"message":"App\\Models\\Product {#2548\n  #connection: \u0022sqlite\u0022\n  #table: \u0022products\u0022\n  #primaryKey: \u0022id\u0022\n  #keyType: \u0022int\u0022\n  +incrementing: true\n  #with: []\n  #withCount: []\n  +preventsLazyLoading: false\n  #perPage: 15\n  +exists: true\n  +wasRecentlyCreated: false\n  #escapeWhenCastingToString: false\n  #attributes: array:14 [\n    \u0022id\u0022 =\u003E 2\n    \u0022name\u0022 =\u003E \u0022Lunettes\u0022\n    \u0022price\u0022 =\u003E 75\n    \u0022weight\u0022 =\u003E 0.3\n    \u0022active\u0022 =\u003E 1\n    \u0022quantity\u0022 =\u003E 100\n    \u0022quantity_alert\u0022 =\u003E 10\n    \u0022image\u0022 =\u003E \u0022lunettes.png\u0022\n    \u0022description\u0022 =\u003E \u0022Superbe paire de lunettes de soleil.\u0022\n    \u0022promotion_price\u0022 =\u003E 69.9\n    \u0022promotion_start_date\u0022 =\u003E \u00222025-02-24 16:27:00\u0022\n    \u0022promotion_end_date\u0022 =\u003E \u00222025-03-04 04:44:03\u0022\n    \u0022created_at\u0022 =\u003E \u00222025-02-24 16:27:01\u0022\n    \u0022updated_at\u0022 =\u003E \u00222025-02-24 16:27:01\u0022\n  ]\n  #original: array:14 [\n    \u0022id\u0022 =\u003E 2\n    \u0022name\u0022 =\u003E \u0022Lunettes\u0022\n    \u0022price\u0022 =\u003E 75\n    \u0022weight\u0022 =\u003E 0.3\n    \u0022active\u0022 =\u003E 1\n    \u0022quantity\u0022 =\u003E 100\n    \u0022quantity_alert\u0022 =\u003E 10\n    \u0022image\u0022 =\u003E \u0022lunettes.png\u0022\n    \u0022description\u0022 =\u003E \u0022Superbe paire de lunettes de soleil.\u0022\n    \u0022promotion_price\u0022 =\u003E 69.9\n    \u0022promotion_start_date\u0022 =\u003E \u00222025-02-24 16:27:00\u0022\n    \u0022promotion_end_date\u0022 =\u003E \u00222025-03-04 04:44:03\u0022\n    \u0022created_at\u0022 =\u003E \u00222025-02-24 16:27:01\u0022\n    \u0022updated_at\u0022 =\u003E \u00222025-02-24 16:27:01\u0022\n  ]\n  #changes: []\n  #casts: array:2 [\n    \u0022promotion_start_date\u0022 =\u003E \u0022datetime:Y-m-d\u0022\n    \u0022promotion_end_date\u0022 =\u003E \u0022datetime:Y-m-d\u0022\n  ]\n  #classCastCache: []\n  #attributeCastCache: []\n  #dateFormat: null\n  #appends: []\n  #dispatchesEvents: []\n  #observables: []\n  #relations: []\n  #touches: []\n  +timestamps: true\n  +usesUniqueIds: false\n  #hidden: []\n  #visible: []\n  #fillable: array:11 [\n    0 =\u003E \u0022name\u0022\n    1 =\u003E \u0022price\u0022\n    2 =\u003E \u0022quantity\u0022\n    3 =\u003E \u0022weight\u0022\n    4 =\u003E \u0022active\u0022\n    5 =\u003E \u0022quantity_alert\u0022\n    6 =\u003E \u0022image\u0022\n    7 =\u003E \u0022description\u0022\n    8 =\u003E \u0022promotion_price\u0022\n    9 =\u003E \u0022promotion_start_date\u0022\n    10 =\u003E \u0022promotion_end_date\u0022\n  ]\n  #guarded: array:1 [\n    0 =\u003E \u0022*\u0022\n  ]\n}","message_html":"\u003Cpre class=sf-dump id=sf-dump-1788224002 data-indent-pad=\u0022  \u0022\u003E\u003Cspan class=sf-dump-note\u003EApp\\Models\\Product\u003C\/span\u003E {\u003Ca class=sf-dump-ref\u003E#2548\u003C\/a\u003E\u003Csamp data-depth=1 class=sf-dump-compact\u003E\n  #\u003Cspan class=sf-dump-protected title=\u0022Protected property\u0022\u003Econnection\u003C\/span\u003E: \u0022\u003Cspan class=sf-dump-str title=\u00226 characters\u0022\u003Esqlite\u003C\/span\u003E\u0022\n  #\u003Cspan class=sf-dump-protected title=\u0022Protected property\u0022\u003Etable\u003C\/span\u003E: \u0022\u003Cspan class=sf-dump-str title=\u00228 characters\u0022\u003Eproducts\u003C\/span\u003E\u0022\n  #\u003Cspan class=sf-dump-protected title=\u0022Protected property\u0022\u003EprimaryKey\u003C\/span\u003E: \u0022\u003Cspan class=sf-dump-str title=\u00222 characters\u0022\u003Eid\u003C\/span\u003E\u0022\n  #\u003Cspan class=sf-dump-protected title=\u0022Protected property\u0022\u003EkeyType\u003C\/span\u003E: \u0022\u003Cspan class=sf-dump-str title=\u00223 characters\u0022\u003Eint\u003C\/span\u003E\u0022\n  +\u003Cspan class=sf-dump-public title=\u0022Public property\u0022\u003Eincrementing\u003C\/span\u003E: \u003Cspan class=sf-dump-const\u003Etrue\u003C\/span\u003E\n  #\u003Cspan class=sf-dump-protected title=\u0022Protected property\u0022\u003Ewith\u003C\/span\u003E: []\n  #\u003Cspan class=sf-dump-protected title=\u0022Protected property\u0022\u003EwithCount\u003C\/span\u003E: []\n  +\u003Cspan class=sf-dump-public title=\u0022Public property\u0022\u003EpreventsLazyLoading\u003C\/span\u003E: \u003Cspan class=sf-dump-const\u003Efalse\u003C\/span\u003E\n  #\u003Cspan class=sf-dump-protected title=\u0022Protected property\u0022\u003EperPage\u003C\/span\u003E: \u003Cspan class=sf-dump-num\u003E15\u003C\/span\u003E\n  +\u003Cspan class=sf-dump-public title=\u0022Public property\u0022\u003Eexists\u003C\/span\u003E: \u003Cspan class=sf-dump-const\u003Etrue\u003C\/span\u003E\n  +\u003Cspan class=sf-dump-public title=\u0022Public property\u0022\u003EwasRecentlyCreated\u003C\/span\u003E: \u003Cspan class=sf-dump-const\u003Efalse\u003C\/span\u003E\n  #\u003Cspan class=sf-dump-protected title=\u0022Protected property\u0022\u003EescapeWhenCastingToString\u003C\/span\u003E: \u003Cspan class=sf-dump-const\u003Efalse\u003C\/span\u003E\n  #\u003Cspan class=sf-dump-protected title=\u0022Protected property\u0022\u003Eattributes\u003C\/span\u003E: \u003Cspan class=sf-dump-note\u003Earray:14\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u0022\u003Cspan class=sf-dump-key\u003Eid\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-num\u003E2\u003C\/span\u003E\n    \u0022\u003Cspan class=sf-dump-key\u003Ename\u003C\/span\u003E\u0022 =\u003E \u0022\u003Cspan class=sf-dump-str title=\u00228 characters\u0022\u003ELunettes\u003C\/span\u003E\u0022\n    \u0022\u003Cspan class=sf-dump-key\u003Eprice\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-num\u003E75\u003C\/span\u003E\n    \u0022\u003Cspan class=sf-dump-key\u003Eweight\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-num\u003E0.3\u003C\/span\u003E\n    \u0022\u003Cspan class=sf-dump-key\u003Eactive\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-num\u003E1\u003C\/span\u003E\n    \u0022\u003Cspan class=sf-dump-key\u003Equantity\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-num\u003E100\u003C\/span\u003E\n    \u0022\u003Cspan class=sf-dump-key\u003Equantity_alert\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-num\u003E10\u003C\/span\u003E\n    \u0022\u003Cspan class=sf-dump-key\u003Eimage\u003C\/span\u003E\u0022 =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002212 characters\u0022\u003Elunettes.png\u003C\/span\u003E\u0022\n    \u0022\u003Cspan class=sf-dump-key\u003Edescription\u003C\/span\u003E\u0022 =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002236 characters\u0022\u003ESuperbe paire de lunettes de soleil.\u003C\/span\u003E\u0022\n    \u0022\u003Cspan class=sf-dump-key\u003Epromotion_price\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-num\u003E69.9\u003C\/span\u003E\n    \u0022\u003Cspan class=sf-dump-key\u003Epromotion_start_date\u003C\/span\u003E\u0022 =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002219 characters\u0022\u003E2025-02-24 16:27:00\u003C\/span\u003E\u0022\n    \u0022\u003Cspan class=sf-dump-key\u003Epromotion_end_date\u003C\/span\u003E\u0022 =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002219 characters\u0022\u003E2025-03-04 04:44:03\u003C\/span\u003E\u0022\n    \u0022\u003Cspan class=sf-dump-key\u003Ecreated_at\u003C\/span\u003E\u0022 =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002219 characters\u0022\u003E2025-02-24 16:27:01\u003C\/span\u003E\u0022\n    \u0022\u003Cspan class=sf-dump-key\u003Eupdated_at\u003C\/span\u003E\u0022 =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002219 characters\u0022\u003E2025-02-24 16:27:01\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  #\u003Cspan class=sf-dump-protected title=\u0022Protected property\u0022\u003Eoriginal\u003C\/span\u003E: \u003Cspan class=sf-dump-note\u003Earray:14\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u0022\u003Cspan class=sf-dump-key\u003Eid\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-num\u003E2\u003C\/span\u003E\n    \u0022\u003Cspan class=sf-dump-key\u003Ename\u003C\/span\u003E\u0022 =\u003E \u0022\u003Cspan class=sf-dump-str title=\u00228 characters\u0022\u003ELunettes\u003C\/span\u003E\u0022\n    \u0022\u003Cspan class=sf-dump-key\u003Eprice\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-num\u003E75\u003C\/span\u003E\n    \u0022\u003Cspan class=sf-dump-key\u003Eweight\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-num\u003E0.3\u003C\/span\u003E\n    \u0022\u003Cspan class=sf-dump-key\u003Eactive\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-num\u003E1\u003C\/span\u003E\n    \u0022\u003Cspan class=sf-dump-key\u003Equantity\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-num\u003E100\u003C\/span\u003E\n    \u0022\u003Cspan class=sf-dump-key\u003Equantity_alert\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-num\u003E10\u003C\/span\u003E\n    \u0022\u003Cspan class=sf-dump-key\u003Eimage\u003C\/span\u003E\u0022 =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002212 characters\u0022\u003Elunettes.png\u003C\/span\u003E\u0022\n    \u0022\u003Cspan class=sf-dump-key\u003Edescription\u003C\/span\u003E\u0022 =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002236 characters\u0022\u003ESuperbe paire de lunettes de soleil.\u003C\/span\u003E\u0022\n    \u0022\u003Cspan class=sf-dump-key\u003Epromotion_price\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-num\u003E69.9\u003C\/span\u003E\n    \u0022\u003Cspan class=sf-dump-key\u003Epromotion_start_date\u003C\/span\u003E\u0022 =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002219 characters\u0022\u003E2025-02-24 16:27:00\u003C\/span\u003E\u0022\n    \u0022\u003Cspan class=sf-dump-key\u003Epromotion_end_date\u003C\/span\u003E\u0022 =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002219 characters\u0022\u003E2025-03-04 04:44:03\u003C\/span\u003E\u0022\n    \u0022\u003Cspan class=sf-dump-key\u003Ecreated_at\u003C\/span\u003E\u0022 =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002219 characters\u0022\u003E2025-02-24 16:27:01\u003C\/span\u003E\u0022\n    \u0022\u003Cspan class=sf-dump-key\u003Eupdated_at\u003C\/span\u003E\u0022 =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002219 characters\u0022\u003E2025-02-24 16:27:01\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  #\u003Cspan class=sf-dump-protected title=\u0022Protected property\u0022\u003Echanges\u003C\/span\u003E: []\n  #\u003Cspan class=sf-dump-protected title=\u0022Protected property\u0022\u003Ecasts\u003C\/span\u003E: \u003Cspan class=sf-dump-note\u003Earray:2\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u0022\u003Cspan class=sf-dump-key\u003Epromotion_start_date\u003C\/span\u003E\u0022 =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002214 characters\u0022\u003Edatetime:Y-m-d\u003C\/span\u003E\u0022\n    \u0022\u003Cspan class=sf-dump-key\u003Epromotion_end_date\u003C\/span\u003E\u0022 =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002214 characters\u0022\u003Edatetime:Y-m-d\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  #\u003Cspan class=sf-dump-protected title=\u0022Protected property\u0022\u003EclassCastCache\u003C\/span\u003E: []\n  #\u003Cspan class=sf-dump-protected title=\u0022Protected property\u0022\u003EattributeCastCache\u003C\/span\u003E: []\n  #\u003Cspan class=sf-dump-protected title=\u0022Protected property\u0022\u003EdateFormat\u003C\/span\u003E: \u003Cspan class=sf-dump-const\u003Enull\u003C\/span\u003E\n  #\u003Cspan class=sf-dump-protected title=\u0022Protected property\u0022\u003Eappends\u003C\/span\u003E: []\n  #\u003Cspan class=sf-dump-protected title=\u0022Protected property\u0022\u003EdispatchesEvents\u003C\/span\u003E: []\n  #\u003Cspan class=sf-dump-protected title=\u0022Protected property\u0022\u003Eobservables\u003C\/span\u003E: []\n  #\u003Cspan class=sf-dump-protected title=\u0022Protected property\u0022\u003Erelations\u003C\/span\u003E: []\n  #\u003Cspan class=sf-dump-protected title=\u0022Protected property\u0022\u003Etouches\u003C\/span\u003E: []\n  +\u003Cspan class=sf-dump-public title=\u0022Public property\u0022\u003Etimestamps\u003C\/span\u003E: \u003Cspan class=sf-dump-const\u003Etrue\u003C\/span\u003E\n  +\u003Cspan class=sf-dump-public title=\u0022Public property\u0022\u003EusesUniqueIds\u003C\/span\u003E: \u003Cspan class=sf-dump-const\u003Efalse\u003C\/span\u003E\n  #\u003Cspan class=sf-dump-protected title=\u0022Protected property\u0022\u003Ehidden\u003C\/span\u003E: []\n  #\u003Cspan class=sf-dump-protected title=\u0022Protected property\u0022\u003Evisible\u003C\/span\u003E: []\n  #\u003Cspan class=sf-dump-protected title=\u0022Protected property\u0022\u003Efillable\u003C\/span\u003E: \u003Cspan class=sf-dump-note\u003Earray:11\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u00224 characters\u0022\u003Ename\u003C\/span\u003E\u0022\n    \u003Cspan class=sf-dump-index\u003E1\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u00225 characters\u0022\u003Eprice\u003C\/span\u003E\u0022\n    \u003Cspan class=sf-dump-index\u003E2\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u00228 characters\u0022\u003Equantity\u003C\/span\u003E\u0022\n    \u003Cspan class=sf-dump-index\u003E3\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u00226 characters\u0022\u003Eweight\u003C\/span\u003E\u0022\n    \u003Cspan class=sf-dump-index\u003E4\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u00226 characters\u0022\u003Eactive\u003C\/span\u003E\u0022\n    \u003Cspan class=sf-dump-index\u003E5\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002214 characters\u0022\u003Equantity_alert\u003C\/span\u003E\u0022\n    \u003Cspan class=sf-dump-index\u003E6\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u00225 characters\u0022\u003Eimage\u003C\/span\u003E\u0022\n    \u003Cspan class=sf-dump-index\u003E7\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002211 characters\u0022\u003Edescription\u003C\/span\u003E\u0022\n    \u003Cspan class=sf-dump-index\u003E8\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002215 characters\u0022\u003Epromotion_price\u003C\/span\u003E\u0022\n    \u003Cspan class=sf-dump-index\u003E9\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002220 characters\u0022\u003Epromotion_start_date\u003C\/span\u003E\u0022\n    \u003Cspan class=sf-dump-index\u003E10\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002218 characters\u0022\u003Epromotion_end_date\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  #\u003Cspan class=sf-dump-protected title=\u0022Protected property\u0022\u003Eguarded\u003C\/span\u003E: \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str\u003E*\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n\u003C\/samp\u003E}\n\u003C\/pre\u003E\u003Cscript\u003ESfdump(\u0022sf-dump-1788224002\u0022, {\u0022maxDepth\u0022:0})\u003C\/script\u003E\n","is_string":false,"label":"info","time":1740412029.518384,"xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fvendor%2Fbarryvdh%2Flaravel-debugbar%2Fsrc%2FLaravelDebugbar.php\u0026line=1158","ajax":false,"filename":"LaravelDebugbar.php","line":"1158"}}]},"time":{"start":1740412027.75523,"end":1740412029.687087,"duration":1.9318571090698242,"duration_str":"1.93s","measures":[{"label":"Booting","start":1740412027.75523,"relative_start":0,"end":1740412029.427006,"relative_end":1740412029.427006,"duration":1.6717760562896729,"duration_str":"1.67s","memory":0,"memory_str":"0B","params":[],"collector":"time"},{"label":"Application","start":1740412029.427028,"relative_start":1.6717979907989502,"end":1740412029.687091,"relative_end":4.0531158447265625e-6,"duration":0.26006317138671875,"duration_str":"260ms","memory":0,"memory_str":"0B","params":[],"collector":"time"}]},"memory":{"peak_usage":30491528,"peak_usage_str":"29MB"},"exceptions":{"count":0,"exceptions":[]},"views":{"nb_templates":60,"templates":[{"name":"1x volt-livewire::index","param_count":null,"params":[],"start":1740412029.492409,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\resources\\views\\livewire\/index.blade.phpvolt-livewire::index","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fresources%2Fviews%2Flivewire%2Findex.blade.php\u0026line=1","ajax":false,"filename":"index.blade.php","line":"?"},"render_count":1,"name_original":"volt-livewire::index"},{"name":"8x __components::7c9aecec09171b6cc21b7d0e97cf7deb","param_count":null,"params":[],"start":1740412029.499421,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\storage\\framework\\views\/7c9aecec09171b6cc21b7d0e97cf7deb.blade.php__components::7c9aecec09171b6cc21b7d0e97cf7deb","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fstorage%2Fframework%2Fviews%2F7c9aecec09171b6cc21b7d0e97cf7deb.blade.php\u0026line=1","ajax":false,"filename":"7c9aecec09171b6cc21b7d0e97cf7deb.blade.php","line":"?"},"render_count":8,"name_original":"__components::7c9aecec09171b6cc21b7d0e97cf7deb"},{"name":"2x __components::1ca6fb93cd1bf10da2684f4607b96114","param_count":null,"params":[],"start":1740412029.546213,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\storage\\framework\\views\/1ca6fb93cd1bf10da2684f4607b96114.blade.php__components::1ca6fb93cd1bf10da2684f4607b96114","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fstorage%2Fframework%2Fviews%2F1ca6fb93cd1bf10da2684f4607b96114.blade.php\u0026line=1","ajax":false,"filename":"1ca6fb93cd1bf10da2684f4607b96114.blade.php","line":"?"},"render_count":2,"name_original":"__components::1ca6fb93cd1bf10da2684f4607b96114"},{"name":"1x __components::68d8c05e31cf634cd1f204bcba550611","param_count":null,"params":[],"start":1740412029.548587,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\storage\\framework\\views\/68d8c05e31cf634cd1f204bcba550611.blade.php__components::68d8c05e31cf634cd1f204bcba550611","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fstorage%2Fframework%2Fviews%2F68d8c05e31cf634cd1f204bcba550611.blade.php\u0026line=1","ajax":false,"filename":"68d8c05e31cf634cd1f204bcba550611.blade.php","line":"?"},"render_count":1,"name_original":"__components::68d8c05e31cf634cd1f204bcba550611"},{"name":"1x __components::4943bc92ebba41e8b0e508149542e0ad","param_count":null,"params":[],"start":1740412029.554149,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\storage\\framework\\views\/4943bc92ebba41e8b0e508149542e0ad.blade.php__components::4943bc92ebba41e8b0e508149542e0ad","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fstorage%2Fframework%2Fviews%2F4943bc92ebba41e8b0e508149542e0ad.blade.php\u0026line=1","ajax":false,"filename":"4943bc92ebba41e8b0e508149542e0ad.blade.php","line":"?"},"render_count":1,"name_original":"__components::4943bc92ebba41e8b0e508149542e0ad"},{"name":"1x components.layouts.app","param_count":null,"params":[],"start":1740412029.55542,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\resources\\views\/components\/layouts\/app.blade.phpcomponents.layouts.app","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fresources%2Fviews%2Fcomponents%2Flayouts%2Fapp.blade.php\u0026line=1","ajax":false,"filename":"app.blade.php","line":"?"},"render_count":1,"name_original":"components.layouts.app"},{"name":"1x volt-livewire::navigation.navbar","param_count":null,"params":[],"start":1740412029.565251,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\resources\\views\\livewire\/navigation\/navbar.blade.phpvolt-livewire::navigation.navbar","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fresources%2Fviews%2Flivewire%2Fnavigation%2Fnavbar.blade.php\u0026line=1","ajax":false,"filename":"navbar.blade.php","line":"?"},"render_count":1,"name_original":"volt-livewire::navigation.navbar"},{"name":"9x __components::9de1ae9c41984f537179e5274051ea8a","param_count":null,"params":[],"start":1740412029.569255,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\storage\\framework\\views\/9de1ae9c41984f537179e5274051ea8a.blade.php__components::9de1ae9c41984f537179e5274051ea8a","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fstorage%2Fframework%2Fviews%2F9de1ae9c41984f537179e5274051ea8a.blade.php\u0026line=1","ajax":false,"filename":"9de1ae9c41984f537179e5274051ea8a.blade.php","line":"?"},"render_count":9,"name_original":"__components::9de1ae9c41984f537179e5274051ea8a"},{"name":"1x __components::4b4a63f4f660e1359a3482cbda2edc49","param_count":null,"params":[],"start":1740412029.572969,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\storage\\framework\\views\/4b4a63f4f660e1359a3482cbda2edc49.blade.php__components::4b4a63f4f660e1359a3482cbda2edc49","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fstorage%2Fframework%2Fviews%2F4b4a63f4f660e1359a3482cbda2edc49.blade.php\u0026line=1","ajax":false,"filename":"4b4a63f4f660e1359a3482cbda2edc49.blade.php","line":"?"},"render_count":1,"name_original":"__components::4b4a63f4f660e1359a3482cbda2edc49"},{"name":"1x __components::068d7842a61bc520087d32f845e14b1c","param_count":null,"params":[],"start":1740412029.575717,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\storage\\framework\\views\/068d7842a61bc520087d32f845e14b1c.blade.php__components::068d7842a61bc520087d32f845e14b1c","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fstorage%2Fframework%2Fviews%2F068d7842a61bc520087d32f845e14b1c.blade.php\u0026line=1","ajax":false,"filename":"068d7842a61bc520087d32f845e14b1c.blade.php","line":"?"},"render_count":1,"name_original":"__components::068d7842a61bc520087d32f845e14b1c"},{"name":"1x __components::84a4cc99cc23d2a3e75d3f76acf9615b","param_count":null,"params":[],"start":1740412029.579711,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\storage\\framework\\views\/84a4cc99cc23d2a3e75d3f76acf9615b.blade.php__components::84a4cc99cc23d2a3e75d3f76acf9615b","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fstorage%2Fframework%2Fviews%2F84a4cc99cc23d2a3e75d3f76acf9615b.blade.php\u0026line=1","ajax":false,"filename":"84a4cc99cc23d2a3e75d3f76acf9615b.blade.php","line":"?"},"render_count":1,"name_original":"__components::84a4cc99cc23d2a3e75d3f76acf9615b"},{"name":"2x __components::168f437b184b006b99dd1c777224912f","param_count":null,"params":[],"start":1740412029.597815,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\storage\\framework\\views\/168f437b184b006b99dd1c777224912f.blade.php__components::168f437b184b006b99dd1c777224912f","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fstorage%2Fframework%2Fviews%2F168f437b184b006b99dd1c777224912f.blade.php\u0026line=1","ajax":false,"filename":"168f437b184b006b99dd1c777224912f.blade.php","line":"?"},"render_count":2,"name_original":"__components::168f437b184b006b99dd1c777224912f"},{"name":"12x __components::4cbae4f6397d3b51985cc3c538011d47","param_count":null,"params":[],"start":1740412029.600216,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\storage\\framework\\views\/4cbae4f6397d3b51985cc3c538011d47.blade.php__components::4cbae4f6397d3b51985cc3c538011d47","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fstorage%2Fframework%2Fviews%2F4cbae4f6397d3b51985cc3c538011d47.blade.php\u0026line=1","ajax":false,"filename":"4cbae4f6397d3b51985cc3c538011d47.blade.php","line":"?"},"render_count":12,"name_original":"__components::4cbae4f6397d3b51985cc3c538011d47"},{"name":"1x __components::c86306c82feda4d9b6ebbd03e72b5c74","param_count":null,"params":[],"start":1740412029.607175,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\storage\\framework\\views\/c86306c82feda4d9b6ebbd03e72b5c74.blade.php__components::c86306c82feda4d9b6ebbd03e72b5c74","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fstorage%2Fframework%2Fviews%2Fc86306c82feda4d9b6ebbd03e72b5c74.blade.php\u0026line=1","ajax":false,"filename":"c86306c82feda4d9b6ebbd03e72b5c74.blade.php","line":"?"},"render_count":1,"name_original":"__components::c86306c82feda4d9b6ebbd03e72b5c74"},{"name":"1x __components::789345882aabed09a02fe8de9b4c46c8","param_count":null,"params":[],"start":1740412029.608531,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\storage\\framework\\views\/789345882aabed09a02fe8de9b4c46c8.blade.php__components::789345882aabed09a02fe8de9b4c46c8","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fstorage%2Fframework%2Fviews%2F789345882aabed09a02fe8de9b4c46c8.blade.php\u0026line=1","ajax":false,"filename":"789345882aabed09a02fe8de9b4c46c8.blade.php","line":"?"},"render_count":1,"name_original":"__components::789345882aabed09a02fe8de9b4c46c8"},{"name":"1x volt-livewire::navigation.sidebar","param_count":null,"params":[],"start":1740412029.616039,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\resources\\views\\livewire\/navigation\/sidebar.blade.phpvolt-livewire::navigation.sidebar","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fresources%2Fviews%2Flivewire%2Fnavigation%2Fsidebar.blade.php\u0026line=1","ajax":false,"filename":"sidebar.blade.php","line":"?"},"render_count":1,"name_original":"volt-livewire::navigation.sidebar"},{"name":"1x __components::a8cb4a36e929390401871505f4b8b5a7","param_count":null,"params":[],"start":1740412029.622227,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\storage\\framework\\views\/a8cb4a36e929390401871505f4b8b5a7.blade.php__components::a8cb4a36e929390401871505f4b8b5a7","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fstorage%2Fframework%2Fviews%2Fa8cb4a36e929390401871505f4b8b5a7.blade.php\u0026line=1","ajax":false,"filename":"a8cb4a36e929390401871505f4b8b5a7.blade.php","line":"?"},"render_count":1,"name_original":"__components::a8cb4a36e929390401871505f4b8b5a7"},{"name":"1x __components::e762b2e0623a7c4bb78e39188993911e","param_count":null,"params":[],"start":1740412029.623111,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\storage\\framework\\views\/e762b2e0623a7c4bb78e39188993911e.blade.php__components::e762b2e0623a7c4bb78e39188993911e","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fstorage%2Fframework%2Fviews%2Fe762b2e0623a7c4bb78e39188993911e.blade.php\u0026line=1","ajax":false,"filename":"e762b2e0623a7c4bb78e39188993911e.blade.php","line":"?"},"render_count":1,"name_original":"__components::e762b2e0623a7c4bb78e39188993911e"},{"name":"3x __components::e94d5ec29f93939f936713b96d94949e","param_count":null,"params":[],"start":1740412029.625899,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\storage\\framework\\views\/e94d5ec29f93939f936713b96d94949e.blade.php__components::e94d5ec29f93939f936713b96d94949e","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fstorage%2Fframework%2Fviews%2Fe94d5ec29f93939f936713b96d94949e.blade.php\u0026line=1","ajax":false,"filename":"e94d5ec29f93939f936713b96d94949e.blade.php","line":"?"},"render_count":3,"name_original":"__components::e94d5ec29f93939f936713b96d94949e"},{"name":"1x __components::1d18e599232c9a1f692ed4383d68e4eb","param_count":null,"params":[],"start":1740412029.629799,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\storage\\framework\\views\/1d18e599232c9a1f692ed4383d68e4eb.blade.php__components::1d18e599232c9a1f692ed4383d68e4eb","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fstorage%2Fframework%2Fviews%2F1d18e599232c9a1f692ed4383d68e4eb.blade.php\u0026line=1","ajax":false,"filename":"1d18e599232c9a1f692ed4383d68e4eb.blade.php","line":"?"},"render_count":1,"name_original":"__components::1d18e599232c9a1f692ed4383d68e4eb"},{"name":"1x __components::0b9736ab34f9be3f6922dcf35e1428cf","param_count":null,"params":[],"start":1740412029.634268,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\storage\\framework\\views\/0b9736ab34f9be3f6922dcf35e1428cf.blade.php__components::0b9736ab34f9be3f6922dcf35e1428cf","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fstorage%2Fframework%2Fviews%2F0b9736ab34f9be3f6922dcf35e1428cf.blade.php\u0026line=1","ajax":false,"filename":"0b9736ab34f9be3f6922dcf35e1428cf.blade.php","line":"?"},"render_count":1,"name_original":"__components::0b9736ab34f9be3f6922dcf35e1428cf"},{"name":"1x __components::f94c940998eba5c7a8c6fa7bb3f14768","param_count":null,"params":[],"start":1740412029.638113,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\storage\\framework\\views\/f94c940998eba5c7a8c6fa7bb3f14768.blade.php__components::f94c940998eba5c7a8c6fa7bb3f14768","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fstorage%2Fframework%2Fviews%2Ff94c940998eba5c7a8c6fa7bb3f14768.blade.php\u0026line=1","ajax":false,"filename":"f94c940998eba5c7a8c6fa7bb3f14768.blade.php","line":"?"},"render_count":1,"name_original":"__components::f94c940998eba5c7a8c6fa7bb3f14768"},{"name":"1x __components::e1a04b73d52f00d8037829f29b52d67f","param_count":null,"params":[],"start":1740412029.642943,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\storage\\framework\\views\/e1a04b73d52f00d8037829f29b52d67f.blade.php__components::e1a04b73d52f00d8037829f29b52d67f","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fstorage%2Fframework%2Fviews%2Fe1a04b73d52f00d8037829f29b52d67f.blade.php\u0026line=1","ajax":false,"filename":"e1a04b73d52f00d8037829f29b52d67f.blade.php","line":"?"},"render_count":1,"name_original":"__components::e1a04b73d52f00d8037829f29b52d67f"},{"name":"1x __components::f8235d0e350e76c3fc43a877c21762bb","param_count":null,"params":[],"start":1740412029.646871,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\storage\\framework\\views\/f8235d0e350e76c3fc43a877c21762bb.blade.php__components::f8235d0e350e76c3fc43a877c21762bb","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fstorage%2Fframework%2Fviews%2Ff8235d0e350e76c3fc43a877c21762bb.blade.php\u0026line=1","ajax":false,"filename":"f8235d0e350e76c3fc43a877c21762bb.blade.php","line":"?"},"render_count":1,"name_original":"__components::f8235d0e350e76c3fc43a877c21762bb"},{"name":"2x __components::f67d078dfaf7c4a52d93dbcb52c65008","param_count":null,"params":[],"start":1740412029.648371,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\storage\\framework\\views\/f67d078dfaf7c4a52d93dbcb52c65008.blade.php__components::f67d078dfaf7c4a52d93dbcb52c65008","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fstorage%2Fframework%2Fviews%2Ff67d078dfaf7c4a52d93dbcb52c65008.blade.php\u0026line=1","ajax":false,"filename":"f67d078dfaf7c4a52d93dbcb52c65008.blade.php","line":"?"},"render_count":2,"name_original":"__components::f67d078dfaf7c4a52d93dbcb52c65008"},{"name":"1x __components::11690ed45149246be3ce2d4df04b63e3","param_count":null,"params":[],"start":1740412029.651105,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\storage\\framework\\views\/11690ed45149246be3ce2d4df04b63e3.blade.php__components::11690ed45149246be3ce2d4df04b63e3","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fstorage%2Fframework%2Fviews%2F11690ed45149246be3ce2d4df04b63e3.blade.php\u0026line=1","ajax":false,"filename":"11690ed45149246be3ce2d4df04b63e3.blade.php","line":"?"},"render_count":1,"name_original":"__components::11690ed45149246be3ce2d4df04b63e3"},{"name":"1x __components::1e1cbdeea2e206b31fc035b116c55d93","param_count":null,"params":[],"start":1740412029.655259,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\storage\\framework\\views\/1e1cbdeea2e206b31fc035b116c55d93.blade.php__components::1e1cbdeea2e206b31fc035b116c55d93","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fstorage%2Fframework%2Fviews%2F1e1cbdeea2e206b31fc035b116c55d93.blade.php\u0026line=1","ajax":false,"filename":"1e1cbdeea2e206b31fc035b116c55d93.blade.php","line":"?"},"render_count":1,"name_original":"__components::1e1cbdeea2e206b31fc035b116c55d93"},{"name":"1x volt-livewire::navigation.footer","param_count":null,"params":[],"start":1740412029.661121,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\resources\\views\\livewire\/navigation\/footer.blade.phpvolt-livewire::navigation.footer","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fresources%2Fviews%2Flivewire%2Fnavigation%2Ffooter.blade.php\u0026line=1","ajax":false,"filename":"footer.blade.php","line":"?"},"render_count":1,"name_original":"volt-livewire::navigation.footer"},{"name":"1x __components::4a2b074aaa76920d18bdecb09f3b5013","param_count":null,"params":[],"start":1740412029.665445,"type":"blade","hash":"bladeC:\\laragon\\www\\PHP\\Sillo-Shop\\storage\\framework\\views\/4a2b074aaa76920d18bdecb09f3b5013.blade.php__components::4a2b074aaa76920d18bdecb09f3b5013","xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fstorage%2Fframework%2Fviews%2F4a2b074aaa76920d18bdecb09f3b5013.blade.php\u0026line=1","ajax":false,"filename":"4a2b074aaa76920d18bdecb09f3b5013.blade.php","line":"?"},"render_count":1,"name_original":"__components::4a2b074aaa76920d18bdecb09f3b5013"}]},"route":{"uri":"GET \/","middleware":"web","uses":"Closure() {#2829\n  class: \u0022Livewire\\Volt\\VoltManager\u0022\n  this: Livewire\\Volt\\VoltManager {#2833 \u2026}\n  use: {\n    $componentName: \u0022index\u0022\n  }\n  file: \u0022C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\livewire\\volt\\src\\VoltManager.php\u0022\n  line: \u002234 to 41\u0022\n}","namespace":null,"prefix":"","where":[],"as":"home","file":"\u003Ca href=\u0022phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fvendor%2Flivewire%2Fvolt%2Fsrc%2FVoltManager.php\u0026line=34\u0022 onclick=\u0022\u0022\u003Evendor\/livewire\/volt\/src\/VoltManager.php:34-41\u003C\/a\u003E"},"queries":{"nb_statements":10,"nb_visible_statements":10,"nb_excluded_statements":0,"nb_failed_statements":0,"accumulated_duration":0.00845,"accumulated_duration_str":"8.45ms","memory_usage":0,"memory_usage_str":null,"statements":[{"sql":"select * from \u0022sessions\u0022 where \u0022id\u0022 = \u00274PfqH0ZgAEGpoVLthhxhiY9gZ1p7hG4HihuWFE1y\u0027 limit 1","type":"query","params":[],"bindings":["4PfqH0ZgAEGpoVLthhxhiY9gZ1p7hG4HihuWFE1y"],"hints":null,"show_copy":true,"backtrace":[{"index":15,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Session\/DatabaseSessionHandler.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\DatabaseSessionHandler.php","line":97},{"index":16,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Session\/Store.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Store.php","line":117},{"index":17,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Session\/Store.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Store.php","line":105},{"index":18,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Session\/Store.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Store.php","line":89},{"index":19,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Session\/Middleware\/StartSession.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php","line":147}],"start":1740412029.462436,"duration":0.00037,"duration_str":"370\u03bcs","memory":0,"memory_str":null,"filename":"DatabaseSessionHandler.php:97","source":{"index":15,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Session\/DatabaseSessionHandler.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\DatabaseSessionHandler.php","line":97},"xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FSession%2FDatabaseSessionHandler.php\u0026line=97","ajax":false,"filename":"DatabaseSessionHandler.php","line":"97"},"connection":"database\/database.sqlite","explain":null,"start_percent":0,"width_percent":4.379},{"sql":"select * from \u0022products\u0022 where \u0022active\u0022 = 1","type":"query","params":[],"bindings":[1],"hints":null,"show_copy":true,"backtrace":[{"index":15,"namespace":null,"name":"resources\/views\/livewire\/index.blade.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\resources\\views\\livewire\\index.blade.php","line":10},{"index":16,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php","line":36},{"index":17,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Container\/Util.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php","line":43},{"index":18,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php","line":95},{"index":19,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php","line":35}],"start":1740412029.4822202,"duration":0.00031,"duration_str":"310\u03bcs","memory":0,"memory_str":null,"filename":"index.blade.php:10","source":{"index":15,"namespace":null,"name":"resources\/views\/livewire\/index.blade.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\resources\\views\\livewire\\index.blade.php","line":10},"xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fresources%2Fviews%2Flivewire%2Findex.blade.php\u0026line=10","ajax":false,"filename":"index.blade.php","line":"10"},"connection":"database\/database.sqlite","explain":null,"start_percent":4.379,"width_percent":3.669},{"sql":"select * from \u0022settings\u0022 where \u0022key\u0022 = \u0027promotion\u0027 limit 1","type":"query","params":[],"bindings":["promotion"],"hints":null,"show_copy":true,"backtrace":[{"index":16,"namespace":null,"name":"app\/helpers.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\app\\helpers.php","line":113},{"index":19,"namespace":null,"name":"vendor\/livewire\/livewire\/src\/Mechanisms\/ExtendBlade\/ExtendedCompilerEngine.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\livewire\\livewire\\src\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine.php","line":38},{"index":20,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/View\/Engines\/CompilerEngine.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php","line":75},{"index":21,"namespace":null,"name":"vendor\/livewire\/livewire\/src\/Mechanisms\/ExtendBlade\/ExtendedCompilerEngine.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\livewire\\livewire\\src\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine.php","line":16},{"index":22,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/View\/View.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php","line":209}],"start":1740412029.501147,"duration":0.00031,"duration_str":"310\u03bcs","memory":0,"memory_str":null,"filename":"helpers.php:113","source":{"index":16,"namespace":null,"name":"app\/helpers.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\app\\helpers.php","line":113},"xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fapp%2Fhelpers.php\u0026line=113","ajax":false,"filename":"helpers.php","line":"113"},"connection":"database\/database.sqlite","explain":null,"start_percent":8.047,"width_percent":3.669},{"sql":"select * from \u0022settings\u0022 where \u0022key\u0022 = \u0027promotion\u0027 limit 1","type":"query","params":[],"bindings":["promotion"],"hints":null,"show_copy":true,"backtrace":[{"index":16,"namespace":null,"name":"app\/helpers.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\app\\helpers.php","line":113},{"index":19,"namespace":null,"name":"vendor\/livewire\/livewire\/src\/Mechanisms\/ExtendBlade\/ExtendedCompilerEngine.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\livewire\\livewire\\src\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine.php","line":38},{"index":20,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/View\/Engines\/CompilerEngine.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php","line":75},{"index":21,"namespace":null,"name":"vendor\/livewire\/livewire\/src\/Mechanisms\/ExtendBlade\/ExtendedCompilerEngine.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\livewire\\livewire\\src\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine.php","line":16},{"index":22,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/View\/View.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php","line":209}],"start":1740412029.508774,"duration":0.00027,"duration_str":"270\u03bcs","memory":0,"memory_str":null,"filename":"helpers.php:113","source":{"index":16,"namespace":null,"name":"app\/helpers.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\app\\helpers.php","line":113},"xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fapp%2Fhelpers.php\u0026line=113","ajax":false,"filename":"helpers.php","line":"113"},"connection":"database\/database.sqlite","explain":null,"start_percent":11.716,"width_percent":3.195},{"sql":"select * from \u0022settings\u0022 where \u0022key\u0022 = \u0027promotion\u0027 limit 1","type":"query","params":[],"bindings":["promotion"],"hints":null,"show_copy":true,"backtrace":[{"index":16,"namespace":null,"name":"app\/helpers.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\app\\helpers.php","line":113},{"index":19,"namespace":null,"name":"vendor\/livewire\/livewire\/src\/Mechanisms\/ExtendBlade\/ExtendedCompilerEngine.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\livewire\\livewire\\src\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine.php","line":38},{"index":20,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/View\/Engines\/CompilerEngine.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php","line":75},{"index":21,"namespace":null,"name":"vendor\/livewire\/livewire\/src\/Mechanisms\/ExtendBlade\/ExtendedCompilerEngine.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\livewire\\livewire\\src\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine.php","line":16},{"index":22,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/View\/View.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php","line":209}],"start":1740412029.520431,"duration":0.00020999999999999998,"duration_str":"210\u03bcs","memory":0,"memory_str":null,"filename":"helpers.php:113","source":{"index":16,"namespace":null,"name":"app\/helpers.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\app\\helpers.php","line":113},"xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fapp%2Fhelpers.php\u0026line=113","ajax":false,"filename":"helpers.php","line":"113"},"connection":"database\/database.sqlite","explain":null,"start_percent":14.911,"width_percent":2.485},{"sql":"select * from \u0022settings\u0022 where \u0022key\u0022 = \u0027promotion\u0027 limit 1","type":"query","params":[],"bindings":["promotion"],"hints":null,"show_copy":true,"backtrace":[{"index":16,"namespace":null,"name":"app\/helpers.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\app\\helpers.php","line":113},{"index":19,"namespace":null,"name":"vendor\/livewire\/livewire\/src\/Mechanisms\/ExtendBlade\/ExtendedCompilerEngine.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\livewire\\livewire\\src\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine.php","line":38},{"index":20,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/View\/Engines\/CompilerEngine.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php","line":75},{"index":21,"namespace":null,"name":"vendor\/livewire\/livewire\/src\/Mechanisms\/ExtendBlade\/ExtendedCompilerEngine.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\livewire\\livewire\\src\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine.php","line":16},{"index":22,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/View\/View.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php","line":209}],"start":1740412029.526054,"duration":0.00022,"duration_str":"220\u03bcs","memory":0,"memory_str":null,"filename":"helpers.php:113","source":{"index":16,"namespace":null,"name":"app\/helpers.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\app\\helpers.php","line":113},"xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fapp%2Fhelpers.php\u0026line=113","ajax":false,"filename":"helpers.php","line":"113"},"connection":"database\/database.sqlite","explain":null,"start_percent":17.396,"width_percent":2.604},{"sql":"select * from \u0022settings\u0022 where \u0022key\u0022 = \u0027promotion\u0027 limit 1","type":"query","params":[],"bindings":["promotion"],"hints":null,"show_copy":true,"backtrace":[{"index":16,"namespace":null,"name":"app\/helpers.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\app\\helpers.php","line":113},{"index":19,"namespace":null,"name":"vendor\/livewire\/livewire\/src\/Mechanisms\/ExtendBlade\/ExtendedCompilerEngine.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\livewire\\livewire\\src\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine.php","line":38},{"index":20,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/View\/Engines\/CompilerEngine.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php","line":75},{"index":21,"namespace":null,"name":"vendor\/livewire\/livewire\/src\/Mechanisms\/ExtendBlade\/ExtendedCompilerEngine.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\livewire\\livewire\\src\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine.php","line":16},{"index":22,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/View\/View.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php","line":209}],"start":1740412029.5309489,"duration":0.00022,"duration_str":"220\u03bcs","memory":0,"memory_str":null,"filename":"helpers.php:113","source":{"index":16,"namespace":null,"name":"app\/helpers.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\app\\helpers.php","line":113},"xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fapp%2Fhelpers.php\u0026line=113","ajax":false,"filename":"helpers.php","line":"113"},"connection":"database\/database.sqlite","explain":null,"start_percent":20,"width_percent":2.604},{"sql":"select * from \u0022settings\u0022 where \u0022key\u0022 = \u0027promotion\u0027 limit 1","type":"query","params":[],"bindings":["promotion"],"hints":null,"show_copy":true,"backtrace":[{"index":16,"namespace":null,"name":"app\/helpers.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\app\\helpers.php","line":113},{"index":19,"namespace":null,"name":"vendor\/livewire\/livewire\/src\/Mechanisms\/ExtendBlade\/ExtendedCompilerEngine.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\livewire\\livewire\\src\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine.php","line":38},{"index":20,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/View\/Engines\/CompilerEngine.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php","line":75},{"index":21,"namespace":null,"name":"vendor\/livewire\/livewire\/src\/Mechanisms\/ExtendBlade\/ExtendedCompilerEngine.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\livewire\\livewire\\src\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine.php","line":16},{"index":22,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/View\/View.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php","line":209}],"start":1740412029.535812,"duration":0.00020999999999999998,"duration_str":"210\u03bcs","memory":0,"memory_str":null,"filename":"helpers.php:113","source":{"index":16,"namespace":null,"name":"app\/helpers.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\app\\helpers.php","line":113},"xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fapp%2Fhelpers.php\u0026line=113","ajax":false,"filename":"helpers.php","line":"113"},"connection":"database\/database.sqlite","explain":null,"start_percent":22.604,"width_percent":2.485},{"sql":"select * from \u0022users\u0022 where \u0022id\u0022 = 21 limit 1","type":"query","params":[],"bindings":[21],"hints":null,"show_copy":true,"backtrace":[{"index":16,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Auth\/EloquentUserProvider.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\EloquentUserProvider.php","line":59},{"index":17,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Auth\/SessionGuard.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\SessionGuard.php","line":170},{"index":18,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Auth\/AuthManager.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\AuthManager.php","line":339},{"index":19,"namespace":"view","name":"volt-livewire::navigation.navbar","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\resources\\views\\livewire\/navigation\/navbar.blade.php","line":208},{"index":21,"namespace":null,"name":"vendor\/livewire\/livewire\/src\/Mechanisms\/ExtendBlade\/ExtendedCompilerEngine.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\livewire\\livewire\\src\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine.php","line":38}],"start":1740412029.591222,"duration":0.0004,"duration_str":"400\u03bcs","memory":0,"memory_str":null,"filename":"EloquentUserProvider.php:59","source":{"index":16,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Auth\/EloquentUserProvider.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\EloquentUserProvider.php","line":59},"xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FAuth%2FEloquentUserProvider.php\u0026line=59","ajax":false,"filename":"EloquentUserProvider.php","line":"59"},"connection":"database\/database.sqlite","explain":null,"start_percent":25.089,"width_percent":4.734},{"sql":"update \u0022sessions\u0022 set \u0022payload\u0022 = \u0027YTo0OntzOjY6Il90b2tlbiI7czo0MDoiQTBMTjFnYjJqOWFaMU9RQVhHTFc1ZnVkZVE2NUFqcjRQNDI3UVcwdSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjIxO30=\u0027, \u0022last_activity\u0022 = 1740412029, \u0022user_id\u0022 = 21, \u0022ip_address\u0022 = \u0027127.0.0.1\u0027, \u0022user_agent\u0022 = \u0027Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:136.0) Gecko\/20100101 Firefox\/136.0\u0027 where \u0022id\u0022 = \u00274PfqH0ZgAEGpoVLthhxhiY9gZ1p7hG4HihuWFE1y\u0027","type":"query","params":[],"bindings":["YTo0OntzOjY6Il90b2tlbiI7czo0MDoiQTBMTjFnYjJqOWFaMU9RQVhHTFc1ZnVkZVE2NUFqcjRQNDI3UVcwdSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjIxO30=",1740412029,21,"127.0.0.1","Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:136.0) Gecko\/20100101 Firefox\/136.0","4PfqH0ZgAEGpoVLthhxhiY9gZ1p7hG4HihuWFE1y"],"hints":null,"show_copy":true,"backtrace":[{"index":11,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Session\/DatabaseSessionHandler.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\DatabaseSessionHandler.php","line":173},{"index":12,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Session\/DatabaseSessionHandler.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\DatabaseSessionHandler.php","line":140},{"index":13,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Session\/Store.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Store.php","line":176},{"index":14,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Session\/Middleware\/StartSession.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php","line":245},{"index":15,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Session\/Middleware\/StartSession.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php","line":130}],"start":1740412029.673579,"duration":0.0059299999999999995,"duration_str":"5.93ms","memory":0,"memory_str":null,"filename":"DatabaseSessionHandler.php:173","source":{"index":11,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Session\/DatabaseSessionHandler.php","file":"C:\\laragon\\www\\PHP\\Sillo-Shop\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\DatabaseSessionHandler.php","line":173},"xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FSession%2FDatabaseSessionHandler.php\u0026line=173","ajax":false,"filename":"DatabaseSessionHandler.php","line":"173"},"connection":"database\/database.sqlite","explain":null,"start_percent":29.822,"width_percent":70.178}]},"models":{"data":{"App\\Models\\Product":{"value":6,"xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fapp%2FModels%2FProduct.php\u0026line=1","ajax":false,"filename":"Product.php","line":"?"}},"App\\Models\\Setting":{"value":6,"xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fapp%2FModels%2FSetting.php\u0026line=1","ajax":false,"filename":"Setting.php","line":"?"}},"App\\Models\\User":{"value":1,"xdebug_link":{"url":"phpstorm:\/\/open?file=C%3A%2Flaragon%2Fwww%2FPHP%2FSillo-Shop%2Fapp%2FModels%2FUser.php\u0026line=1","ajax":false,"filename":"User.php","line":"?"}}},"count":13,"is_counter":true},"livewire":{"data":{"index #35IOOCIXX81pROXKdcyp":"array:4 [\n  \u0022data\u0022 =\u003E []\n  \u0022name\u0022 =\u003E \u0022index\u0022\n  \u0022component\u0022 =\u003E \u0022Livewire\\Volt\\Component@anonymous\\x00C:\\laragon\\www\\PHP\\Sillo-Shop\\resources\\views\\livewire\\index.blade.php:6$7c91\u0022\n  \u0022id\u0022 =\u003E \u002235IOOCIXX81pROXKdcyp\u0022\n]","navigation.navbar #M2CtICsobRbHDd01rhnv":"array:4 [\n  \u0022data\u0022 =\u003E array:4 [\n    \u0022CartItems\u0022 =\u003E 0\n    \u0022content\u0022 =\u003E Darryldecode\\Cart\\CartCollection {#2294\n      #items: []\n      #escapeWhenCastingToString: false\n    }\n    \u0022total\u0022 =\u003E 0.0\n    \u0022url\u0022 =\u003E \u0022http:\/\/127.0.0.1:8000\u0022\n  ]\n  \u0022name\u0022 =\u003E \u0022navigation.navbar\u0022\n  \u0022component\u0022 =\u003E \u0022Livewire\\Volt\\Component@anonymous\\x00C:\\laragon\\www\\PHP\\Sillo-Shop\\resources\\views\\livewire\\navigation\\navbar.blade.php:10$7cab\u0022\n  \u0022id\u0022 =\u003E \u0022M2CtICsobRbHDd01rhnv\u0022\n]","navigation.sidebar #oFVfzjyyTsNMEzDcYd0f":"array:4 [\n  \u0022data\u0022 =\u003E []\n  \u0022name\u0022 =\u003E \u0022navigation.sidebar\u0022\n  \u0022component\u0022 =\u003E \u0022Livewire\\Volt\\Component@anonymous\\x00C:\\laragon\\www\\PHP\\Sillo-Shop\\resources\\views\\livewire\\navigation\\sidebar.blade.php:6$7cbe\u0022\n  \u0022id\u0022 =\u003E \u0022oFVfzjyyTsNMEzDcYd0f\u0022\n]","navigation.footer #1hGC7rcumNZB85wAIsBf":"array:4 [\n  \u0022data\u0022 =\u003E []\n  \u0022name\u0022 =\u003E \u0022navigation.footer\u0022\n  \u0022component\u0022 =\u003E \u0022Livewire\\Volt\\Component@anonymous\\x00C:\\laragon\\www\\PHP\\Sillo-Shop\\resources\\views\\livewire\\navigation\\footer.blade.php:6$7cbf\u0022\n  \u0022id\u0022 =\u003E \u00221hGC7rcumNZB85wAIsBf\u0022\n]"},"count":4},"symfonymailer_mails":{"count":0,"mails":[]},"gate":{"count":0,"messages":[]},"session":{"_token":"A0LN1gb2j9aZ1OQAXGLW5fudeQ65Ajr4P427QW0u","_previous":"array:1 [\n  \u0022url\u0022 =\u003E \u0022http:\/\/127.0.0.1:8000\u0022\n]","_flash":"array:2 [\n  \u0022old\u0022 =\u003E []\n  \u0022new\u0022 =\u003E []\n]","login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d":"21"},"request":{"path_info":"\/","status_code":"\u003Cpre class=sf-dump id=sf-dump-1357719711 data-indent-pad=\u0022  \u0022\u003E\u003Cspan class=sf-dump-num\u003E200\u003C\/span\u003E\n\u003C\/pre\u003E\u003Cscript\u003ESfdump(\u0022sf-dump-1357719711\u0022, {\u0022maxDepth\u0022:0})\u003C\/script\u003E\n","status_text":"OK","format":"html","content_type":"text\/html; charset=UTF-8","request_query":"\u003Cpre class=sf-dump id=sf-dump-300742654 data-indent-pad=\u0022  \u0022\u003E[]\n\u003C\/pre\u003E\u003Cscript\u003ESfdump(\u0022sf-dump-300742654\u0022, {\u0022maxDepth\u0022:0})\u003C\/script\u003E\n","request_request":"\u003Cpre class=sf-dump id=sf-dump-1330678262 data-indent-pad=\u0022  \u0022\u003E[]\n\u003C\/pre\u003E\u003Cscript\u003ESfdump(\u0022sf-dump-1330678262\u0022, {\u0022maxDepth\u0022:0})\u003C\/script\u003E\n","request_headers":"\u003Cpre class=sf-dump id=sf-dump-1986952111 data-indent-pad=\u0022  \u0022\u003E\u003Cspan class=sf-dump-note\u003Earray:14\u003C\/span\u003E [\u003Csamp data-depth=1 class=sf-dump-expanded\u003E\n  \u0022\u003Cspan class=sf-dump-key\u003Ehost\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002214 characters\u0022\u003E127.0.0.1:8000\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Euser-agent\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002280 characters\u0022\u003EMozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:136.0) Gecko\/20100101 Firefox\/136.0\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Eaccept\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002263 characters\u0022\u003Etext\/html,application\/xhtml+xml,application\/xml;q=0.9,*\/*;q=0.8\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Eaccept-language\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002235 characters\u0022\u003Efr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Eaccept-encoding\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002223 characters\u0022\u003Egzip, deflate, br, zstd\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Ereferer\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002222 characters\u0022\u003Ehttp:\/\/127.0.0.1:8000\/\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Econnection\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002210 characters\u0022\u003Ekeep-alive\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Ecookie\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u00221414 characters\u0022\u003Eremember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6IjVRdWJVKzZRVXQrdW85VmVXMGl1MFE9PSIsInZhbHVlIjoiMWRrRHdWMkhDbmhHN1c0VnhzVXB2WlpDc1ByYk9RbXJEbGJObXNBbnYwYTk4SVIxeE43YWxRZnQrZmpzRXh2WG5tRURhOUJOK0lJMEowWlJjNGF3Zmt6OXp6bWZqc3FpeGN3Rk5ZbW9nWmtQNUdPNXE5cTU2bXJPUnVyWnQ5RkVFeU40SzNuT2tMd3JidWZHNTlJeXhPSzZDYXAvSVJJdWhMcEVuZEc3WVpIbWp3S0RTckxheXJNK0ozQzdCZ3k5ZG1JNGVLbTd3cHR0UjR6cXZNSVBucEZVMGg0eGV0WXJaWE4rM0xWL0FhWT0iLCJtYWMiOiIxZGM2NTQ4YWIxNTZmMWNiMThjOTAwMDUyYjYyM2IzZmZjZWZlZmQ1MzVhY2U4YTFkZmFjMzJiZTAxOGExMDAzIiwidGFnIjoiIn0%3D; XSRF-TOKEN=eyJpdiI6IjVBMXJTbUkrZGlWYThzRlNRRXFLL2c9PSIsInZhbHVlIjoiY0tLMXdGcnFhUEcwR0JOU3BablM5L2pQcCtMT0RtTS8yNmY3VVd3MVk2QmNJeHRzbTNLdUdPOFczY1VlWmxCMnA1d1hhRHhETUNHanZ1UHpKMk1tWXR5QWpwMGl4RFNVMmRDbVF3Q3loWjNjV1FBZzIrcUF2ZVpzb21KQzdBeXgiLCJtYWMiOiI1MjQ5NDM5ZmNjNGRjMThkZTcwZTJhYTkyZDNkZTMzOTg0MDkxYTQ5MDQxNWI1OTg5MDkxMzIwMmZhZjAxMjljIiwidGFnIjoiIn0%3D; sillo_shop_session=eyJpdiI6IlFvNTU0ajRVRWMzZXN1UmdWazd3SGc9PSIsInZhbHVlIjoiYWtWUEZ2QzlQZWt0MTEvcGdueVhmUzdSZ2lKZ0N5VTc2eW43dTl3dTgvSU9XcXlHVTQyTC91Wlo0RkpjY3crZE9kclVKcjVLWldoMGIvMkV2ejF0dEpQMVNIZENRbHM0WWl2M0ZuOC9qdE5Qekd3bjJZanRxMWRJdmJCODUrTnoiLCJtYWMiOiI5ZWUxYTU5N2M3YTZmMzgwNzAwMjUxYjI5YmFjNDNmMDQ5ZWVjOWNmNDU3MDA1ZGNhZjA5ZGQyNWU0ODAzZDVkIiwidGFnIjoiIn0%3D; laravel_maintenance=eyJleHBpcmVzX2F0IjoxNzQwNDQ2NTI4LCJtYWMiOiJiNjMzMzY3NzI4MDNmYTNhM2E2MTk1N2RlYjFhYmYxOTFhMDQwY2I5NzNmODdkMjNmOTU3YWE2NjVkNzllODBkIn0%3D\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Eupgrade-insecure-requests\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str\u003E1\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Esec-fetch-dest\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u00228 characters\u0022\u003Edocument\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Esec-fetch-mode\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u00228 characters\u0022\u003Enavigate\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Esec-fetch-site\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002211 characters\u0022\u003Esame-origin\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Esec-fetch-user\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u00222 characters\u0022\u003E?1\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Epriority\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u00226 characters\u0022\u003Eu=0, i\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n\u003C\/samp\u003E]\n\u003C\/pre\u003E\u003Cscript\u003ESfdump(\u0022sf-dump-1986952111\u0022, {\u0022maxDepth\u0022:0})\u003C\/script\u003E\n","request_cookies":"\u003Cpre class=sf-dump id=sf-dump-39078025 data-indent-pad=\u0022  \u0022\u003E\u003Cspan class=sf-dump-note\u003Earray:4\u003C\/span\u003E [\u003Csamp data-depth=1 class=sf-dump-expanded\u003E\n  \u0022\u003Cspan class=sf-dump-key\u003Eremember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d\u003C\/span\u003E\u0022 =\u003E \u0022\u003Cspan class=sf-dump-str title=\u0022124 characters\u0022\u003E21|y4KOrX9pAKzlonMvNpfQrOoGpFgRzzmCXerqt8tbvY5QhcrI3UkeFeYWr6yZ|$2y$12$PdOrk1l7mJFOVPTFcLq6OOFOQ57ee9Tu5IxoCJbpq3ML\/SP5cd6T.\u003C\/span\u003E\u0022\n  \u0022\u003Cspan class=sf-dump-key\u003EXSRF-TOKEN\u003C\/span\u003E\u0022 =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002240 characters\u0022\u003EA0LN1gb2j9aZ1OQAXGLW5fudeQ65Ajr4P427QW0u\u003C\/span\u003E\u0022\n  \u0022\u003Cspan class=sf-dump-key\u003Esillo_shop_session\u003C\/span\u003E\u0022 =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002240 characters\u0022\u003E4PfqH0ZgAEGpoVLthhxhiY9gZ1p7hG4HihuWFE1y\u003C\/span\u003E\u0022\n  \u0022\u003Cspan class=sf-dump-key\u003Elaravel_maintenance\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-const\u003Enull\u003C\/span\u003E\n\u003C\/samp\u003E]\n\u003C\/pre\u003E\u003Cscript\u003ESfdump(\u0022sf-dump-39078025\u0022, {\u0022maxDepth\u0022:0})\u003C\/script\u003E\n","response_headers":"\u003Cpre class=sf-dump id=sf-dump-1835121041 data-indent-pad=\u0022  \u0022\u003E\u003Cspan class=sf-dump-note\u003Earray:7\u003C\/span\u003E [\u003Csamp data-depth=1 class=sf-dump-expanded\u003E\n  \u0022\u003Cspan class=sf-dump-key\u003Ecache-control\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002255 characters\u0022\u003Emax-age=0, must-revalidate, no-cache, no-store, private\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Edate\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002229 characters\u0022\u003EMon, 24 Feb 2025 15:47:09 GMT\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Econtent-type\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002224 characters\u0022\u003Etext\/html; charset=UTF-8\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Epragma\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u00228 characters\u0022\u003Eno-cache\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Eexpires\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002229 characters\u0022\u003EFri, 01 Jan 1990 00:00:00 GMT\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Eset-cookie\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:2\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u0022428 characters\u0022\u003EXSRF-TOKEN=eyJpdiI6ImhubnZObldFQlJncStCbzc5Sml2NVE9PSIsInZhbHVlIjoiWGRsY2VncEs1RmVSQmRFbFNHVWZkSUVjUUNPS0lraDhqWjNiYUMxdk56RGZlSCtIeUhTaTM2NmtSemFoUHZ0UkJJdU9maUVhbnJLNk15dHNPMllkR2luTU5LT2pHTFJ3djk5Z2V5ZFZhYzdhSmVMTnpGTXp3Zlp2ZUJZYTRFZ0MiLCJtYWMiOiI1ZjFjNzc5MWZjODcxM2QzMDI2NDM5OTA0OGE0YzY3ZjM1Y2NmOGM3YjhjYTVlZjAxNTExZWVjZDQ5ZGYyZTZkIiwidGFnIjoiIn0%3D; expires=Mon, 24 Feb 2025 17:47:09 GMT; Max-Age=7200; path=\/; samesite=lax\u003C\/span\u003E\u0022\n    \u003Cspan class=sf-dump-index\u003E1\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u0022446 characters\u0022\u003Esillo_shop_session=eyJpdiI6ImFLTlI1R01RZGpMRm92VU9GRmNvWGc9PSIsInZhbHVlIjoiM20wUXhHTUZYR25BYnlZdVJFQU0xeDVzdHNYbExNVlRMTS9iRGcxdVE0ZVVsc2dJekFuV3c5QjZ3dHVPQkdNb2tRay9mOG0wVlhMclk5anIzWGZjeTJEOFNzVjZRcy9IOWFiTGhqVEdXR1MyL0QxYUNYWUs1aWNwSmVrVTlWbVIiLCJtYWMiOiI4NjQwZmM3NmY3YTRjODgwN2Y3Yzc1NzdkMGZlZmJhNDEzODMzOWMxYzkxM2U4ZDY5YjMyNWMxZDRiMDE2NDdiIiwidGFnIjoiIn0%3D; expires=Mon, 24 Feb 2025 17:47:09 GMT; Max-Age=7200; path=\/; httponly; samesite=lax\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003ESet-Cookie\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:2\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u0022400 characters\u0022\u003EXSRF-TOKEN=eyJpdiI6ImhubnZObldFQlJncStCbzc5Sml2NVE9PSIsInZhbHVlIjoiWGRsY2VncEs1RmVSQmRFbFNHVWZkSUVjUUNPS0lraDhqWjNiYUMxdk56RGZlSCtIeUhTaTM2NmtSemFoUHZ0UkJJdU9maUVhbnJLNk15dHNPMllkR2luTU5LT2pHTFJ3djk5Z2V5ZFZhYzdhSmVMTnpGTXp3Zlp2ZUJZYTRFZ0MiLCJtYWMiOiI1ZjFjNzc5MWZjODcxM2QzMDI2NDM5OTA0OGE0YzY3ZjM1Y2NmOGM3YjhjYTVlZjAxNTExZWVjZDQ5ZGYyZTZkIiwidGFnIjoiIn0%3D; expires=Mon, 24-Feb-2025 17:47:09 GMT; path=\/\u003C\/span\u003E\u0022\n    \u003Cspan class=sf-dump-index\u003E1\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u0022418 characters\u0022\u003Esillo_shop_session=eyJpdiI6ImFLTlI1R01RZGpMRm92VU9GRmNvWGc9PSIsInZhbHVlIjoiM20wUXhHTUZYR25BYnlZdVJFQU0xeDVzdHNYbExNVlRMTS9iRGcxdVE0ZVVsc2dJekFuV3c5QjZ3dHVPQkdNb2tRay9mOG0wVlhMclk5anIzWGZjeTJEOFNzVjZRcy9IOWFiTGhqVEdXR1MyL0QxYUNYWUs1aWNwSmVrVTlWbVIiLCJtYWMiOiI4NjQwZmM3NmY3YTRjODgwN2Y3Yzc1NzdkMGZlZmJhNDEzODMzOWMxYzkxM2U4ZDY5YjMyNWMxZDRiMDE2NDdiIiwidGFnIjoiIn0%3D; expires=Mon, 24-Feb-2025 17:47:09 GMT; path=\/; httponly\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n\u003C\/samp\u003E]\n\u003C\/pre\u003E\u003Cscript\u003ESfdump(\u0022sf-dump-1835121041\u0022, {\u0022maxDepth\u0022:0})\u003C\/script\u003E\n","session_attributes":"\u003Cpre class=sf-dump id=sf-dump-1014413783 data-indent-pad=\u0022  \u0022\u003E\u003Cspan class=sf-dump-note\u003Earray:4\u003C\/span\u003E [\u003Csamp data-depth=1 class=sf-dump-expanded\u003E\n  \u0022\u003Cspan class=sf-dump-key\u003E_token\u003C\/span\u003E\u0022 =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002240 characters\u0022\u003EA0LN1gb2j9aZ1OQAXGLW5fudeQ65Ajr4P427QW0u\u003C\/span\u003E\u0022\n  \u0022\u003Cspan class=sf-dump-key\u003E_previous\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u0022\u003Cspan class=sf-dump-key\u003Eurl\u003C\/span\u003E\u0022 =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002221 characters\u0022\u003Ehttp:\/\/127.0.0.1:8000\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003E_flash\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:2\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u0022\u003Cspan class=sf-dump-key\u003Eold\u003C\/span\u003E\u0022 =\u003E []\n    \u0022\u003Cspan class=sf-dump-key\u003Enew\u003C\/span\u003E\u0022 =\u003E []\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Elogin_web_59ba36addc2b2f9401580f014c7f58ea4e30989d\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-num\u003E21\u003C\/span\u003E\n\u003C\/samp\u003E]\n\u003C\/pre\u003E\u003Cscript\u003ESfdump(\u0022sf-dump-1014413783\u0022, {\u0022maxDepth\u0022:0})\u003C\/script\u003E\n"}}, "X5f642bfb8908b6e650587fc2efe07df1");
+
+</script>
+<!-- Livewire Scripts -->
+<script src="/livewire/livewire.js?id=13b7c601"   data-csrf="A0LN1gb2j9aZ1OQAXGLW5fudeQ65Ajr4P427QW0u" data-update-uri="/livewire/update" data-navigate-once="true"></script>
+</body>
+</html>

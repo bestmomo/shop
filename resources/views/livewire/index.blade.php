@@ -44,7 +44,7 @@ new class extends Component {
                         '<a title="' .
                         $tooltip .
                         '"><span class="text-red-500 text-xl mr-3">' .
-                        ftA($bestPrice).' TTC</span>';
+                        ftA($bestPrice).' TTC</span></a>';
                 }
                 $titleContent .= "<span class={$priceStyle}>" . ftA($product->price) . " TTC</span>";
             @endphp

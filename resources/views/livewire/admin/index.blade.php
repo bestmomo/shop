@@ -84,6 +84,11 @@ class extends Component {
         </x-slot:content>
     </x-collapse>
 
+
+    <hr>
+    <x-shop.promotion />
+    <hr>
+
     @if(!is_null($promotion->value))
         <br>
         <x-alert title="{{ __('Global promotion') }} {{ $textPromotion }}" description="{{ __('From') }} {{ $promotion->date1->isoFormat('LL') }} {{ __('to') }} {{ $promotion->date2->isoFormat('LL') }} {{ __L('Percentage discount') }} {{ $promotion->value }}%" icon="o-currency-euro" class="alert-warning" >

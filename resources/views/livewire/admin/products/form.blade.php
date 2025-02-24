@@ -1,9 +1,9 @@
 <x-form wire:submit="save">
-    <x-input 
-        label="{{ __('Name') }}" 
-        wire:model="name" 
-        required 
-        placeholder="{!! __('Enter product name') !!}" 
+    <x-input
+        label="{{ __('Name') }}"
+        wire:model="name"
+        required
+        placeholder="{!! __('Enter product name') !!}"
     />
 
     <x-textarea
@@ -13,34 +13,34 @@
         rows="5"
         required
     />
-    
-    <x-input 
-        label="{{ __('Weight in kg') }}" 
-        wire:model="weight" 
-        required 
+
+    <x-input
+        label="{{ __('Weight in kg') }}"
+        wire:model="weight"
+        required
         placeholder="{{ __('Enter product weight') }}"
     />
 
-    <x-input 
-        label="{{ __('Price') }}" 
-        wire:model="price" 
-        required 
+    <x-input
+        label="{{ __('Price') }}"
+        wire:model="price"
+        required
         placeholder="{{ __('Enter product price') }}"
     />
 
-    <x-input 
-        label="{{ __('Quantity available') }}" 
-        wire:model="quantity" 
+    <x-input
+        label="{{ __('Quantity available') }}"
+        wire:model="quantity"
         type="number"
-        required 
+        required
         placeholder="{{ __('Enter product quantity') }}"
     />
 
-    <x-input 
-        label="{{ __('Quantity for stock alert') }}" 
-        wire:model="quantity_alert" 
+    <x-input
+        label="{{ __('Quantity for stock alert') }}"
+        wire:model="quantity_alert"
         type="number"
-        required 
+        required
         placeholder="{{ __('Enter product quantity') }}"
     />
 
@@ -51,43 +51,44 @@
     </div>
 
     @if($promotion)
-        <x-input 
-            label="{{ __('Promotion price') }}" 
-            wire:model="promotion_price" 
+        <x-input
+            label="{{ __('Promotion price') }}"
+            wire:model="promotion_price"
             placeholder="{{ __('Enter product promotion price') }}"
         />
 
-        <x-datetime  
-            label="{{ __('Promotion start date') }}" 
+        <x-datetime
+            label="{{ __('Promotion start date') }}"
             icon="o-calendar"
             wire:model="promotion_start_date"
-            type="date"         
+            type="date"
         />
 
-        <x-datetime  
-            label="{{ __('Promotion end date') }}" 
+        <x-datetime
+            label="{{ __('Promotion end date') }}"
             icon="o-calendar"
             wire:model="promotion_end_date"
             type="date"
         />
     @endif
 
-    <hr>
-    <x-file 
-        wire:model="image" 
+    <x-hr separator progress-indicator />
+
+    <x-file
+        wire:model="image"
         label="{{ __('Image') }}"
-        hint="{!! __('Click on this image to modify it') !!}" 
+        hint="{!! __('Click on this image to modify it') !!}"
         accept="image/png, image/jpeg">
         <img src="{{ $image == '' ? asset('storage/ask.jpg') : asset('storage/photos/' . $image) }}" class="h-40" />
     </x-file>
 
     <x-slot:actions>
-        <x-button 
-            label="{{ __('Save') }}" 
-            icon="o-paper-airplane" 
-            spinner="save" 
-            type="submit" 
-            class="btn-primary" 
+        <x-button
+            label="{{ __('Save') }}"
+            icon="o-paper-airplane"
+            spinner="save"
+            type="submit"
+            class="btn-primary"
         />
     </x-slot:actions>
 </x-form>

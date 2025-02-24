@@ -40,12 +40,15 @@ new class extends Component {
                 }
             @endphp
             <x-card
-                class="shadow-md transition duration-500 ease-in-out shadow-gray-500 hover:shadow-xl hover:shadow-gray-500">
-                {!! $titleContent !!}<br>
-                {!! $product->name !!}
+                class="shadow-md transition duration-500 ease-in-out shadow-gray-500 hover:shadow-xl hover:shadow-gray-500 flex flex-col justify-between border border-red-500">
+                <div class="border border-red-500 mb-0 pb-0 b-0 max-h-20">
+                    {!! $titleContent !!}<br>777
+                    {!! $product->name !!}
+                </div>
                 @unless ($product->quantity)
                     <br><span class="text-red-500">@lang('Product out of stock')</span>
                 @endunless
+
                 @if ($product->image)
                     <x-slot:figure>
                         @if ($product->quantity)

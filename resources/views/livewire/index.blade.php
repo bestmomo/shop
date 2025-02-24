@@ -31,12 +31,13 @@ new class extends Component {
                         number_format($product->price, 2, ',', ' ') .
                         ' € TTC</span>';
                 } else {
+                    $tooltip = __('Until').' '.($product->promotion_end_date->format('d').' '.trans($product->promotion_end_date->format('F'))).' !';
                     $titleContent =
-                        '<span class="text-red-500 text-xl mr-3">' .
-                        number_format($bestPrice, 2, ',', ' ') .
-                        ' € TTC</span><span class="line-through">' .
-                        number_format($product->price, 2, ',', ' ') .
-                        ' € TTC</span>';
+                                            '<a title="'.$tooltip.'"><span class="text-red-500 text-xl mr-3">' .
+                                            number_format($bestPrice, 2, ',', ' ') .
+                                            ' € TTC</span></a><span class="line-through">' .
+                                            number_format($product->price, 2, ',', ' ') .
+                                            ' € TTC</span>';
                 }
             @endphp
             <x-card

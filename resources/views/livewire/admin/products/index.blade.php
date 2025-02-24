@@ -39,7 +39,7 @@ new #[Layout('components.layouts.admin')] class extends Component {
         if (! is_array($property) && $property != "") {
             $this->resetPage();
         }
-    } 
+    }
 
     public function with(): array
     {
@@ -61,7 +61,9 @@ new #[Layout('components.layouts.admin')] class extends Component {
         </x-slot:actions>
     </x-header>
 
-    <x-card>
+    @livewire('mktg.shop.promotion', ['target' => 'back'])
+
+    <x-card class='mt-6'>
         <x-table striped :headers="$headers" :rows="$products" :sort-by="$sortBy" per-page="perPage" with-pagination
             link="/admin/products/{id}/edit" >
             @scope('cell_image', $product)

@@ -84,10 +84,7 @@ class extends Component {
         </x-slot:content>
     </x-collapse>
 
-
-    <hr>
-    <x-shop.promotion />
-    <hr>
+     @livewire('mktg.shop.promotion', ['target' => 'back'])
 
     @if(!is_null($promotion->value))
         <br>

@@ -13,6 +13,8 @@ Volt::route('/pages/{page:slug}', 'page')->name('pages');
 Volt::route('/products/{product}', 'product')->name('products.show');
 Volt::route('/cart', 'cart')->name('cart');
 
+Volt::route('/t', 'tests.test')->name('test');
+
 Route::middleware('guest')->group(function () {
 	Volt::route('/register', 'auth.register');
 	Volt::route('/login', 'auth.login')->name('login');
@@ -65,6 +67,6 @@ Route::middleware('auth')->group(function () {
 	});
 
 	Route::middleware(IsAdmin::class)->group(function () {
-		Volt::route('/t', 'admin.tests.test')->name('admin.test');
+		Volt::route('/ta', 'admin.tests.test')->name('admin.test');
 	});
 });

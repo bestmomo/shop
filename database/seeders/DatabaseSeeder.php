@@ -7,6 +7,7 @@
 namespace Database\Seeders;
 
 use App\Models\ {Address, Colissimo, Country, Order, Page, Product, Range, Shop, State, User};
+use App\Models\Setting;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -89,7 +90,7 @@ class DatabaseSeeder extends Seeder
 
 		foreach ([
 			['name' => 'Montre', 'price' => 56, 'weight' => 0.3, 'active' => true, 'quantity' => 100, 'quantity_alert' => 10, 'image' => 'montre.png', 'description' => 'Superbe montre de luxe automatique.'],
-			['name' => 'Lunettes', 'price' => 75, 'weight' => 0.3, 'active' => true, 'quantity' => 100, 'quantity_alert' => 10, 'image' => 'lunettes.png', 'description' => 'Superbe paire de lunettes de soleil.', 'promotion_price' => 69.9, 'promotion_start_date'=>now(), 'promotion_end_date'=>fake()->dateTimeBetween(now(), '+1 month')],
+			['name' => 'Lunettes', 'price' => 75, 'weight' => 0.3, 'active' => true, 'quantity' => 100, 'quantity_alert' => 10, 'image' => 'lunettes.png', 'description' => 'Superbe paire de lunettes de soleil.', 'promotion_price' => 69.9, 'promotion_start_date' => now(), 'promotion_end_date' => fake()->dateTimeBetween(now(), '+1 month')],
 			['name' => 'Noix', 'price' => 26, 'weight' => 1, 'active' => true, 'quantity' => 100, 'quantity_alert' => 10, 'image' => 'noix.png', 'description' => 'Merveilleuses noix biologiques.'],
 			['name' => 'Pain', 'price' => 12, 'weight' => .5, 'active' => true, 'quantity' => 100, 'quantity_alert' => 10, 'image' => 'pain.png', 'description' => 'Délicieux pain biologique.'],
 			['name' => 'Pc portable', 'price' => 450, 'weight' => 2, 'active' => true, 'quantity' => 100, 'quantity_alert' => 10, 'image' => 'pc.png', 'description' => 'Superbe pc portable.'],
@@ -160,6 +161,10 @@ class DatabaseSeeder extends Seeder
 				$order->total = $total;
 				$order->save();
 			});
+
+		Setting::insert([
+			['key' => 'promotion', 'value' => 20, 'date1' => now(), 'date2' => now()->addDays(7)],
+		]);
 
 		// REPORT
 		printf('%s%s', str_repeat(' ', 2), "Data tables properly filled.\n\n");

@@ -25,27 +25,40 @@ new class extends Component {
         @foreach ($products as $product)
             @php
                 $bestPrice = getBestPrice($product);
-                if ($bestPrice === $product->price) {
-                    $titleContent =
-                        '<span class="">' .
-                        number_format($product->price, 2, ',', ' ') .
-                        ' € TTC</span>';
-                } else {
-                    $titleContent =
-                        '<span class="text-red-500 text-xl mr-3">' .
-                        number_format($bestPrice, 2, ',', ' ') .
-                        ' € TTC</span><span class="line-through">' .
-                        number_format($product->price, 2, ',', ' ') .
-                        ' € TTC</span>';
+                if ($product->id == 2) {
+                    Debugbar::info($bestPrice, $product);
                 }
+                $titleContent = '';
+                $priceStyle = '';
+
+                if ($bestPrice < $product->price && $product->promotion_end_date) {
+                    $priceStyle = 'line-through';
+                    // dump($bestPrice, $product->promotion_end_date);
+                        $tooltip =
+                            __('Until') .
+                            ' ' .
+                            ($product->promotion_end_date->format('d') .
+                                ' ' .
+                                trans($product->promotion_end_date->format('F'))) .
+                            ' !';
+                        $titleContent =
+                            '<a title="' .
+                            $tooltip .
+                            '"><span class="text-red-500 text-xl mr-3 font-bold">' .
+                            ftA($bestPrice) .
+                            ' ' .
+                            __('VAT') .
+                            '</span></a>';
+                }
+                $titleContent .= "<span class={$priceStyle}>" . ftA($product->price) . ' ' . __('VAT') . '</span>';
             @endphp
             <x-card
                 class="shadow-md transition duration-500 ease-in-out shadow-gray-500 hover:shadow-xl hover:shadow-gray-500 flex flex-col justify-between">
-                    {!! $titleContent !!}<br>
-                    <b>{!! $product->name !!}</b>
-                    @unless ($product->quantity)
+                {!! $titleContent !!}<br>
+                <b>{!! $product->name !!}</b>
+                @unless ($product->quantity)
                     <br><span class="text-red-500">@lang('Product out of stock')</span>
-                    @endunless
+                @endunless
 
                 @if ($product->image)
                     <x-slot:figure>

@@ -69,7 +69,7 @@ class extends Component {
             @lang('In a glance')
         </x-slot:heading>
         <x-slot:content class="flex flex-wrap gap-4">
-            <a href="/" class="flex-grow">
+            <a href="{{ route('admin.products.index') }}" class="flex-grow">
                 <x-stat title="{{ __('Active products') }}" description="" value="{{ $productsCount }}"
                     icon="s-shopping-bag" class="shadow-hover" />
             </a>
@@ -99,7 +99,7 @@ class extends Component {
         <x-collapse class="shadow-md bg-red-500">
             <x-slot:heading>
                 @lang('Stock alert')
-            </x-slot:heading>       
+            </x-slot:heading>
             <x-slot:content>
                 <x-card class="mt-6" title="" shadow separator>
                     <x-table striped :rows="$productsDown" :headers="$headersProducts" link="/admin/products/{id}/edit" :row-decoration="$row_decoration" >

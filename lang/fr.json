@@ -561,5 +561,19 @@
     "Average basket": "Panier moyen",
     "Sales revenue": "Chiffre d'affaires",
     "Most Sold Products": "Produits les plus vendus",
-    "Quantity Sold": "Quantité vendue"
+    "Quantity Sold": "Quantité vendue",
+    "Until": "Jusqu'au",
+    "January": "janvier",
+    "February": "février",
+    "March": "mars",
+    "April": "avril",
+    "May": "mai",
+    "June": "juin",
+    "July": "juillet",
+    "August": "août",
+    "September": "septembre",
+    "October": "octobre",
+    "November": "novembre",
+    "December": "décembre",
+    "VAT": "TTC"
 }

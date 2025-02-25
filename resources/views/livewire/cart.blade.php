@@ -48,9 +48,8 @@ new class extends Component {
 <div>
 
     @livewire('mktg.shop.global-promotion', ['promotion' => (new Marketing())->globalPromotion(), 'target' => 'front'])
-    
-    <div class="flex justify-center mt-6">
 
+    <div class="flex justify-center mt-6">
 
         <x-card class="w-full md:w-3/4" title="{{ __('My cart') }}" shadow separator progress-indicator>
             @if (session()->has('message'))

@@ -2,7 +2,7 @@
 include_once 'global-promotion.php';
 ?>
 
-<div class='text-center w-6/12 mx-auto'>
+<div class='text-center w-9/12 mx-auto'>
     @if (!is_null($promotion->value))
 
         {{-- @dump($promotion) --}}

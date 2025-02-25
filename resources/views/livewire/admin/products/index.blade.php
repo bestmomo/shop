@@ -76,18 +76,18 @@ new #[Layout('components.layouts.admin')] class extends Component {
             @scope('cell_price', $product)
                 @php
                     // if ($loop->index == 0) {
-                        $marketing = new Marketing();
-                        // Debugbar::info($loop);
-                        // $product->best_price = $marketing->bestPrice();
-                        // $uuu = $product->price;
-                        $bestPrice = $marketing->bestPrice($product);
+                    // Debugbar::info($loop);
+                    $bestPrice = (new Marketing())->bestPrice($product);
                     // }
+                    Debugbar::addMessage(json_encode(get_object_vars($bestPrice)), 'ADMIN PRODUCT INDEX');
                 @endphp
 
-                {{ ftA($product->price) }}<br>
-                {{ $bestPrice->amount ?? null}}<br>
-                {{ $bestPrice->origin ?? null}}
-                {{ $bestPrice->origin_end ?? null}}
+                <b>{{ ftA($bestPrice->amount ?? null) }}</b><br>
+                @if ($bestPrice->origin !=='normal')
+                    <span class='line-through'>{{ ftA($product->price) }}</span>
+                    {{-- {{ $bestPrice->origin ?? null}} --}}
+                    {{-- {{ $bestPrice->origin_end ?? null}} --}}
+                @endif
             @endscope
 
             @scope('cell_active', $product)
@@ -107,9 +107,10 @@ new #[Layout('components.layouts.admin')] class extends Component {
                     @else
                         <x-badge class="p-3 my-4 badge-error" value="{{ trans('Expired') }}" />
                     @endIf
+                    {{-- @dump($product) --}}
                     <span
                         class="{{ now()->between($product->promotion_start_date, $product->promotion_end_date) ? 'text-red-500' : '' }} ml-2">
-                        {{ ftA($product->best_price) }}
+                        {{ ftA($product->promotion_price) }}
                     </span>
                     <br>
                     <span class="whitespace-nowrap">

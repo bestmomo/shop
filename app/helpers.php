@@ -90,7 +90,10 @@ if (!function_exists('ftA')) {
 		preg_match('/_([^_]*)$/', $locale, $matches);
 		$currency  = $matches[1] ?? 'EUR';
 		$formatter = new NumberFormatter($locale, NumberFormatter::CURRENCY);
-		$formatted = $formatter->formatCurrency($amount, $currency);
+		$formatted = $formatter->formatCurrency((float) $amount, $currency);
+
+        // Debugbar::addMessage($formatted, 'Helpers ftA');
+
 		// À oublier pour l'heure: $formatted = $formatter->formatCurrency($amount, match ($matches[1]) {
 		// 	'en'    => 'GBP',
 		// 	'us'    => 'USD',
@@ -101,40 +104,40 @@ if (!function_exists('ftA')) {
 		return $formatted;
 	}
 
-	if (!function_exists('getBestPrice')) {
-		/**
-		 * Calcule le meilleur prix pour un produit en tenant compte des promotions.
-		 *
-		 * @param \App\Models\Product $product
-		 * @return float
-		 */
-		function getBestPrice($product)
-		{
-			$promoGlobal = \App\Models\Setting::where('key', 'promotion')->first();
+	// if (!function_exists('getBestPrice_ori')) {
+	// 	/**
+	// 	 * Calcule le meilleur prix pour un produit en tenant compte des promotions.
+	// 	 *
+	// 	 * @param \App\Models\Product $product
+	// 	 * @return float
+	// 	 */
+	// 	function getBestPrice_ori($product)
+	// 	{
+	// 		$promoGlobal = \App\Models\Setting::where('key', 'promotion')->first();
 
-			// Vérifie si la promotion globale est valide
-			$globalPromoValid = $promoGlobal && $promoGlobal->value && now()->between($promoGlobal->date1, $promoGlobal->date2);
+	// 		// Vérifie si la promotion globale est valide
+	// 		$globalPromoValid = $promoGlobal && $promoGlobal->value && now()->between($promoGlobal->date1, $promoGlobal->date2);
 
-			// Vérifie si la promotion spécifique du produit est valide
-			$productPromoValid = $product->promotion_price && now()->between($product->promotion_start_date, $product->promotion_end_date);
+	// 		// Vérifie si la promotion spécifique du produit est valide
+	// 		$productPromoValid = $product->promotion_price && now()->between($product->promotion_start_date, $product->promotion_end_date);
 
-			// Initialise le meilleur prix avec le prix normal du produit
-			$bestPrice = $product->price;
+	// 		// Initialise le meilleur prix avec le prix normal du produit
+	// 		$bestPrice = $product->price;
 
-			// Si la promotion spécifique du produit est valide, utilise ce prix
-			if ($productPromoValid) {
-				$bestPrice = $product->promotion_price;
-			}
+	// 		// Si la promotion spécifique du produit est valide, utilise ce prix
+	// 		if ($productPromoValid) {
+	// 			$bestPrice = $product->promotion_price;
+	// 		}
 
-			// Si la promotion globale est valide, calcule le prix avec la réduction globale
-			if ($globalPromoValid) {
-				$globalPromoPrice = $product->price * (1 - $promoGlobal->value / 100);
-				if ($globalPromoPrice < $bestPrice) {
-					$bestPrice = $globalPromoPrice;
-				}
-			}
+	// 		// Si la promotion globale est valide, calcule le prix avec la réduction globale
+	// 		if ($globalPromoValid) {
+	// 			$globalPromoPrice = $product->price * (1 - $promoGlobal->value / 100);
+	// 			if ($globalPromoPrice < $bestPrice) {
+	// 				$bestPrice = $globalPromoPrice;
+	// 			}
+	// 		}
 
-			return $bestPrice;
-		}
-	}
+	// 		return $bestPrice;
+	// 	}
+	// }
 }

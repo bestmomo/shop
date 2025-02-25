@@ -1,11 +1,8 @@
 <?php
-include_once 'promotion.php';
+include_once 'global-promotion.php';
 ?>
 
 <div>
-
-    {{-- <x-header title="{{ __('Promotion') }} - {{ ucfirst($target) }}" separator progress-indicator /> --}}
-
     @if (!is_null($promotion->value) && $target==='back')
         <br>
         {{-- @dump($promotion) --}}

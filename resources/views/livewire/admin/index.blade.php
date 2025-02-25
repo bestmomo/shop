@@ -84,16 +84,7 @@ class extends Component {
         </x-slot:content>
     </x-collapse>
 
-     @livewire('mktg.shop.promotion', ['target' => 'back'])
-
-    @if(!is_null($promotion->value))
-        <br>
-        <x-alert title="{{ __('Global promotion') }} {{ $textPromotion }}" description="{{ __('From') }} {{ $promotion->date1->isoFormat('LL') }} {{ __('to') }} {{ $promotion->date2->isoFormat('LL') }} {{ __L('Percentage discount') }} {{ $promotion->value }}%" icon="o-currency-euro" class="alert-warning" >
-            <x-slot:actions>
-                <x-button label="{{ __('Edit') }}" class="btn-outline" link="{{ route('admin.products.promotion') }}" />
-            </x-slot:actions>
-        </x-alert>
-    @endIf
+    @livewire('mktg.shop.global-promotion', ['target' => 'back'])
 
     <x-header separator progress-indicator />
 
@@ -125,7 +116,7 @@ class extends Component {
         </x-slot:heading>
 
         <x-slot:content>
-            <x-card class="mt-6" title="" shadow separator>
+            <x-card class="mt-6" shadow separator>
                 @include('livewire.admin.orders.table')
                 <x-slot:actions>
                     <x-button label="{{ __('See all orders') }}" class="btn-primary" icon="s-list-bullet"

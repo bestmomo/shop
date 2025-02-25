@@ -162,6 +162,7 @@ class DatabaseSeeder extends Seeder
 				$order->save();
 			});
 
+        //2ar Pour test de promo globale
 		Setting::insert([
 			['key' => 'promotion', 'value' => 20, 'date1' => now(), 'date2' => now()->addDays(7)],
 		]);

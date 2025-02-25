@@ -61,7 +61,7 @@
             <span class="whitespace-nowrap">
                 {{ $order->created_at->isoFormat('LL') }}
                 @if (!$order->created_at->isSameDay($order->updated_at))
-                    <p>@lang('Up') : {{ $order->updated_at->isoFormat('LL') }}</p>
+                    <p>@lang('Updated') : {{ $order->updated_at->isoFormat('LL') }}</p>
                 @endif
             </span>
         @endscope

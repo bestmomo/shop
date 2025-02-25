@@ -1,5 +1,6 @@
 <?php
 
+use App\Services\Marketing;
 use Livewire\Volt\Component;
 use App\Models\{Product, Setting};
 
@@ -20,44 +21,22 @@ new class extends Component {
     <x-card class="w-full shadow-md shadow-gray-500" shadow separator>
         {!! $shop->home !!}
     </x-card>
-    <br>
-    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        @foreach ($products as $product)
-            @php
-                $bestPrice = getBestPrice($product);
-                if ($product->id == 2) {
-                    Debugbar::info($bestPrice, $product);
-                }
-                $titleContent = '';
-                $priceStyle = '';
-                //2do repenser le systèmes des promotions... Un Model à part entière...?
 
-                // La promotion globale est prioritaire à une promotion 'individuelle'
-                if ($bestPrice < $product->price && $product->promotion_end_date) {
-                    $tooltip =
-                        __('Until') .
-                        ' ' .
-                        ($product->promotion_end_date->format('d') .
-                            ' ' .
-                            trans($product->promotion_end_date->format('F'))) .
-                        ' !';
-                }
-                if ($bestPrice < $product->price) {
-                    $priceStyle = 'line-through';
-                    $titleContent =
-                        '<a title="' .
-                        ($tooltip ?? '') .
-                        '"><span class="text-red-500 text-xl mr-3 font-bold">' .
-                        ftA($bestPrice) .
-                        ' ' .
-                        __('VAT') .
-                        '</span></a>';
-                }
-                $titleContent .= "<span class={$priceStyle}>" . ftA($product->price) . ' ' . __('VAT') . '</span>';
-            @endphp
+    <br>
+    @livewire('mktg.shop.global-promotion', ['promotion' => (new Marketing())->globalPromotion(), 'target' => 'front'])<br>
+
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+        @foreach ($products as $product)
             <x-card
                 class="shadow-md transition duration-500 ease-in-out shadow-gray-500 hover:shadow-xl hover:shadow-gray-500 flex flex-col justify-between">
-                {!! $titleContent !!}<br>
+                @php
+                    $bestPrice = (new Marketing())->bestPrice($product);
+                    // Debugbar::addMessage(json_encode(get_object_vars($bestPrice)), 'ADMIN INDEX');
+                @endphp
+
+                <x-public-product-prices :bestPrice=$bestPrice />
+
                 <b>{!! $product->name !!}</b>
                 @unless ($product->quantity)
                     <br><span class="text-red-500">@lang('Product out of stock')</span>
@@ -77,7 +56,10 @@ new class extends Component {
             </x-card>
         @endforeach
     </div>
+
     <br>
+    @livewire('mktg.shop.global-promotion', ['promotion' => (new Marketing())->globalPromotion(), 'target' => 'front'])<br>
+
     <x-card class="w-full shadow-md shadow-gray-500" shadow separator>
         <x-accordion class="shadow-md shadow-gray-500">
             <x-collapse name="group1">

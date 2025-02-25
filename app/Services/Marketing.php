@@ -44,7 +44,7 @@ class Marketing
 
 		$bestPrice = new \stdClass();
 
-		Debugbar::info($normal, $promo, $globalPromo);
+		// Debugbar::info($normal, $promo, $globalPromo);
 		// $productPromoValid = $product->promotion_price && $promoGlobal->active;
 
 		$bestPrice->amount = min(array_filter([$normal, $promo, $globalPromo], function ($value) {
@@ -79,6 +79,7 @@ class Marketing
 		}
 		$bestPrice->origin = $bestPriceOrigin;
 		$bestPrice->origin_end = $bestPriceOriginEnd;
+		$bestPrice->normal = $product->price;
 
 		return $bestPrice;
 	}

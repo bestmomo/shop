@@ -47,7 +47,8 @@ new class extends Component {
 }; ?>
 <div>
 
-    @livewire('mktg.shop.global-promotion', ['promotion' => (new Marketing())->globalPromotion(), 'target' => 'front'])<br>
+    @livewire('mktg.shop.global-promotion', ['promotion' => (new Marketing())->globalPromotion(), 'target' => 'front'])
+    
     <div class="flex justify-center mt-6">
 
 

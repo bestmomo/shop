@@ -213,6 +213,7 @@
     "Unsupported Media Type": "Type de média non supporté",
     "Up": "Monter",
     "Update": "Mettre à jour",
+    "Updated": "Modifié",
     "Update :name": "Mettre à jour :name",
     "Upgrade Required": "Mise à niveau requise",
     "URI Too Long": "URI trop long",
@@ -575,5 +576,6 @@
     "October": "octobre",
     "November": "novembre",
     "December": "décembre",
-    "VAT": "TTC"
+    "VAT": "TTC",
+    "Enjoy it!": "Profitez-en !"
 }

@@ -1,16 +1,17 @@
 <?php
 
-use Livewire\Volt\Component;
-use Livewire\Attributes\{Layout, Title};
-use App\Models\Product;
 use Mary\Traits\Toast;
+use App\Models\Product;
+use App\Services\Marketing;
+use Livewire\Volt\Component;
 use Livewire\WithPagination;
+use Livewire\Attributes\{Layout, Title};
 
 new #[Layout('components.layouts.admin')] class extends Component {
     use Toast, WithPagination;
 
     public array $sortBy = [
-        'column'    => 'name',
+        'column' => 'name',
         'direction' => 'asc',
     ];
 
@@ -18,14 +19,12 @@ new #[Layout('components.layouts.admin')] class extends Component {
 
     public function headers(): array
     {
-        return [
-            ['key' => 'image', 'label' => __('Image')],
-            ['key' => 'name', 'label' => __('Name')],
-            ['key' => 'price', 'label' => __('Price incl. VAT'), 'class' => 'text-right'],
-            ['key' => 'active', 'label' => __('Active'), 'class' => 'text-center'],
-            ['key' => 'promotion_price', 'label' => __('Promotion'), 'class' => 'text-right'],
-            ['key' => 'quantity', 'label' => __('Quantity'), 'class' => 'text-right'],
-        ];
+        return [['key' => 'image', 'label' => __('Image')], ['key' => 'name', 'label' => __('Name')], ['key' => 'price', 'label' => __('Price incl. VAT'), 'class' => 'text-right'], ['key' => 'active', 'label' => __('Active'), 'class' => 'text-center'], ['key' => 'promotion_price', 'label' => __('Promotion'), 'class' => 'text-center'], ['key' => 'quantity', 'label' => __('Quantity'), 'class' => 'text-right']];
+    }
+
+    public function mount()
+    {
+        $this->global_promotion = (new Marketing())->globalPromotion();
     }
 
     public function deleteProduct(Product $product): void
@@ -36,16 +35,17 @@ new #[Layout('components.layouts.admin')] class extends Component {
 
     public function updated($property): void
     {
-        if (! is_array($property) && $property != "") {
+        if (!is_array($property) && $property != '') {
             $this->resetPage();
         }
-    } 
+    }
 
     public function with(): array
     {
         return [
+            'headers' => $this->headers(),
             'products' => Product::orderBy(...array_values($this->sortBy))->paginate($this->perPage),
-            'headers'  => $this->headers(),
+            'global_promotion' => $this->global_promotion,
         ];
     }
 }; ?>
@@ -56,20 +56,38 @@ new #[Layout('components.layouts.admin')] class extends Component {
         <x-slot:actions>
             <x-button icon="s-building-office-2" label="{{ __('Dashboard') }}" class="btn-outline lg:hidden"
                 link="{{ route('admin') }}" />
-                <x-button icon="o-currency-euro" label="{!! __('Global promotion') !!}" link="/admin/products/promotion" spinner class="btn-success" />
-            <x-button icon="o-plus" label="{!! __('Create a new product') !!}" link="/admin/products/create" spinner class="btn-primary" />
+            <x-button icon="o-currency-euro" label="{!! __('Global promotion') !!}" link="/admin/products/promotion" spinner
+                class="btn-success" />
+            <x-button icon="o-plus" label="{!! __('Create a new product') !!}" link="/admin/products/create" spinner
+                class="btn-primary" />
         </x-slot:actions>
     </x-header>
 
-    <x-card>
+    @livewire('mktg.shop.global-promotion', ['promotion' => $global_promotion, 'target' => 'back'])
+
+    <x-card class='mt-6'>
         <x-table striped :headers="$headers" :rows="$products" :sort-by="$sortBy" per-page="perPage" with-pagination
-            link="/admin/products/{id}/edit" >
+            link="/admin/products/{id}/edit">
+
             @scope('cell_image', $product)
                 <img src="{{ asset('storage/photos/' . $product->image) }}" width="60" alt="">
             @endscope
 
             @scope('cell_price', $product)
-                {{ ftA($product->price) }}
+                @php
+                    // if ($loop->index == 0) {
+                    // Debugbar::info($loop);
+                    $bestPrice = (new Marketing())->bestPrice($product);
+                    // }
+                    Debugbar::addMessage(json_encode(get_object_vars($bestPrice)), 'ADMIN PRODUCT INDEX');
+                @endphp
+
+                <b>{{ ftA($bestPrice->amount ?? null) }}</b><br>
+                @if ($bestPrice->origin !=='normal')
+                    <span class='line-through'>{{ ftA($product->price) }}</span>
+                    {{-- {{ $bestPrice->origin ?? null}} --}}
+                    {{-- {{ $bestPrice->origin_end ?? null}} --}}
+                @endif
             @endscope
 
             @scope('cell_active', $product)
@@ -80,30 +98,33 @@ new #[Layout('components.layouts.admin')] class extends Component {
                 @endif
             @endscope
 
-            @scope('cell_quantity', $product)
-                @if($product->quantity < $product->quantity_alert)
-                    <x-badge class="p-3 my-4 badge-error" value="{{ bigR($product->quantity, 0) }}" />
-                @else
-                    {{ bigR($product->quantity, 0) }}
-                @endif
-            @endscope
-
             @scope('cell_promotion_price', $product)
-                @if($product->promotion_price)
-                    @if(now()->isBefore($product->promotion_start_date))
+                @if ($product->promotion_price)
+                    @if (now()->isBefore($product->promotion_start_date))
                         <x-badge class="p-3 my-4 badge-info" value="{{ trans('Coming soon') }}" />
                     @elseif(now()->between($product->promotion_start_date, $product->promotion_end_date))
                         <x-badge class="p-3 my-4 badge-success" value="{{ trans('In promotion') }}" />
                     @else
                         <x-badge class="p-3 my-4 badge-error" value="{{ trans('Expired') }}" />
                     @endIf
-                    <span class="{{ now()->between($product->promotion_start_date, $product->promotion_end_date) ? 'text-red-500' : ''}} ml-2">
-                        {{ $product->promotion_price }} €
+                    {{-- @dump($product) --}}
+                    <span
+                        class="{{ now()->between($product->promotion_start_date, $product->promotion_end_date) ? 'text-red-500' : '' }} ml-2">
+                        {{ ftA($product->promotion_price) }}
                     </span>
                     <br>
                     <span class="whitespace-nowrap">
-                        {{ $product->promotion_start_date->isoFormat('LL') }} - {{ $product->promotion_end_date->isoFormat('LL') }}
+                        {{ $product->promotion_start_date->isoFormat('LL') }} -
+                        {{ $product->promotion_end_date->isoFormat('LL') }}
                     </span>
+                @endif
+            @endscope
+
+            @scope('cell_quantity', $product)
+                @if ($product->quantity < $product->quantity_alert)
+                    <x-badge class="p-3 my-4 badge-error" value="{{ bigR($product->quantity, 0) }}" />
+                @else
+                    {{ bigR($product->quantity, 0) }}
                 @endif
             @endscope
 

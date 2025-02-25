@@ -30,7 +30,7 @@ new class extends Component {
         Cart::add([
             'id' => $this->product->id,
             'name' => $this->product->name,
-            // 'price' => $this->bestPrice,
+            'price' => $this->bestPrice->amount,
             'quantity' => $this->quantity,
             'attributes' => ['image' => $this->product->image],
             'associatedModel' => $this->product,
@@ -50,10 +50,10 @@ new class extends Component {
         <div>
             <div class="text-2xl font-bold">{{ $product->name }}</div>
             <x-public-product-prices :bestPrice=$bestPrice />
-            {{-- @if($hasPromotion) --}}
             <p class="mb-4">{{ $product->description }}</p>
-                <x-input class="!w-[80px]" wire:model="quantity" type="number" min="1" label="{{ __('Quantity')}}" />
-                <x-button class="mt-4 btn-primary" wire:click="save" icon="o-shopping-cart" spinner >{{ __('Add to cart')}}</x-button>
+            <x-input class="!w-[80px]" wire:model="quantity" type="number" min="1" label="{{ __('Quantity') }}" />
+            <x-button class="mt-4 btn-primary" wire:click="save" icon="o-shopping-cart"
+                spinner>{{ __('Add to cart') }}</x-button>
         </div>
     </div>
 </div>

@@ -87,7 +87,7 @@ new #[Layout('components.layouts.admin')] class extends Component {
                 {{ ftA($product->price) }}<br>
                 {{ $bestPrice->amount ?? null}}<br>
                 {{ $bestPrice->origin ?? null}}
-                {{ $bestPrice->origin_end ?? null}}
+                {{ $bestPrice->origin ?? null}}
             @endscope
 
             @scope('cell_active', $product)

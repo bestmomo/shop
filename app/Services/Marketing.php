@@ -73,14 +73,14 @@ class Marketing
             $bestPrice->origin_end = null;
         } else {
             $bestPrice->amount = min($validPrices);
-            $bestPrice->origin = $this->getPriceOrigin($bestPrice->amount, $normal, $promo, $product, $promoGlobal);
+            $bestPrice->origin = $this->getPriceOrigin($bestPrice->amount, $normal, $promo);
             $bestPrice->origin_end = $this->getOriginEndDate($bestPrice->origin, $product, $promoGlobal);
         }
 
         return $bestPrice;
     }
 
-    private function getPriceOrigin($amount, $normal, $promo, $product, $promoGlobal)
+    private function getPriceOrigin($amount, $normal, $promo)
     {
         if ($amount == $normal) {
             return 'normal';

@@ -78,7 +78,7 @@ class Marketing
 			$bestPriceOrigin = null;
 		}
 		$bestPrice->origin = $bestPriceOrigin;
-		$bestPrice->origin_end = $bestPriceOriginEnd;
+		$bestPrice->origin_end = $bestPriceOriginEnd ?? null;
 		$bestPrice->normal = $product->price;
 
 		return $bestPrice;

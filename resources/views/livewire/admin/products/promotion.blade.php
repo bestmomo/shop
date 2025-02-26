@@ -6,8 +6,9 @@ use App\Models\Setting;
 use Mary\Traits\Toast;
 use Carbon\Carbon;
 
-new #[Layout('components.layouts.admin')] #[Title('Global promotion')] class extends Component {
-
+new
+#[Layout('components.layouts.admin'), Title('Global promotion')]
+class extends Component {
     use Toast;
 
     public bool $promotion = false;
@@ -20,22 +21,20 @@ new #[Layout('components.layouts.admin')] #[Title('Global promotion')] class ext
     {
         $this->setting = Setting::where('key', 'promotion')->firstOrCreate(['key' => 'promotion']);
         $this->promotion = !is_null($this->setting->value);
-        if($this->promotion){
+        if ($this->promotion) {
             $this->promotion_percentage = $this->setting->value;
             $this->promotion_start_date = $this->setting->date1->format('Y-m-d');
-            $this->promotion_end_date = $this->setting->date2->format('Y-m-d');
+            $this->promotion_end_date   = $this->setting->date2->format('Y-m-d');
         }
     }
 
     public function save(): void
     {
-        $data = $this->validate(
-            [
-                'promotion_percentage' => 'required_if:promotion,true|nullable|numeric|min:0|max:100',
-                'promotion_start_date' => 'required_if:promotion,true|nullable|date',
-                'promotion_end_date' => 'required_if:promotion,true|nullable|date|after:promotion_start_date',
-            ]
-        );
+        $data = $this->validate([
+            'promotion_percentage' => 'required_if:promotion,true|nullable|numeric|min:0|max:100',
+            'promotion_start_date' => 'required_if:promotion,true|nullable|date',
+            'promotion_end_date'   => 'required_if:promotion,true|nullable|date|after:promotion_start_date',
+        ]);
 
         $data = [
             'value' => $this->promotion ? $this->promotion_percentage : null,
@@ -45,57 +44,35 @@ new #[Layout('components.layouts.admin')] #[Title('Global promotion')] class ext
 
         $this->setting->update($data);
 
-        $this->success(__('Promotion updated successfully.'), redirectTo: '/admin/dashboard');
+        $this->success(__('Promotion updated successfully.'), redirectTo: '/admin/products');
     }
-    
 }; ?>
 
 <div>
-    <x-header title="{!! __('Global promotion') !!}" separator progress-indicator >
+    <x-header title="{!! __('Global promotion') !!}" separator progress-indicator>
         <x-slot:actions>
-            <x-button 
-                icon="s-building-office-2" 
-                label="{{ __('Dashboard') }}" 
-                class="btn-outline lg:hidden" 
-                link="{{ route('admin') }}" 
-            />
+            <x-button icon="s-building-office-2" label="{{ __('Dashboard') }}" class="btn-outline lg:hidden"
+                link="{{ route('admin') }}" />
         </x-slot:actions>
     </x-header>
-    <x-card >
+    <x-card>
         <x-form wire:submit="save">
             <x-checkbox label="{{ __('Active promotion') }}" wire:model="promotion" wire:change="$refresh" />
-        
-            @if($promotion)
-                <x-input 
-                    label="{{ __('Percentage discount') }}" 
-                    wire:model="promotion_percentage" 
-                    placeholder="{{ __('Enter discount percentage') }}"
-                    type="number"
-                />
-        
-                <x-datetime  
-                    label="{{ __('Start date') }}" 
-                    icon="o-calendar"
-                    wire:model="promotion_start_date" 
-                />
-        
-                <x-datetime  
-                    label="{{ __('End date') }}" 
-                    icon="o-calendar"
-                    wire:model="promotion_end_date"
-                />                
+
+            @if ($promotion)
+                <x-input label="{{ __('Percentage discount') }}" wire:model="promotion_percentage"
+                    placeholder="{{ __('Enter discount percentage') }}" type="number" />
+
+                <x-datetime label="{{ __('Start date') }}" icon="o-calendar" wire:model="promotion_start_date" />
+
+                <x-datetime label="{{ __('End date') }}" icon="o-calendar" wire:model="promotion_end_date" />
             @endif
 
-            <x-slot:actions>    
-                <x-button 
-                    label="{{ __('Save') }}" 
-                    icon="o-paper-airplane" 
-                    spinner="save" 
-                    type="submit" 
-                    class="btn-primary" 
-                />
+            <x-slot:actions>
+                <x-button label="{{ __('Save') }}" icon="o-paper-airplane" spinner="save" type="submit"
+                    class="btn-primary" />
             </x-slot:actions>
 
-        </x-form>   
+        </x-form>
     </x-card>
 </div>

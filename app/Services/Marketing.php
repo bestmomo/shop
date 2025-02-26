@@ -1,103 +1,110 @@
 <?php
 
+/**
+ * (ɔ) Sillo-Shop - 2024-2025
+ */
+
 namespace App\Services;
 
 use App\Models\Setting;
 
 class Marketing
 {
-    public $promotion;
+	public $promotion;
 
-    public function globalPromotion()
-    {
-        $globalPromo = Setting::where('key', 'promotion')->firstOrCreate(['key' => 'promotion']);
+	public function globalPromotion()
+	{
+		$globalPromo = Setting::where('key', 'promotion')->firstOrCreate(['key' => 'promotion']);
 
-        if ($this->isValidPromotion($globalPromo)) {
-            $now = now();
-            $this->setPromotionStatus($globalPromo, $now);
-        } else {
-            $globalPromo->active = false;
-        }
+		if ($this->isValidPromotion($globalPromo)) {
+			$now = now();
+			$this->setPromotionStatus($globalPromo, $now);
+		} else {
+			$globalPromo->active = false;
+		}
 
-        return $globalPromo;
-    }
+		return $globalPromo;
+	}
 
-    private function isValidPromotion($promo)
-    {
-        return $promo->value && $promo->date1 && $promo->date2;
-    }
+	public function bestPrice($product = null)
+	{
+		$promoGlobal = $this->globalPromotion();
 
-    private function setPromotionStatus($promo, $now)
-    {
-        if ($now->isBefore($promo->date1)) {
-            $promo->text = transL('Coming soon');
-            $promo->active = false;
-        } elseif ($now->between($promo->date1, $promo->date2)) {
-            $promo->active = true;
-            $promo->text = trans('in progress');
-        } else {
-            $promo->text = transL('Expired_feminine');
-            $promo->active = false;
-        }
-    }
+		$normal = $product->price;
+		$promo  = ($product->promotion_start_date <= now() && now() <= $product->promotion_end_date) ? $product->promotion_price : null;
 
-    public function bestPrice($product = null)
-    {
-        $promoGlobal = $this->globalPromotion();
+		// Calculer le prix avec la promotion globale uniquement si elle est active
+		$globalPromoPrice = $promoGlobal->active ? ($product->price * (1 - $promoGlobal->value / 100)) : null;
 
-        $normal = $product->price;
-        $promo = $product->promotion_price;
+		$bestPrice = $this->determineBestPrice($normal, $promo, $globalPromoPrice, $product, $promoGlobal);
 
-        // Calculer le prix avec la promotion globale uniquement si elle est active
-        $globalPromoPrice = $promoGlobal->active ? ($product->price * (1 - $promoGlobal->value / 100)) : null;
+		$bestPrice->normal = $product->price;
 
-        $bestPrice = $this->determineBestPrice($normal, $promo, $globalPromoPrice, $product, $promoGlobal);
+		return $bestPrice;
+	}
 
-        $bestPrice->normal = $product->price;
+	private function isValidPromotion($promo)
+	{
+		return $promo->value && $promo->date1 && $promo->date2;
+	}
 
-        return $bestPrice;
-    }
+	private function setPromotionStatus($promo, $now)
+	{
+		if ($now->isBefore($promo->date1)) {
+			$promo->text   = transL('Coming soon');
+			$promo->active = false;
+		} elseif ($now->between($promo->date1, $promo->date2)) {
+			$promo->active = true;
+			$promo->text   = trans('in progress');
+		} else {
+			$promo->text   = transL('Expired_feminine');
+			$promo->active = false;
+		}
+	}
 
-    private function determineBestPrice($normal, $promo, $globalPromoPrice, $product, $promoGlobal)
-    {
-        $bestPrice = new \stdClass();
+	private function determineBestPrice($normal, $promo, $globalPromoPrice, $product, $promoGlobal)
+	{
+		$bestPrice = new \stdClass();
 
-        // Filtrer les valeurs nulles ou zéro
-        $validPrices = array_filter([$normal, $promo, $globalPromoPrice], function ($value) {
-            return $value !== null && $value > 0;
-        });
+		// Filtrer les valeurs nulles ou zéro
+		$validPrices = array_filter([$normal, $promo, $globalPromoPrice], function ($value) {
+			return null !== $value && $value > 0;
+		});
 
-        if (empty($validPrices)) {
-            $bestPrice->amount = $normal;
-            $bestPrice->origin = 'normal';
-            $bestPrice->origin_end = null;
-        } else {
-            $bestPrice->amount = min($validPrices);
-            $bestPrice->origin = $this->getPriceOrigin($bestPrice->amount, $normal, $promo);
-            $bestPrice->origin_end = $this->getOriginEndDate($bestPrice->origin, $product, $promoGlobal);
-        }
+		if (empty($validPrices)) {
+			$bestPrice->amount     = $normal;
+			$bestPrice->origin     = 'normal';
+			$bestPrice->origin_end = null;
+		} else {
+			$bestPrice->amount     = min($validPrices);
+			$bestPrice->origin     = $this->getPriceOrigin($bestPrice->amount, $normal, $promo);
+			$bestPrice->origin_end = $this->getOriginEndDate($bestPrice->origin, $product, $promoGlobal);
+		}
 
-        return $bestPrice;
-    }
+		return $bestPrice;
+	}
 
-    private function getPriceOrigin($amount, $normal, $promo)
-    {
-        if ($amount == $normal) {
-            return 'normal';
-        } elseif ($amount == $promo) {
-            return 'promo';
-        } else {
-            return 'global';
-        }
-    }
+	private function getPriceOrigin($amount, $normal, $promo)
+	{
+		if ($amount == $normal) {
+			return 'normal';
+		}
+		if ($amount == $promo) {
+			return 'promo';
+		}
 
-    private function getOriginEndDate($origin, $product, $promoGlobal)
-    {
-        if ($origin === 'promo') {
-            return $product?->promotion_end_date;
-        } elseif ($origin === 'global') {
-            return $promoGlobal?->date2;
-        }
-        return null;
-    }
+		return 'global';
+	}
+
+	private function getOriginEndDate($origin, $product, $promoGlobal)
+	{
+		if ('promo' === $origin) {
+			return $product?->promotion_end_date;
+		}
+		if ('global' === $origin) {
+			return $promoGlobal?->date2;
+		}
+
+		return null;
+	}
 }

@@ -46,7 +46,7 @@ class Marketing
         $promoGlobal = $this->globalPromotion();
 
         $normal = $product->price;
-        $promo = $product->promotion_price;
+        $promo = ($product->promotion_start_date <= now() && now() <= $product->promotion_end_date) ? $product->promotion_price:null;
 
         // Calculer le prix avec la promotion globale uniquement si elle est active
         $globalPromoPrice = $promoGlobal->active ? ($product->price * (1 - $promoGlobal->value / 100)) : null;

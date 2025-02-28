@@ -29,7 +29,7 @@ class extends Component {
 			'name'       => 'required|string|max:255',
 			'newsletter' => 'nullable',
 			'email'      => ['required', 'email', Rule::unique('users')->ignore($this->user->id)],
-			'password'   => ['required', 'string', 'min:8', 'confirmed', new StrongPassword()],
+			'password'   => ['nullable', 'string', 'min:8', 'confirmed', new StrongPassword()],
 		]);
 
 		

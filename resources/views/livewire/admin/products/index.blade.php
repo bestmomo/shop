@@ -83,7 +83,7 @@ new #[Layout('components.layouts.admin')] class extends Component {
                 @endphp
 
                 <b>{{ ftA($bestPrice->amount ?? null) }}</b><br>
-                @if ($bestPrice->origin !=='normal')
+                @if ($bestPrice->origin !== 'normal')
                     <span class='line-through'>{{ ftA($product->price) }}</span>
                     {{-- {{ $bestPrice->origin ?? null}} --}}
                     {{-- {{ $bestPrice->origin_end ?? null}} --}}
@@ -102,7 +102,9 @@ new #[Layout('components.layouts.admin')] class extends Component {
                 @if ($product->promotion_price)
                     @if (now()->isBefore($product->promotion_start_date))
                         <x-badge class="p-3 my-4 badge-info" value="{{ trans('Coming soon') }}" />
-                    @elseif(now()->between($product->promotion_start_date, $product->promotion_end_date))
+                    @elseif(now()->isSameDay($product->promotion_start_date) ||
+                            now()->isSameDay($product->promotion_end_date) ||
+                            now()->between($product->promotion_start_date, $product->promotion_end_date))
                         <x-badge class="p-3 my-4 badge-success" value="{{ trans('In promotion') }}" />
                     @else
                         <x-badge class="p-3 my-4 badge-error" value="{{ trans('Expired') }}" />

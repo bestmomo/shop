@@ -15,7 +15,7 @@ include_once 'global-promotion.php';
                     <x-button label="{{ __('Edit') }}" class="btn-outline text-black"
                         link="{{ route('admin.products.promotion') }}" />
                 </x-slot:actions>
-            @else
+            @elseif($promotion->active)
                 <x-slot:actions>
                     <x-button label="{{ __('Enjoy it!') }}" class='btn-outline cursor-default rounded' />
                 </x-slot:actions>

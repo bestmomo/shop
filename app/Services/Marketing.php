@@ -17,8 +17,7 @@ class Marketing
 		$globalPromo = Setting::where('key', 'promotion')->firstOrCreate(['key' => 'promotion']);
 
 		if ($this->isValidPromotion($globalPromo)) {
-			$now = now();
-			$this->setPromotionStatus($globalPromo, $now);
+			$this->setPromotionStatus($globalPromo);
 		} else {
 			$globalPromo->active = false;
 		}
@@ -31,7 +30,11 @@ class Marketing
 		$promoGlobal = $this->globalPromotion();
 
 		$normal = $product->price;
-		$promo  = ($product->promotion_start_date <= now() && now() <= $product->promotion_end_date) ? $product->promotion_price : null;
+		if($product->promotion_price) {
+			$promo  = (now()->isSameDay($product->promotion_start_date) || now()->isSameDay($product->promotion_end_date) || $product->promotion_start_date <= now() && now() <= $product->promotion_end_date) ? $product->promotion_price : null;
+		} else {
+			$promo = null;
+		}
 
 		// Calculer le prix avec la promotion globale uniquement si elle est active
 		$globalPromoPrice = $promoGlobal->active ? ($product->price * (1 - $promoGlobal->value / 100)) : null;
@@ -48,12 +51,12 @@ class Marketing
 		return $promo->value && $promo->date1 && $promo->date2;
 	}
 
-	private function setPromotionStatus($promo, $now)
+	private function setPromotionStatus($promo)
 	{
-		if ($now->isBefore($promo->date1)) {
+		if (now()->isBefore($promo->date1)) {
 			$promo->text   = transL('Coming soon');
 			$promo->active = false;
-		} elseif ($now->between($promo->date1, $promo->date2)) {
+		} elseif (now()->isSameDay($promo->date1) || now()->between($promo->date1, $promo->date2) || now()->isSameDay($promo->date2)) {
 			$promo->active = true;
 			$promo->text   = trans('in progress');
 		} else {
